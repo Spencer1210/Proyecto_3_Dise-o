@@ -264,3 +264,25 @@ input::placeholder { color: #9ca3af; }
     h1 { font-size: 1.5rem; }
     .image-content h2 { font-size: 1.5rem; }
 }
+.mensaje-login {
+    background-color: #fff1f2;
+    color: #be123c;
+    border: 1px solid #fecdd3;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.mensaje-login[hidden] {
+    display: none;
+}
+
+/* Botón mientras se verifican credenciales */
+.btn-primary:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
