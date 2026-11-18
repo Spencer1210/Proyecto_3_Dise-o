@@ -1,85 +1,64 @@
+
 const express = require('express');
-const fs = require('fs');
 const path = require('path');
+
+const usuarioRoutes = require('./routes/usuarioRoutes');
+
 const app = express();
 const PORT = 5000;
 
-// Middleware para entender JSON
+// Middleware para recibir datos JSON
 app.use(express.json());
 
 // Middleware CORS
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header(
+        'Access-Control-Allow-Methods',
+        'GET, POST, PUT, DELETE, OPTIONS'
+    );
     res.header('Access-Control-Allow-Headers', 'Content-Type');
+
+    if (req.method === 'OPTIONS') {
+        return res.sendStatus(204);
+    }
+
     next();
 });
 
-// Servir los archivos estáticos del Frontend
-app.use(express.static(path.join(__dirname, '../Frontend')));
+// Servir los archivos del frontend
+app.use(express.static(
+    path.join(__dirname, '../Frontend')
+));
 
-// Ruta raíz: mostrar el login.html
+// Página de inicio de sesión
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Frontend/login.html'));
+    res.sendFile(
+        path.join(__dirname, '../Frontend/login.html')
+    );
 });
 
-// Ruta para la página de registro
+// Página de registro
 app.get('/registro', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Frontend/registro.html'));
+    res.sendFile(
+        path.join(__dirname, '../Frontend/registro.html')
+    );
 });
 
-// Ruta para la pantalla principal
+// Pantalla principal
 app.get('/pantalla-principal.html', (req, res) => {
-    res.sendFile(path.join(__dirname, '../Frontend/pantalla-principal.html'));
+    res.sendFile(
+        path.join(__dirname, '../Frontend/pantalla-principal.html')
+    );
 });
 
-// Ruta para obtener todos los usuarios
-app.get('/api/usuarios', (req, res) => {
-    const dbPath = path.join(__dirname, 'db.json');
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
-    res.json(data.usuarios);
-});
-
-// Ruta para registrar un nuevo usuario
-app.post('/api/registro', (req, res) => {
-    const { nombre, email, password } = req.body;
-    const dbPath = path.join(__dirname, 'db.json');
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
-
-    const existe = data.usuarios.find(u => u.email === email);
-    if (existe) {
-        return res.json({ success: false, message: 'El correo ya está registrado' });
-    }
-
-    const nuevoUsuario = {
-        id: data.usuarios.length + 1,
-        nombre,
-        email,
-        password
-    };
-
-    data.usuarios.push(nuevoUsuario);
-    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
-
-    res.json({ success: true, message: 'Usuario registrado correctamente', usuario: nuevoUsuario });
-});
-
-// Ruta para iniciar sesión
-app.post('/api/login', (req, res) => {
-    const { email, password } = req.body;
-    const dbPath = path.join(__dirname, 'db.json');
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
-
-    const usuario = data.usuarios.find(u => u.email === email && u.password === password);
-
-    if (usuario) {
-        res.json({ success: true, message: 'Login exitoso', usuario });
-    } else {
-        res.json({ success: false, message: 'Correo o contraseña incorrectos' });
-    }
-});
+// Rutas de usuarios con MVC
+app.use('/api', usuarioRoutes);
 
 // Iniciar el servidor
 app.listen(PORT, () => {
-    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+    console.log(
+        `Servidor corriendo en http://localhost:${PORT}`
+    );
 });
+
