@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 });
 
 // Servir los archivos estáticos del Frontend
-app.use('/Imágenes', express.static(path.join(__dirname, '../Imágenes')));
+app.use(express.static(path.join(__dirname, '../Frontend')));
 
 // Ruta raíz: mostrar el login.html
 app.get('/', (req, res) => {

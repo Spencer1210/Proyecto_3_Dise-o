@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla Principal - Tienda</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="tienda-page">
+
+    <!-- Barra superior de datos -->
+    <div class="topbar">
+        <div class="topbar-inner">
+            <span>Datos: 83074934 · tech@gmail.com · [HORARIO]</span>
+            <span>Envíos a todo el país</span>
+        </div>
+    </div>
+
+    <!-- Header principal -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="marca">[TU MARCA]</a>
+            <div class="buscador">
+                <input type="text" placeholder="Búsqueda de productos...">
+            </div>
+            <nav class="header-nav">
+                <a href="/" id="linkAcceso">ACCESO / REGISTRO</a>
+                <a href="#">FAVORITOS</a>
+                <a href="#" id="linkCarrito">CARRITO <span id="carritoTotal">¢0</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Navegación secundaria -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="#">VER CATEGORÍAS</a>
+            <a href="#">ARMA TU PC</a>
+            <a href="#">NUESTRAS TIENDAS</a>
+            <a href="#">MÉTODOS DE PAGO</a>
+            <a href="#">INFORMACIÓN</a>
+            <a href="#" class="ofertas-link">OFERTAS</a>
+        </div>
+    </nav>
+
+    <!-- Hero / Promoción -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-texto">
+                <h1>OFERTAS EN ORDENADORES</h1>
+                <p>Consigue tu nuevo equipo Asus al mejor precio</p>
+                <a href="#" class="btn-ver-mas">VER OFERTAS</a>
+            </div>
+            <div class="hero-foto">
+                <img src="img/promo.png" alt="Ofertas ASUS Black Friday">
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorías populares -->
+    <section class="seccion">
+        <div class="seccion-header">
+            <h2>Categorías populares</h2>
+            <a href="#" class="desliza">Desliza para ver más →</a>
+        </div>
+        <div class="carrusel categorias">
+            <div class="cat"><div class="cat-foto">[FOTO]</div><span>Mouse</span></div>
+            <div class="cat"><div class="cat-foto">[FOTO]</div><span>Monitores</span></div>
+            <div class="cat"><div class="cat-foto">[FOTO]</div><span>Teclados</span></div>
+            <div class="cat"><div class="cat-foto">[FOTO]</div><span>Audio</span></div>
+        </div>
+    </section>
+
+    <!-- Productos destacados -->
+    <section class="seccion">
+        <div class="seccion-header">
+            <h2>Productos destacados</h2>
+            <a href="#" class="desliza">Desliza para ver más →</a>
+        </div>
+        <div class="carrusel productos">
+            <div class="producto">
+                <div class="prod-foto">[FOTO DEL PRODUCTO]</div>
+                <div class="prod-nombre">Mouse inalámbrico ergonómico</div>
+                <div class="prod-precio">¢14.900</div>
+                <button class="btn-add-cart" data-precio="14900">Agregar al carrito</button>
+            </div>
+            <div class="producto">
+                <span class="badge">Oferta</span>
+                <div class="prod-foto">
+                    <img src="img/monitor27.png" alt="Monitor 27 144 Hz">
+                </div>
+                <div class="prod-nombre">Monitor 27" 144 Hz</div>
+                <div class="prod-precio">¢159.000</div>
+                <button class="btn-add-cart" data-precio="159000">Agregar al carrito</button>
+            </div>
+            <div class="producto">
+                <div class="prod-foto">[FOTO DEL PRODUCTO]</div>
+                <div class="prod-nombre">Teclado mecánico 75 %</div>
+                <div class="prod-precio">¢42.500</div>
+                <button class="btn-add-cart" data-precio="42500">Agregar al carrito</button>
+            </div>
+            <div class="producto">
+                <div class="prod-foto">[FOTO DEL PRODUCTO]</div>
+                <div class="prod-nombre">Auriculares con micrófono</div>
+                <div class="prod-precio">¢27.900</div>
+                <button class="btn-add-cart" data-precio="27900">Agregar al carrito</button>
+            </div>
+            <div class="producto">
+                <span class="badge">Oferta</span>
+                <div class="prod-foto">[FOTO DEL PRODUCTO]</div>
+                <div class="prod-nombre">Webcam Full HD</div>
+                <div class="prod-precio">¢21.500</div>
+                <button class="btn-add-cart" data-precio="21500">Agregar al carrito</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-col footer-marca">
+                <h3>[TU MARCA]</h3>
+                <p>83074934</p>
+                <p>tech@gmail.com</p>
+                <p>[DIRECCIÓN]</p>
+            </div>
+            <div class="footer-col">
+                <h4>Página</h4>
+                <a href="#">Inicio</a>
+                <a href="#">Productos</a>
+                <a href="#">Ofertas</a>
+                <a href="#">Arma tu PC</a>
+                <a href="#">Contacto</a>
+            </div>
+            <div class="footer-col">
+                <h4>Ayuda</h4>
+                <a href="#">Métodos de pago</a>
+                <a href="#">Envíos</a>
+                <a href="#">Garantías</a>
+            </div>
+        </div>
+        <div class="footer-copy">© [TU MARCA]. Todos los derechos reservados.</div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
