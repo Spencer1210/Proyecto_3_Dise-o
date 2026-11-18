@@ -7,7 +7,7 @@ const PORT = 5000;
 // Middleware para entender JSON
 app.use(express.json());
 
-// Ruta para permitir peticiones desde el frontend (CORS)
+// Middleware CORS
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -15,12 +15,25 @@ app.use((req, res, next) => {
     next();
 });
 
-// Ruta de prueba
+// Servir los archivos estáticos del Frontend
+app.use('/Imágenes', express.static(path.join(__dirname, '../Imágenes')));
+
+// Ruta raíz: mostrar el login.html
 app.get('/', (req, res) => {
-    res.send('¡Hola Segun! Tu servidor Node.js está funcionando 🚀');
+    res.sendFile(path.join(__dirname, '../Frontend/login.html'));
 });
 
-// Ruta para obtener todos los usuarios (solo para probar)
+// Ruta para la página de registro
+app.get('/registro', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Frontend/registro.html'));
+});
+
+// Ruta para la pantalla principal
+app.get('/pantalla-principal.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '../Frontend/pantalla-principal.html'));
+});
+
+// Ruta para obtener todos los usuarios
 app.get('/api/usuarios', (req, res) => {
     const dbPath = path.join(__dirname, 'db.json');
     const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
@@ -33,13 +46,11 @@ app.post('/api/registro', (req, res) => {
     const dbPath = path.join(__dirname, 'db.json');
     const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
 
-    // Verificar si el email ya existe
     const existe = data.usuarios.find(u => u.email === email);
     if (existe) {
         return res.json({ success: false, message: 'El correo ya está registrado' });
     }
 
-    // Crear nuevo usuario
     const nuevoUsuario = {
         id: data.usuarios.length + 1,
         nombre,
@@ -59,7 +70,6 @@ app.post('/api/login', (req, res) => {
     const dbPath = path.join(__dirname, 'db.json');
     const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
 
-    // Buscar usuario
     const usuario = data.usuarios.find(u => u.email === email && u.password === password);
 
     if (usuario) {
