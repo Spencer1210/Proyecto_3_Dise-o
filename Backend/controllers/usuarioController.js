@@ -102,7 +102,54 @@ function iniciarSesion(req, res) {
     }
 }
 
+function recuperarPassword(req, res) {
+
+    const { email, nuevaPassword } = req.body;
+
+    // Validar campos vacíos
+    if (!email || !email.trim()) {
+        return res.status(400).json({
+            success: false,
+            message: 'El campo correo electrónico está vacío.'
+        });
+    }
+
+    if (!nuevaPassword || !nuevaPassword.trim()) {
+        return res.status(400).json({
+            success: false,
+            message: 'El campo nueva contraseña está vacío.'
+        });
+    }
+
+    // Validar longitud de contraseña
+    if (nuevaPassword.length < 6) {
+        return res.status(400).json({
+            success: false,
+            message: 'La contraseña debe tener al menos 6 caracteres.'
+        });
+    }
+
+    // Buscar el usuario y actualizar su contraseña
+    const actualizado = usuarioModel.actualizarPassword(
+        email.trim(),
+        nuevaPassword
+    );
+
+    if (!actualizado) {
+        return res.status(404).json({
+            success: false,
+            message: 'No existe una cuenta registrada con ese correo.'
+        });
+    }
+
+    return res.json({
+        success: true,
+        message: 'Contraseña actualizada correctamente.'
+    });
+}
+
 module.exports = {
     registrarUsuario,
-    iniciarSesion
+    iniciarSesion,
+    recuperarPassword
 };

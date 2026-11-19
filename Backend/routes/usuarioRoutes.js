@@ -1,12 +1,20 @@
+
 const express = require('express');
-const usuarioController = require('../controllers/usuarioController');
 
 const router = express.Router();
 
-// Ruta para iniciar sesión
+const usuarioController = require('../controllers/usuarioController');
+
+// Registrar usuario
+router.post('/registro', usuarioController.registrarUsuario);
+
+// Iniciar sesión
 router.post('/login', usuarioController.iniciarSesion);
 
-// Ruta para registrar usuarios
-router.post('/registro', usuarioController.registrarUsuario);
+// Recuperar contraseña
+router.post(
+    '/recuperar-password',
+    usuarioController.recuperarPassword
+);
 
 module.exports = router;

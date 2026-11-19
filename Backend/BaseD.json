@@ -4,6 +4,18 @@
       "id": 1,
       "nombre": "Segun",
       "email": "segun@correo.com",
+      "password": "654321"
+    },
+    {
+      "id": 2,
+      "nombre": "Diego Castillo Fallas",
+      "email": "Diego@gmail.com",
+      "password": "1234567"
+    },
+    {
+      "id": 3,
+      "nombre": "Josimar Spencer Suarez",
+      "email": "spencer@gmail.com",
       "password": "123456"
     }
   ],

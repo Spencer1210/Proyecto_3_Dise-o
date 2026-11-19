@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,13 +9,19 @@
 </head>
 <body>
     <div class="login-container">
+
         <!-- Lado izquierdo: Formulario -->
         <div class="login-form-section">
             <div class="form-wrapper">
+
                 <div class="logo">
                     <div class="logo-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="white"/>
+                        <svg width="24" height="24" viewBox="0 0 24 24"
+                             fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
+                                fill="white"
+                            />
                         </svg>
                     </div>
                     <span class="logo-text">[TU MARCA]</span>
@@ -23,23 +30,61 @@
                 <h1>Regístrate</h1>
                 <p class="subtitle">Crea tu cuenta para comenzar.</p>
 
-                <form id="registroForm">
+                <form id="registroForm" novalidate>
+
+                    <!-- Nombre -->
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre">
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            placeholder="Tu nombre"
+                            autocomplete="name"
+                        >
                     </div>
 
+                    <!-- Correo electrónico -->
                     <div class="form-group">
                         <label for="email">Correo electrónico</label>
-                        <input type="email" id="email" name="email" placeholder="nombre@correo.com">
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="nombre@correo.com"
+                            autocomplete="email"
+                        >
                     </div>
 
+                    <!-- Contraseña -->
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="password" id="password" name="password" placeholder="••••••••">
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="••••••••"
+                            autocomplete="new-password"
+                        >
                     </div>
 
-                    <button type="submit" class="btn-primary">Registrarme</button>
+                    <!-- Mensaje dentro del formulario -->
+                    <div
+                        id="mensajeRegistro"
+                        class="mensaje-registro"
+                        role="status"
+                        aria-live="polite"
+                        hidden>
+                    </div>
+
+                    <!-- Botón de registro -->
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                        id="btnRegistro">
+                        Registrarme
+                    </button>
+
                 </form>
 
                 <div class="divider">
@@ -47,25 +92,215 @@
                 </div>
 
                 <p class="register-link">
-                    ¿Ya tienes cuenta? <a href="/">Inicia sesión</a>
+                    ¿Ya tienes cuenta?
+                    <a href="/">Inicia sesión</a>
                 </p>
+
             </div>
         </div>
 
         <!-- Lado derecho: Panel decorativo -->
         <div class="login-image-section">
+
             <div class="decorative-shapes">
                 <div class="shape circle-1"></div>
                 <div class="shape circle-2"></div>
                 <div class="shape rounded-square"></div>
             </div>
+
             <div class="image-content">
                 <h2>Todo tu trabajo, en un solo lugar.</h2>
                 <p>[TU PROPUESTA DE VALOR EN UNA FRASE]</p>
             </div>
+
         </div>
     </div>
 
-    <script src="main.js"></script>
+    <script>
+        const formularioRegistro =
+            document.getElementById('registroForm');
+
+        const campoNombre =
+            document.getElementById('nombre');
+
+        const campoCorreo =
+            document.getElementById('email');
+
+        const campoPassword =
+            document.getElementById('password');
+
+        const mensajeRegistro =
+            document.getElementById('mensajeRegistro');
+
+        const botonRegistro =
+            document.getElementById('btnRegistro');
+
+        let registroCompletado = false;
+
+        // Mostrar mensaje de error o éxito
+        function mostrarMensaje(texto, tipo = 'error') {
+            mensajeRegistro.textContent = texto;
+            mensajeRegistro.className =
+                'mensaje-registro ' + tipo;
+            mensajeRegistro.hidden = false;
+        }
+
+        // Ocultar mensaje anterior
+        function ocultarMensaje() {
+            if (registroCompletado) {
+                return;
+            }
+
+            mensajeRegistro.textContent = '';
+            mensajeRegistro.hidden = true;
+        }
+
+        // Validar formato del correo
+        function correoValido(correo) {
+            const expresion = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return expresion.test(correo);
+        }
+
+        // Registrar nuevo usuario
+        async function registrarUsuario(evento) {
+            evento.preventDefault();
+
+            if (registroCompletado || botonRegistro.disabled) {
+                return;
+            }
+
+            const nombre = campoNombre.value.trim();
+            const email = campoCorreo.value.trim();
+            const password = campoPassword.value;
+
+            ocultarMensaje();
+
+            // Validar todos los campos vacíos
+            if (!nombre && !email && !password.trim()) {
+                mostrarMensaje('Todos los campos están vacíos.');
+                return;
+            }
+
+            // Validar nombre
+            if (!nombre) {
+                mostrarMensaje('El campo nombre está vacío.');
+                return;
+            }
+
+            // Validar correo
+            if (!email) {
+                mostrarMensaje(
+                    'El campo correo electrónico está vacío.'
+                );
+                return;
+            }
+
+            // Validar contraseña
+            if (!password.trim()) {
+                mostrarMensaje(
+                    'El campo contraseña está vacío.'
+                );
+                return;
+            }
+
+            // Validar formato del correo
+            if (!correoValido(email)) {
+                mostrarMensaje(
+                    'Ingrese un correo electrónico válido.'
+                );
+                return;
+            }
+
+            // Validar longitud de contraseña
+            if (password.length < 6) {
+                mostrarMensaje(
+                    'La contraseña debe tener al menos 6 caracteres.'
+                );
+                return;
+            }
+
+            botonRegistro.disabled = true;
+            botonRegistro.textContent = 'Registrando...';
+
+            try {
+                // Enviar los datos al backend MVC
+                const respuesta = await fetch('/api/registro', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        nombre,
+                        email,
+                        password
+                    })
+                });
+
+                const resultado = await respuesta.json();
+
+                // Registro exitoso
+                if (respuesta.ok && resultado.success === true) {
+
+                    registroCompletado = true;
+
+                    mostrarMensaje(
+                        '¡Cuenta creada correctamente! Redirigiendo al inicio de sesión...',
+                        'exito'
+                    );
+
+                    formularioRegistro.reset();
+
+                    botonRegistro.disabled = true;
+                    botonRegistro.textContent =
+                        'Registro completado';
+
+                    // Regresar al login después de 2 segundos
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 2000);
+
+                } else {
+
+                    // Error devuelto por el backend
+                    mostrarMensaje(
+                        resultado.message ||
+                        'No se pudo registrar el usuario.'
+                    );
+                }
+
+            } catch (error) {
+
+                console.error(
+                    'Error al registrar usuario:',
+                    error
+                );
+
+                mostrarMensaje(
+                    'No se pudo conectar con el servidor.'
+                );
+
+            } finally {
+
+                // Reactivar el botón únicamente si falló
+                if (!registroCompletado) {
+                    botonRegistro.disabled = false;
+                    botonRegistro.textContent = 'Registrarme';
+                }
+            }
+        }
+
+        // Escuchar el envío del formulario
+        formularioRegistro.addEventListener(
+            'submit',
+            registrarUsuario
+        );
+
+        // Ocultar mensajes al modificar los campos
+        campoNombre.addEventListener('input', ocultarMensaje);
+        campoCorreo.addEventListener('input', ocultarMensaje);
+        campoPassword.addEventListener('input', ocultarMensaje);
+
+    </script>
+
 </body>
 </html>
