@@ -16,7 +16,7 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-    background: #ffffff;
+    background: #f0f2f5;
     color: var(--texto);
 }
 
@@ -134,7 +134,6 @@ input::placeholder { color: #9ca3af; }
     display: flex; gap: 2rem; align-items: center; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.02em;
 }
 .navbar-inner a:hover { color: var(--morado); }
-.ofertas-link { margin-left: auto; color: var(--morado); }
 
 .hero { background: linear-gradient(135deg, var(--morado-fondo) 0%, var(--morado-oscuro) 100%); color: #fff; }
 .hero-inner { max-width: 1280px; margin: 0 auto; padding: 3rem 1.5rem; display: flex; align-items: center; gap: 2rem; }
@@ -164,24 +163,49 @@ input::placeholder { color: #9ca3af; }
 .seccion { max-width: 1280px; margin: 2.5rem auto; padding: 0 1.5rem; }
 .seccion-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; }
 .seccion-header h2 { font-size: 1.5rem; font-weight: 800; }
-.desliza { font-size: 0.85rem; color: var(--texto-suave); }
-.desliza:hover { color: var(--morado); }
 
 .carrusel { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 0.5rem; }
+.carrusel.categorias { justify-content: center; }
 .carrusel::-webkit-scrollbar { height: 8px; }
 .carrusel::-webkit-scrollbar-thumb { background: var(--morado); border-radius: 8px; }
 
 .cat { min-width: 130px; text-align: center; font-size: 0.85rem; font-weight: 600; }
 .cat-foto {
-    width: 130px; height: 110px; background: var(--gris-claro); border-radius: 12px;
-    display: flex; align-items: center; justify-content: center; color: var(--texto-suave); margin-bottom: 0.5rem;
+    width: 130px;
+    height: 110px;
+    background: #e5e7eb;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--texto-suave);
+    margin-bottom: 0.5rem;
+    overflow: hidden;
+    padding: 8px;
+    border: 1px solid #d1d5db;
+}
+.cat-foto img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }
 
-.producto { min-width: 220px; border: 1px solid var(--gris-borde); border-radius: 12px; padding: 0.9rem; position: relative; display: flex; flex-direction: column; }
+.producto {
+    min-width: 220px;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    padding: 0.9rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+}
 .prod-foto {
     width: 100%;
     height: 160px;
-    background: var(--gris-claro);
+    background: #e5e7eb;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -190,11 +214,14 @@ input::placeholder { color: #9ca3af; }
     font-size: 0.8rem;
     margin-bottom: 0.8rem;
     overflow: hidden;
+    padding: 10px;
 }
 .prod-foto img {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
+    display: block;
+    margin: 0 auto;
 }
 .badge {
     position: absolute; top: 0.7rem; left: 0.7rem; background: var(--negro); color: #fff;
@@ -231,7 +258,6 @@ input::placeholder { color: #9ca3af; }
     .hero-foto { width: 100%; }
     .footer-inner { grid-template-columns: 1fr; }
     .navbar-inner { flex-wrap: wrap; gap: 1rem; }
-    .ofertas-link { margin-left: 0; }
 }
 @media (max-width: 640px) {
     .login-form-section { padding: 1.5rem; }
