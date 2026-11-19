@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,6 +15,25 @@
 
         if (!sesionTechStore) {
             window.location.replace('/');
+        } else {
+            try {
+                const usuarioSesion = JSON.parse(sesionTechStore);
+
+                if (
+                    usuarioSesion.id == null ||
+                    !usuarioSesion.nombre ||
+                    !usuarioSesion.email
+                ) {
+                    localStorage.removeItem('usuarioTechStore');
+                    sessionStorage.removeItem('usuarioTechStore');
+                    window.location.replace('/');
+                }
+
+            } catch (error) {
+                localStorage.removeItem('usuarioTechStore');
+                sessionStorage.removeItem('usuarioTechStore');
+                window.location.replace('/');
+            }
         }
     </script>
 </head>
@@ -31,7 +51,15 @@
     <!-- Header principal -->
     <header class="header">
         <div class="header-inner">
-            <a href="/" class="marca">[TU MARCA]</a>
+
+            <a href="/pantalla-principal.html" class="marca">
+                <img
+                    src="img/techstore-logo.png"
+                    alt="TechStore"
+                    class="logo-tienda"
+                >
+            </a>
+
             <div class="buscador">
                 <input
                     type="text"
@@ -40,22 +68,56 @@
             </div>
 
             <nav class="header-nav">
-                <a href="/" id="linkAcceso">ACCESO / REGISTRO</a>
+
+                <!-- Mostrar usuario -->
+                <a href="#" id="linkAcceso">
+                    MI CUENTA
+                </a>
+
                 <a href="#">FAVORITOS</a>
-                <a href="#" id="linkCarrito">CARRITO <span id="carritoTotal">¢0</span></a>
+
+                <a href="#" id="linkCarrito">
+                    CARRITO
+                    <span id="carritoTotal">¢0</span>
+                </a>
+
+                <!-- Botón para cerrar sesión -->
+                <a href="#" id="cerrarSesion">
+                    CERRAR SESIÓN
+                </a>
+
             </nav>
         </div>
     </header>
 
+    
     <!-- Navegación secundaria -->
     <nav class="navbar">
         <div class="navbar-inner">
-            <a href="#">VER CATEGORÍAS</a>
-            <a href="#">NUESTRAS TIENDAS</a>
-            <a href="#">MÉTODOS DE PAGO</a>
-            <a href="#">INFORMACIÓN</a>
+
+            <a href="/categorias.html">
+                VER CATEGORÍAS
+            </a>
+
+            <a href="#">
+                ARMA TU PC
+            </a>
+
+            <a href="/nuestras-tiendas.html">
+                NUESTRAS TIENDAS
+            </a>
+
+            <a href="/metodos-pago.html">MÉTODOS DE PAGO</a>
+                MÉTODOS DE PAGO
+            </a>
+
+            <a href="#">
+                INFORMACIÓN
+            </a>
+
         </div>
     </nav>
+
 
     <!-- Hero / Promoción -->
     <section class="hero">
@@ -83,14 +145,33 @@
     <section class="seccion">
         <div class="seccion-header">
             <h2>Categorías populares</h2>
-            <a href="#" class="desliza">Desliza para ver más →</a>
+            <a href="#" class="desliza">
+                Desliza para ver más →
+            </a>
         </div>
 
         <div class="carrusel categorias">
-            <div class="cat"><div class="cat-foto">[FOTO]</div><span>Mouse</span></div>
-            <div class="cat"><div class="cat-foto">[FOTO]</div><span>Monitores</span></div>
-            <div class="cat"><div class="cat-foto">[FOTO]</div><span>Teclados</span></div>
-            <div class="cat"><div class="cat-foto">[FOTO]</div><span>Audio</span></div>
+
+            <div class="cat">
+                <div class="cat-foto">[FOTO]</div>
+                <span>Mouse</span>
+            </div>
+
+            <div class="cat">
+                <div class="cat-foto">[FOTO]</div>
+                <span>Monitores</span>
+            </div>
+
+            <div class="cat">
+                <div class="cat-foto">[FOTO]</div>
+                <span>Teclados</span>
+            </div>
+
+            <div class="cat">
+                <div class="cat-foto">[FOTO]</div>
+                <span>Audio</span>
+            </div>
+
         </div>
     </section>
 
@@ -98,14 +179,22 @@
     <section class="seccion">
         <div class="seccion-header">
             <h2>Productos destacados</h2>
-            <a href="#" class="desliza">Desliza para ver más →</a>
+            <a href="#" class="desliza">
+                Desliza para ver más →
+            </a>
         </div>
 
         <div class="carrusel productos">
 
             <div class="producto">
-                <div class="prod-foto">[FOTO DEL PRODUCTO]</div>
-                <div class="prod-nombre">Mouse inalámbrico ergonómico</div>
+                <div class="prod-foto">
+                    [FOTO DEL PRODUCTO]
+                </div>
+
+                <div class="prod-nombre">
+                    Mouse inalámbrico ergonómico
+                </div>
+
                 <div class="prod-precio">¢14.900</div>
 
                 <button
@@ -140,8 +229,14 @@
             </div>
 
             <div class="producto">
-                <div class="prod-foto">[FOTO DEL PRODUCTO]</div>
-                <div class="prod-nombre">Teclado mecánico 75 %</div>
+                <div class="prod-foto">
+                    [FOTO DEL PRODUCTO]
+                </div>
+
+                <div class="prod-nombre">
+                    Teclado mecánico 75 %
+                </div>
+
                 <div class="prod-precio">¢42.500</div>
 
                 <button
@@ -152,8 +247,14 @@
             </div>
 
             <div class="producto">
-                <div class="prod-foto">[FOTO DEL PRODUCTO]</div>
-                <div class="prod-nombre">Auriculares con micrófono</div>
+                <div class="prod-foto">
+                    [FOTO DEL PRODUCTO]
+                </div>
+
+                <div class="prod-nombre">
+                    Auriculares con micrófono
+                </div>
+
                 <div class="prod-precio">¢27.900</div>
 
                 <button
@@ -166,8 +267,15 @@
             <div class="producto">
 
                 <span class="badge">Oferta</span>
-                <div class="prod-foto">[FOTO DEL PRODUCTO]</div>
-                <div class="prod-nombre">Webcam Full HD</div>
+
+                <div class="prod-foto">
+                    [FOTO DEL PRODUCTO]
+                </div>
+
+                <div class="prod-nombre">
+                    Webcam Full HD
+                </div>
+
                 <div class="prod-precio">¢21.500</div>
 
                 <button
@@ -212,7 +320,7 @@
         <div class="footer-copy">
             © [TU MARCA]. Todos los derechos reservados.
         </div>
-        <div class="footer-copy">© [TU MARCA]. Todos los derechos reservados.</div>
+
     </footer>
 
     <!-- Código original del frontend -->
@@ -221,7 +329,7 @@
     <!-- Funcionalidad de sesión -->
     <script>
 
-        // Obtener los datos de la sesión guardada
+        // Obtener los datos de la sesión
         const datosGuardados =
             localStorage.getItem('usuarioTechStore') ||
             sessionStorage.getItem('usuarioTechStore');
@@ -236,6 +344,7 @@
                     .textContent = 'HOLA, ' + usuario.nombre;
 
             } catch (error) {
+
                 console.error(
                     'Error al leer la sesión:',
                     error
@@ -254,11 +363,11 @@
 
                 evento.preventDefault();
 
-                // Eliminar la información de sesión
+                // Eliminar los datos de sesión
                 localStorage.removeItem('usuarioTechStore');
                 sessionStorage.removeItem('usuarioTechStore');
 
-                // Regresar al inicio de sesión
+                // Regresar al login
                 window.location.replace('/');
             });
 

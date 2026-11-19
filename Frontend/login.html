@@ -6,38 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicia sesión - TechStore</title>
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Verificar si existe una sesión guardada -->
+    <script>
+        function verificarSesionExistente() {
+            const datosGuardados =
+                localStorage.getItem('usuarioTechStore') ||
+                sessionStorage.getItem('usuarioTechStore');
+
+            if (!datosGuardados) {
+                return;
+            }
+
+            try {
+                const usuario = JSON.parse(datosGuardados);
+
+                if (
+                    usuario &&
+                    usuario.id != null &&
+                    usuario.nombre &&
+                    usuario.email
+                ) {
+                    window.location.replace(
+                        '/pantalla-principal.html'
+                    );
+                } else {
+                    localStorage.removeItem('usuarioTechStore');
+                    sessionStorage.removeItem('usuarioTechStore');
+                }
+
+            } catch (error) {
+                localStorage.removeItem('usuarioTechStore');
+                sessionStorage.removeItem('usuarioTechStore');
+            }
+        }
+
+        verificarSesionExistente();
+    </script>
 </head>
+
 <body>
 
     <div class="login-container">
 
-        <!-- Lado izquierdo: Formulario -->
+        <!-- Lado izquierdo: formulario -->
         <div class="login-form-section">
             <div class="form-wrapper">
 
-                <!-- Logo -->
-                <div class="logo">
-                    <div class="logo-icon">
-                        <svg width="24" height="24"
-                             viewBox="0 0 24 24"
-                             fill="none"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"
-                                fill="white"
-                            />
-                        </svg>
-                    </div>
-                    <span class="logo-text">[TU MARCA]</span>
+                <!-- Encabezado centrado -->
+                <div class="login-encabezado">
+                    <h1>Inicia sesión</h1>
+
+                    <p class="subtitle">
+                        Bienvenido de nuevo. Ingresa tus datos para continuar.
+                    </p>
                 </div>
 
-                <h1>Inicia sesión</h1>
-
-                <p class="subtitle">
-                    Bienvenido de nuevo. Ingresa tus datos para continuar.
-                </p>
-
-                <!-- Formulario de inicio de sesión -->
+                <!-- Formulario -->
                 <form id="loginForm" novalidate>
 
                     <!-- Correo electrónico -->
@@ -95,7 +120,7 @@
                         </label>
                     </div>
 
-                    <!-- Mensaje dentro del formulario -->
+                    <!-- Mensajes de error -->
                     <div
                         id="mensajeLogin"
                         class="mensaje-login"
@@ -104,7 +129,7 @@
                         hidden>
                     </div>
 
-                    <!-- Botón de inicio de sesión -->
+                    <!-- Botón de ingreso -->
                     <button
                         type="submit"
                         class="btn-primary"
@@ -118,7 +143,6 @@
                     <span>o</span>
                 </div>
 
-                <!-- Registro -->
                 <p class="register-link">
                     ¿No tienes cuenta?
                     <a href="/registro">Regístrate</a>
@@ -127,7 +151,7 @@
             </div>
         </div>
 
-        <!-- Lado derecho: Panel decorativo -->
+        <!-- Lado derecho: panel morado -->
         <div class="login-image-section">
 
             <div class="decorative-shapes">
@@ -136,9 +160,13 @@
                 <div class="shape rounded-square"></div>
             </div>
 
+            <!-- Solo el logo -->
             <div class="image-content">
-                <h2>Todo tu trabajo, en un solo lugar.</h2>
-                <p>[TU PROPUESTA DE VALOR EN UNA FRASE]</p>
+                <img
+                    src="img/techstore-logo.png"
+                    alt="TechStore"
+                    class="techstore-logo-derecha"
+                >
             </div>
 
         </div>
@@ -146,6 +174,7 @@
     </div>
 
     <script>
+
         const formularioLogin =
             document.getElementById('loginForm');
 
@@ -161,7 +190,6 @@
         const campoPassword =
             document.getElementById('password');
 
-        // NUEVO: Casilla para mantener la sesión
         const mantenerSesion =
             document.getElementById('remember');
 
@@ -171,7 +199,7 @@
             mensajeLogin.hidden = false;
         }
 
-        // Ocultar mensaje de error
+        // Ocultar mensaje
         function ocultarMensaje() {
             mensajeLogin.textContent = '';
             mensajeLogin.hidden = true;
@@ -183,7 +211,7 @@
             return expresion.test(correo);
         }
 
-        // Función principal de inicio de sesión
+        // Iniciar sesión
         async function iniciarSesion() {
 
             const email = campoCorreo.value.trim();
@@ -191,7 +219,7 @@
 
             ocultarMensaje();
 
-            // Validar ambos campos vacíos
+            // Ambos campos vacíos
             if (!email && !password.trim()) {
                 mostrarMensaje(
                     'Los campos correo electrónico y contraseña están vacíos.'
@@ -199,7 +227,7 @@
                 return;
             }
 
-            // Validar correo vacío
+            // Correo vacío
             if (!email) {
                 mostrarMensaje(
                     'El campo correo electrónico está vacío.'
@@ -207,7 +235,7 @@
                 return;
             }
 
-            // Validar contraseña vacía
+            // Contraseña vacía
             if (!password.trim()) {
                 mostrarMensaje(
                     'El campo contraseña está vacío.'
@@ -215,7 +243,7 @@
                 return;
             }
 
-            // Validar formato del correo
+            // Correo inválido
             if (!correoValido(email)) {
                 mostrarMensaje(
                     'Ingrese un correo electrónico válido.'
@@ -223,13 +251,12 @@
                 return;
             }
 
-            // Desactivar botón mientras se verifica
             botonEntrar.disabled = true;
             botonEntrar.textContent = 'Verificando...';
 
             try {
 
-                // Verificar credenciales con el backend MVC
+                // Conexión con el backend
                 const respuesta = await fetch('/api/login', {
                     method: 'POST',
                     headers: {
@@ -243,24 +270,27 @@
 
                 const resultado = await respuesta.json();
 
-                if (respuesta.ok && resultado.success === true) {
+                if (
+                    respuesta.ok &&
+                    resultado.success === true
+                ) {
 
-                    // NUEVO: Guardar los datos públicos del usuario
                     const usuario = resultado.usuario;
 
+                    // Guardar solamente datos públicos
                     const datosSesion = JSON.stringify({
                         id: usuario.id,
                         nombre: usuario.nombre,
                         email: usuario.email
                     });
 
-                    // Limpiar sesiones anteriores
+                    // Eliminar sesiones anteriores
                     localStorage.removeItem('usuarioTechStore');
                     sessionStorage.removeItem('usuarioTechStore');
 
                     if (mantenerSesion.checked) {
 
-                        // Mantener datos al cerrar el navegador
+                        // Sesión persistente
                         localStorage.setItem(
                             'usuarioTechStore',
                             datosSesion
@@ -268,14 +298,14 @@
 
                     } else {
 
-                        // Mantener datos solo en esta pestaña
+                        // Sesión de la pestaña
                         sessionStorage.setItem(
                             'usuarioTechStore',
                             datosSesion
                         );
                     }
 
-                    // Entrar al menú principal
+                    // Ir a la tienda
                     window.location.href =
                         '/pantalla-principal.html';
 
@@ -306,7 +336,7 @@
             }
         }
 
-        // Iniciar sesión al presionar botón o Enter
+        // Enviar formulario
         formularioLogin.addEventListener(
             'submit',
             function(evento) {
@@ -315,7 +345,7 @@
             }
         );
 
-        // Ocultar errores cuando el usuario escribe
+        // Ocultar errores al escribir
         campoCorreo.addEventListener(
             'input',
             ocultarMensaje
