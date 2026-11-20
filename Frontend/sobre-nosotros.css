@@ -1,0 +1,395 @@
+
+/* =========================================
+   TECHSTORE - SOBRE NOSOTROS
+========================================= */
+
+.nosotros-page {
+    margin: 0;
+    background: #ffffff;
+    color: #11112e;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.nosotros-page .header {
+    background: #7125d5;
+}
+
+.nosotros-page .marca {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.nosotros-page .navbar {
+    background: #ffffff;
+    border-bottom: 1px solid #eeeaf4;
+}
+
+.nosotros-page .navbar-inner a {
+    text-decoration: none;
+}
+
+.nosotros-page .navbar-inner .nosotros-activo {
+    color: #6d22d2;
+    border-bottom: 3px solid #6d22d2;
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL
+========================================= */
+
+.nosotros-contenedor {
+    width: calc(100% - 80px);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 35px 0 55px;
+}
+
+/* =========================================
+   RUTA DE NAVEGACIÓN
+========================================= */
+
+.nosotros-ruta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 14px;
+    color: #55556b;
+    margin-bottom: 24px;
+}
+
+.nosotros-ruta a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nosotros-ruta a:hover {
+    color: #7125d5;
+}
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+.nosotros-encabezado {
+    margin-bottom: 30px;
+}
+
+.nosotros-encabezado h1 {
+    font-size: 42px;
+    font-weight: 800;
+    margin: 0 0 12px;
+    color: #11112e;
+}
+
+.nosotros-encabezado p {
+    font-size: 18px;
+    color: #44445a;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* =========================================
+   PRESENTACIÓN DE TECHSTORE
+========================================= */
+
+.nosotros-presentacion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 315px;
+    background: #f1edfc;
+    border-radius: 24px;
+    overflow: hidden;
+    margin-bottom: 38px;
+}
+
+/* TEXTO DEL BANNER */
+
+.nosotros-texto {
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nosotros-texto h2 {
+    font-size: 55px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin: 0 0 18px;
+    color: #11112e;
+}
+
+.nosotros-texto h2 span {
+    color: #7125d5;
+}
+
+.nosotros-texto p {
+    font-size: 19px;
+    line-height: 1.65;
+    margin: 0;
+    max-width: 460px;
+}
+
+/* =========================================
+   NUEVA IMAGEN DEL BANNER
+========================================= */
+
+.nosotros-productos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    overflow: hidden;
+    background: #f1edfc;
+}
+
+.nosotros-imagen {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 315px;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* =========================================
+   TARJETAS
+========================================= */
+
+.nosotros-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-bottom: 40px;
+}
+
+.nosotros-tarjeta {
+    border: 1px solid #e6e3ee;
+    border-radius: 22px;
+    background: #ffffff;
+    padding: 28px;
+    min-height: 260px;
+    box-sizing: border-box;
+}
+
+.nosotros-icono {
+    width: 72px;
+    height: 72px;
+    background: #f0e9fc;
+    color: #7125d5;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.nosotros-icono svg {
+    width: 42px;
+    height: 42px;
+}
+
+.nosotros-tarjeta h2 {
+    font-size: 25px;
+    font-weight: 800;
+    margin: 0 0 16px;
+    color: #11112e;
+}
+
+.nosotros-tarjeta p {
+    font-size: 17px;
+    line-height: 1.65;
+    margin: 0;
+    color: #28283b;
+}
+
+.nosotros-tarjeta ul {
+    margin: 0;
+    padding-left: 28px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #28283b;
+}
+
+.nosotros-tarjeta li::marker {
+    color: #7125d5;
+}
+
+/* =========================================
+   NUESTRO EQUIPO
+========================================= */
+
+.nosotros-equipo {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    background: #7125d5;
+    border-radius: 24px;
+    padding: 35px 65px;
+    color: #ffffff;
+}
+
+.equipo-icono {
+    flex-shrink: 0;
+    width: 125px;
+    height: 125px;
+    background: rgba(255, 255, 255, 0.24);
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.equipo-icono svg {
+    width: 75px;
+    height: 75px;
+    color: #ffffff;
+}
+
+.equipo-texto h2 {
+    font-size: 31px;
+    margin: 0 0 15px;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.equipo-texto p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 750px;
+    color: #ffffff;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.nosotros-footer {
+    background: #211b50;
+    color: #ffffff;
+    padding: 30px 5%;
+    font-size: 14px;
+}
+
+.nosotros-footer p {
+    margin: 0;
+}
+
+/* =========================================
+   RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 900px) {
+
+    .nosotros-presentacion {
+        grid-template-columns: 1fr;
+    }
+
+    .nosotros-texto {
+        padding: 35px;
+    }
+
+    .nosotros-productos {
+        min-height: 250px;
+    }
+
+    .nosotros-imagen {
+        height: 300px;
+        min-height: 0;
+        object-fit: contain;
+    }
+
+    .nosotros-tarjetas {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .nosotros-tarjeta {
+        min-height: auto;
+    }
+
+    .nosotros-equipo {
+        gap: 25px;
+        padding: 30px;
+    }
+}
+
+/* =========================================
+   RESPONSIVE - CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    .nosotros-contenedor {
+        width: calc(100% - 32px);
+        padding-top: 25px;
+    }
+
+    .nosotros-encabezado h1 {
+        font-size: 32px;
+    }
+
+    .nosotros-encabezado p {
+        font-size: 16px;
+    }
+
+    .nosotros-texto {
+        padding: 30px;
+    }
+
+    .nosotros-texto h2 {
+        font-size: 42px;
+    }
+
+    .nosotros-texto p {
+        font-size: 17px;
+    }
+
+    .nosotros-productos {
+        min-height: 200px;
+    }
+
+    .nosotros-imagen {
+        height: 230px;
+        object-fit: contain;
+    }
+
+    .nosotros-tarjeta {
+        padding: 24px;
+    }
+
+    .nosotros-tarjeta h2 {
+        font-size: 23px;
+    }
+
+    .nosotros-equipo {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .equipo-icono {
+        width: 95px;
+        height: 95px;
+    }
+
+    .equipo-icono svg {
+        width: 60px;
+        height: 60px;
+    }
+
+    .equipo-texto h2 {
+        font-size: 25px;
+    }
+
+    .equipo-texto p {
+        font-size: 17px;
+    }
+}

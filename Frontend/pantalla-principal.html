@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pantalla Principal - Tienda</title>
+    <title>TechStore - Inicio</title>
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Verificar la sesión antes de mostrar la tienda -->
+    <!-- Verificar sesión -->
     <script>
         const sesionTechStore =
             localStorage.getItem('usuarioTechStore') ||
@@ -28,7 +28,6 @@
                     sessionStorage.removeItem('usuarioTechStore');
                     window.location.replace('/');
                 }
-
             } catch (error) {
                 localStorage.removeItem('usuarioTechStore');
                 sessionStorage.removeItem('usuarioTechStore');
@@ -40,7 +39,7 @@
 
 <body class="tienda-page">
 
-    <!-- Barra superior de datos -->
+    <!-- Barra superior -->
     <div class="topbar">
         <div class="topbar-inner">
             <span>Datos: 83074934 · tech@gmail.com</span>
@@ -48,7 +47,7 @@
         </div>
     </div>
 
-    <!-- Header principal -->
+    <!-- Encabezado principal -->
     <header class="header">
         <div class="header-inner">
 
@@ -62,26 +61,21 @@
 
             <div class="buscador">
                 <input
-                    type="text"
+                    type="search"
                     placeholder="Búsqueda de productos..."
                 >
             </div>
 
             <nav class="header-nav">
 
-                <!-- Mostrar usuario -->
                 <a href="#" id="linkAcceso">
                     MI CUENTA
                 </a>
 
-                <a href="#">FAVORITOS</a>
-
-                <a href="#" id="linkCarrito">
-                    CARRITO
-                    <span id="carritoTotal">¢0</span>
+                <a href="/carrito.html" id="linkCarrito">
+                    CARRITO <span id="carritoTotal">¢0</span>
                 </a>
 
-                <!-- Botón para cerrar sesión -->
                 <a href="#" id="cerrarSesion">
                     CERRAR SESIÓN
                 </a>
@@ -90,8 +84,7 @@
         </div>
     </header>
 
-    
-    <!-- Navegación secundaria -->
+    <!-- Menú de navegación -->
     <nav class="navbar">
         <div class="navbar-inner">
 
@@ -107,33 +100,32 @@
                 NUESTRAS TIENDAS
             </a>
 
-            <a href="/metodos-pago.html">MÉTODOS DE PAGO</a>
+            <a href="/metodos-pago.html">
                 MÉTODOS DE PAGO
             </a>
 
-            <a href="#">
-                INFORMACIÓN
+            <a href="/sobre-nosotros.html">
+                SOBRE NOSOTROS
             </a>
 
         </div>
     </nav>
 
-
-    <!-- Hero / Promoción -->
+    <!-- Promoción principal -->
     <section class="hero">
         <div class="hero-inner">
 
             <div class="hero-texto">
                 <h1>OFERTAS EN ORDENADORES</h1>
-                <p>Consigue tu nuevo equipo Asus al mejor precio</p>
-                <a href="#" class="btn-ver-mas">
-                    VER OFERTAS
-                </a>
+
+                <p>
+                    Consigue tu nuevo equipo Asus al mejor precio
+                </p>
             </div>
 
             <div class="hero-foto">
                 <img
-                    src="img/promo.png"
+                    src="img/Promo.png"
                     alt="Ofertas ASUS Black Friday"
                 >
             </div>
@@ -143,32 +135,38 @@
 
     <!-- Categorías populares -->
     <section class="seccion">
+
         <div class="seccion-header">
             <h2>Categorías populares</h2>
-            <a href="#" class="desliza">
-                Desliza para ver más →
-            </a>
         </div>
 
         <div class="carrusel categorias">
 
             <div class="cat">
-                <div class="cat-foto">[FOTO]</div>
+                <div class="cat-foto">
+                    <img src="img/mouse.png" alt="Mouse">
+                </div>
                 <span>Mouse</span>
             </div>
 
             <div class="cat">
-                <div class="cat-foto">[FOTO]</div>
+                <div class="cat-foto">
+                    <img src="img/Monitor.png" alt="Monitores">
+                </div>
                 <span>Monitores</span>
             </div>
 
             <div class="cat">
-                <div class="cat-foto">[FOTO]</div>
+                <div class="cat-foto">
+                    <img src="img/Teclado.png" alt="Teclados">
+                </div>
                 <span>Teclados</span>
             </div>
 
             <div class="cat">
-                <div class="cat-foto">[FOTO]</div>
+                <div class="cat-foto">
+                    <img src="img/Parlante.png" alt="Audio">
+                </div>
                 <span>Audio</span>
             </div>
 
@@ -177,18 +175,21 @@
 
     <!-- Productos destacados -->
     <section class="seccion">
+
         <div class="seccion-header">
             <h2>Productos destacados</h2>
-            <a href="#" class="desliza">
-                Desliza para ver más →
-            </a>
         </div>
 
         <div class="carrusel productos">
 
+            <!-- Mouse -->
             <div class="producto">
+
                 <div class="prod-foto">
-                    [FOTO DEL PRODUCTO]
+                    <img
+                        src="img/MouseErgonomica.png"
+                        alt="Mouse inalámbrico ergonómico"
+                    >
                 </div>
 
                 <div class="prod-nombre">
@@ -199,11 +200,14 @@
 
                 <button
                     class="btn-add-cart"
+                    data-id="mouse"
                     data-precio="14900">
                     Agregar al carrito
                 </button>
+
             </div>
 
+            <!-- Monitor -->
             <div class="producto">
 
                 <span class="badge">Oferta</span>
@@ -211,7 +215,7 @@
                 <div class="prod-foto">
                     <img
                         src="img/monitor27.png"
-                        alt="Monitor 27 144 Hz"
+                        alt="Monitor 27 pulgadas"
                     >
                 </div>
 
@@ -223,14 +227,21 @@
 
                 <button
                     class="btn-add-cart"
+                    data-id="monitor"
                     data-precio="159000">
                     Agregar al carrito
                 </button>
+
             </div>
 
+            <!-- Teclado -->
             <div class="producto">
+
                 <div class="prod-foto">
-                    [FOTO DEL PRODUCTO]
+                    <img
+                        src="img/TecladoMecanico.png"
+                        alt="Teclado mecánico"
+                    >
                 </div>
 
                 <div class="prod-nombre">
@@ -241,14 +252,21 @@
 
                 <button
                     class="btn-add-cart"
+                    data-id="teclado"
                     data-precio="42500">
                     Agregar al carrito
                 </button>
+
             </div>
 
+            <!-- Auriculares -->
             <div class="producto">
+
                 <div class="prod-foto">
-                    [FOTO DEL PRODUCTO]
+                    <img
+                        src="img/AuricularesMicro.png"
+                        alt="Auriculares con micrófono"
+                    >
                 </div>
 
                 <div class="prod-nombre">
@@ -259,17 +277,23 @@
 
                 <button
                     class="btn-add-cart"
+                    data-id="auriculares"
                     data-precio="27900">
                     Agregar al carrito
                 </button>
+
             </div>
 
+            <!-- Webcam -->
             <div class="producto">
 
                 <span class="badge">Oferta</span>
 
                 <div class="prod-foto">
-                    [FOTO DEL PRODUCTO]
+                    <img
+                        src="img/WebcamHD.png"
+                        alt="Webcam Full HD"
+                    >
                 </div>
 
                 <div class="prod-nombre">
@@ -280,15 +304,17 @@
 
                 <button
                     class="btn-add-cart"
+                    data-id="webcam"
                     data-precio="21500">
                     Agregar al carrito
                 </button>
+
             </div>
 
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Pie de página -->
     <footer class="footer">
 
         <div class="footer-inner">
@@ -302,15 +328,15 @@
 
             <div class="footer-col">
                 <h4>Página</h4>
-                <a href="#">Inicio</a>
-                <a href="#">Productos</a>
+                <a href="/pantalla-principal.html">Inicio</a>
+                <a href="/categorias.html">Productos</a>
                 <a href="#">Ofertas</a>
                 <a href="#">Contacto</a>
             </div>
 
             <div class="footer-col">
                 <h4>Ayuda</h4>
-                <a href="#">Métodos de pago</a>
+                <a href="/metodos-pago.html">Métodos de pago</a>
                 <a href="#">Envíos</a>
                 <a href="#">Garantías</a>
             </div>
@@ -318,60 +344,13 @@
         </div>
 
         <div class="footer-copy">
-            © [TU MARCA]. Todos los derechos reservados.
+            © TechStore. Todos los derechos reservados.
         </div>
 
     </footer>
 
-    <!-- Código original del frontend -->
+    <!-- Funcionalidad de sesión y carrito -->
     <script src="main.js"></script>
-
-    <!-- Funcionalidad de sesión -->
-    <script>
-
-        // Obtener los datos de la sesión
-        const datosGuardados =
-            localStorage.getItem('usuarioTechStore') ||
-            sessionStorage.getItem('usuarioTechStore');
-
-        if (datosGuardados) {
-
-            try {
-                const usuario = JSON.parse(datosGuardados);
-
-                // Mostrar el nombre del usuario
-                document.getElementById('linkAcceso')
-                    .textContent = 'HOLA, ' + usuario.nombre;
-
-            } catch (error) {
-
-                console.error(
-                    'Error al leer la sesión:',
-                    error
-                );
-
-                localStorage.removeItem('usuarioTechStore');
-                sessionStorage.removeItem('usuarioTechStore');
-
-                window.location.replace('/');
-            }
-        }
-
-        // Cerrar sesión
-        document.getElementById('cerrarSesion')
-            .addEventListener('click', function(evento) {
-
-                evento.preventDefault();
-
-                // Eliminar los datos de sesión
-                localStorage.removeItem('usuarioTechStore');
-                sessionStorage.removeItem('usuarioTechStore');
-
-                // Regresar al login
-                window.location.replace('/');
-            });
-
-    </script>
 
 </body>
 </html>

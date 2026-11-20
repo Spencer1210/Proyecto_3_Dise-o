@@ -1,0 +1,417 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu carrito - TechStore</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="carrito.css">
+</head>
+
+<body class="carrito-page">
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="/pantalla-principal.html" class="marca">
+                TechStore
+            </a>
+
+            <div class="buscador">
+                <input type="search" placeholder="Búsqueda de productos...">
+            </div>
+
+            <nav class="header-nav">
+                <a href="/" id="linkAcceso">ACCESO / REGISTRO</a>
+                <a href="/carrito.html" id="linkCarrito">
+                    CARRITO <span id="carritoTotal">¢0</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="navbar">
+        <div class="navbar-inner">
+            <a href="/categorias.html">VER CATEGORÍAS</a>
+            <a href="#">ARMA TU PC</a>
+            <a href="/nuestras-tiendas.html">NUESTRAS TIENDAS</a>
+            <a href="/metodos-pago.html">MÉTODOS DE PAGO</a>
+            <a href="#">INFORMACIÓN</a>
+        </div>
+    </nav>
+
+    <main class="carrito-contenedor">
+
+        <div class="carrito-ruta">
+            <a href="/pantalla-principal.html">Inicio</a> / Carrito
+        </div>
+
+        <h1>Tu carrito</h1>
+        <p class="carrito-subtitulo" id="cantidadProductos">0 productos</p>
+
+        <div class="carrito-layout">
+
+            <section class="carrito-izquierda">
+
+                <div class="carrito-envio">
+                    <p id="mensajeEnvio"></p>
+                    <div class="carrito-barra">
+                        <div id="progresoEnvio"></div>
+                    </div>
+                </div>
+
+                <div id="listaCarrito" class="carrito-lista"></div>
+
+                <a href="/pantalla-principal.html" class="carrito-seguir">
+                    ← Seguir comprando
+                </a>
+            </section>
+
+            <aside class="carrito-resumen">
+                <h2>Resumen del pedido</h2>
+
+                <div class="resumen-linea">
+                    <span>Subtotal</span>
+                    <strong id="subtotal">¢0</strong>
+                </div>
+
+                <div class="resumen-linea">
+                    <span>Envío</span>
+                    <span id="envio">Se calcula al pagar</span>
+                </div>
+
+                <div class="resumen-linea">
+                    <span>Descuento</span>
+                    <span id="descuento">¢0</span>
+                </div>
+
+                <div class="carrito-cupon">
+                    <input
+                        type="text"
+                        id="codigoDescuento"
+                        placeholder="Código de descuento"
+                    >
+                    <button id="aplicarDescuento">Aplicar</button>
+                </div>
+
+                <p id="mensajeDescuento" class="mensaje-cupon"></p>
+
+                <div class="resumen-total">
+                    <strong>Total</strong>
+                    <strong id="total">¢0</strong>
+                </div>
+
+                <button id="finalizarCompra" class="btn-finalizar">
+                    Finalizar compra
+                </button>
+
+                <p class="carrito-seguridad">Pago seguro</p>
+            </aside>
+
+        </div>
+
+        <section class="carrito-recomendados">
+            <h2>Te puede interesar</h2>
+
+            <div class="recomendados-grid">
+
+                <article class="recomendado">
+                    <div class="recomendado-foto">
+                        <img src="img/MouseErgonomica.png" alt="Mouse ergonómico">
+                    </div>
+                    <h3>Mouse inalámbrico ergonómico</h3>
+                    <p>¢14.900</p>
+                    <button data-id="mouse">Agregar</button>
+                </article>
+
+                <article class="recomendado">
+                    <div class="recomendado-foto">
+                        <img src="img/WebcamHD.png" alt="Webcam Full HD">
+                    </div>
+                    <h3>Webcam Full HD</h3>
+                    <p>¢21.500</p>
+                    <button data-id="webcam">Agregar</button>
+                </article>
+
+                <article class="recomendado">
+                    <div class="recomendado-foto">
+                        <img src="img/TecladoMecanico.png" alt="Teclado mecánico">
+                    </div>
+                    <h3>Teclado mecánico 75 %</h3>
+                    <p>¢42.500</p>
+                    <button data-id="teclado">Agregar</button>
+                </article>
+
+                <article class="recomendado">
+                    <div class="recomendado-foto">
+                        <img src="img/AuricularesMicro.png" alt="Auriculares">
+                    </div>
+                    <h3>Auriculares con micrófono</h3>
+                    <p>¢27.900</p>
+                    <button data-id="auriculares">Agregar</button>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="carrito-footer">
+        © TechStore. Todos los derechos reservados.
+    </footer>
+
+    <script src="main.js"></script>
+
+    <script>
+        const CLAVE_CARRITO_PAGINA = 'carritoTechStore';
+
+        const productosRecomendados = {
+            mouse: {
+                id: 'mouse',
+                nombre: 'Mouse inalámbrico ergonómico',
+                precio: 14900,
+                imagen: 'img/MouseErgonomica.png'
+            },
+            webcam: {
+                id: 'webcam',
+                nombre: 'Webcam Full HD',
+                precio: 21500,
+                imagen: 'img/WebcamHD.png'
+            },
+            teclado: {
+                id: 'teclado',
+                nombre: 'Teclado mecánico 75 %',
+                precio: 42500,
+                imagen: 'img/TecladoMecanico.png'
+            },
+            auriculares: {
+                id: 'auriculares',
+                nombre: 'Auriculares con micrófono',
+                precio: 27900,
+                imagen: 'img/AuricularesMicro.png'
+            }
+        };
+
+        function leerCarrito() {
+            try {
+                const datos = JSON.parse(
+                    localStorage.getItem(CLAVE_CARRITO_PAGINA) || '[]'
+                );
+                return Array.isArray(datos) ? datos : [];
+            } catch (error) {
+                return [];
+            }
+        }
+
+        let carrito = leerCarrito();
+        let descuentoActivo = false;
+
+        function guardarCarrito() {
+            localStorage.setItem(
+                CLAVE_CARRITO_PAGINA,
+                JSON.stringify(carrito)
+            );
+        }
+
+        function formatoPrecio(valor) {
+            return '¢' + valor.toLocaleString('es-CR');
+        }
+
+        function agregarProducto(id) {
+            const producto = productosRecomendados[id];
+            if (!producto) return;
+
+            const existente = carrito.find(p => p.id === id);
+
+            if (existente) {
+                existente.cantidad++;
+            } else {
+                carrito.push({ ...producto, cantidad: 1 });
+            }
+
+            guardarCarrito();
+            renderizarCarrito();
+        }
+
+        function cambiarCantidad(id, cambio) {
+            const producto = carrito.find(p => p.id === id);
+            if (!producto) return;
+
+            producto.cantidad += cambio;
+
+            if (producto.cantidad <= 0) {
+                carrito = carrito.filter(p => p.id !== id);
+            }
+
+            guardarCarrito();
+            renderizarCarrito();
+        }
+
+        function eliminarProducto(id) {
+            carrito = carrito.filter(p => p.id !== id);
+            guardarCarrito();
+            renderizarCarrito();
+        }
+
+        function renderizarCarrito() {
+            const lista = document.getElementById('listaCarrito');
+            lista.innerHTML = '';
+
+            const cantidad = carrito.reduce(
+                (total, p) => total + p.cantidad, 0
+            );
+
+            const subtotal = carrito.reduce(
+                (total, p) => total + p.precio * p.cantidad, 0
+            );
+
+            // Valores de demostración.
+            const envioGratisDesde = 150000;
+            const restante = Math.max(0, envioGratisDesde - subtotal);
+
+            document.getElementById('cantidadProductos').textContent =
+                cantidad + (cantidad === 1 ? ' producto' : ' productos');
+
+            document.getElementById('mensajeEnvio').textContent =
+                restante > 0
+                    ? 'Te faltan ' + formatoPrecio(restante) +
+                      ' para tener envío gratis.'
+                    : '¡Tu pedido alcanza el mínimo para envío gratis!';
+
+            document.getElementById('progresoEnvio').style.width =
+                Math.min(100, subtotal / envioGratisDesde * 100) + '%';
+
+            if (carrito.length === 0) {
+                const mensaje = document.createElement('p');
+                mensaje.className = 'carrito-vacio';
+                mensaje.textContent = 'Tu carrito está vacío.';
+                lista.appendChild(mensaje);
+            }
+
+            carrito.forEach(producto => {
+                const fila = document.createElement('article');
+                fila.className = 'carrito-producto';
+
+                const foto = document.createElement('div');
+                foto.className = 'carrito-producto-foto';
+
+                if (producto.imagen) {
+                    const img = document.createElement('img');
+                    img.src = producto.imagen;
+                    img.alt = producto.nombre;
+                    foto.appendChild(img);
+                } else {
+                    foto.textContent = 'Sin imagen';
+                }
+
+                const detalle = document.createElement('div');
+                detalle.className = 'carrito-producto-detalle';
+
+                const nombre = document.createElement('h3');
+                nombre.textContent = producto.nombre;
+
+                const precioUnitario = document.createElement('p');
+                precioUnitario.textContent =
+                    'Precio: ' + formatoPrecio(producto.precio);
+
+                const eliminar = document.createElement('button');
+                eliminar.className = 'carrito-eliminar';
+                eliminar.textContent = 'Eliminar';
+                eliminar.addEventListener('click', () => {
+                    eliminarProducto(producto.id);
+                });
+
+                detalle.append(nombre, precioUnitario, eliminar);
+
+                const controles = document.createElement('div');
+                controles.className = 'carrito-cantidad';
+
+                const menos = document.createElement('button');
+                menos.textContent = '−';
+                menos.addEventListener('click', () => {
+                    cambiarCantidad(producto.id, -1);
+                });
+
+                const numero = document.createElement('span');
+                numero.textContent = producto.cantidad;
+
+                const mas = document.createElement('button');
+                mas.textContent = '+';
+                mas.addEventListener('click', () => {
+                    cambiarCantidad(producto.id, 1);
+                });
+
+                controles.append(menos, numero, mas);
+
+                const precio = document.createElement('strong');
+                precio.className = 'carrito-precio';
+                precio.textContent = formatoPrecio(
+                    producto.precio * producto.cantidad
+                );
+
+                fila.append(foto, detalle, controles, precio);
+                lista.appendChild(fila);
+            });
+
+            const descuento = descuentoActivo
+                ? Math.round(subtotal * 0.10)
+                : 0;
+
+            const total = subtotal - descuento;
+
+            document.getElementById('subtotal').textContent =
+                formatoPrecio(subtotal);
+
+            document.getElementById('descuento').textContent =
+                descuento ? '-' + formatoPrecio(descuento) : '¢0';
+
+            document.getElementById('total').textContent =
+                formatoPrecio(total);
+
+            document.getElementById('carritoTotal').textContent =
+                formatoPrecio(subtotal);
+
+            document.getElementById('finalizarCompra').disabled =
+                carrito.length === 0;
+        }
+
+        document.querySelectorAll('.recomendado button')
+            .forEach(boton => {
+                boton.addEventListener('click', () => {
+                    agregarProducto(boton.dataset.id);
+                });
+            });
+
+        document.getElementById('aplicarDescuento')
+            .addEventListener('click', () => {
+                const codigo = document.getElementById(
+                    'codigoDescuento'
+                ).value.trim().toUpperCase();
+
+                const mensaje = document.getElementById(
+                    'mensajeDescuento'
+                );
+
+                if (codigo === 'DEMO10') {
+                    descuentoActivo = true;
+                    mensaje.textContent = 'Descuento aplicado.';
+                } else {
+                    descuentoActivo = false;
+                    mensaje.textContent = 'Código no válido.';
+                }
+
+                renderizarCarrito();
+            });
+
+        document.getElementById('finalizarCompra')
+            .addEventListener('click', () => {
+                alert(
+                    'El proceso de pago todavía está pendiente de implementar.'
+                );
+            });
+
+        renderizarCarrito();
+    </script>
+
+</body>
+</html>

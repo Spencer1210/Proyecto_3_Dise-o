@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métodos de pago - TechStore</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="pagos-page">
+
+    <!-- Encabezado principal -->
+    <header class="header">
+        <div class="header-inner">
+
+            <a href="/pantalla-principal.html" class="marca">
+                TechStore
+            </a>
+
+            <div class="buscador">
+                <input
+                    type="search"
+                    placeholder="Búsqueda de productos..."
+                >
+            </div>
+
+            <nav class="header-nav">
+                <a href="/" id="linkAcceso">
+                    ACCESO / REGISTRO
+                </a>
+
+                <a href="/carrito.html" id="linkCarrito"></a>
+                    CARRITO <span id="carritoTotal">¢0</span>
+                </a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Menú de navegación -->
+    <nav class="navbar">
+        <div class="navbar-inner">
+
+            <a href="/categorias.html">
+                VER CATEGORÍAS
+            </a>
+
+            <a href="#">
+                ARMA TU PC
+            </a>
+
+            <a href="/nuestras-tiendas.html">
+                NUESTRAS TIENDAS
+            </a>
+
+            <a href="/metodos-pago.html" class="pagos-activo">
+                MÉTODOS DE PAGO
+            </a>
+
+            <a href="#">
+                SOBRE NOSOTROS
+            </a>
+
+        </div>
+    </nav>
+
+    <!-- Introducción -->
+    <section class="pagos-intro">
+
+        <div class="pagos-contenedor">
+
+            <h1>Paga como prefieras</h1>
+
+            <div class="pagos-opciones">
+
+                <div class="pago-opcion">
+                    <h3>Tarjeta</h3>
+                    <p>Crédito y débito</p>
+                </div>
+
+                <div class="pago-opcion">
+                    <h3>Cuotas</h3>
+                    <p>Financiamiento</p>
+                </div>
+
+                <div class="pago-opcion">
+                    <h3>Transferencia / SINPE</h3>
+                    <p>Bancos y SINPE Móvil</p>
+                </div>
+
+                <div class="pago-opcion">
+                    <h3>Efectivo</h3>
+                    <p>Pago en tienda</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <main class="pagos-contenedor">
+
+        <!-- Tarjetas y cuotas -->
+        <section class="pagos-seccion">
+
+            <h2>Tarjetas y cuotas</h2>
+
+            <p class="pagos-descripcion">
+                Compara las entidades con las que trabajas
+                y sus plazos.
+            </p>
+
+            <div class="pagos-bancos">
+
+                <!-- BAC -->
+                <article class="banco-tarjeta">
+
+                    <div class="banco-imagen">
+                        <img
+                            src="img/BAC.jpeg"
+                            alt="BAC Credomatic"
+                        >
+                    </div>
+
+                    <div class="banco-informacion">
+                        <h3>BAC CREDOMATIC</h3>
+                        <p>Cuotas: Máximo 48</p>
+                        <p>Con un mínimo de 25 000 colones</p>
+                    </div>
+
+                </article>
+
+                <!-- BN -->
+                <article class="banco-tarjeta">
+
+                    <div class="banco-imagen">
+                        <img
+                            src="img/BNTasa.png"
+                            alt="BN Tasa Cero"
+                        >
+                    </div>
+
+                    <div class="banco-informacion">
+                        <h3>BN</h3>
+                        <p>Cuotas: Máximo 48</p>
+                        <p>Con un mínimo de 25 000 colones</p>
+                    </div>
+
+                </article>
+
+                <!-- Credix -->
+                <article class="banco-tarjeta">
+
+                    <div class="banco-imagen">
+                        <img
+                            src="img/credix.png"
+                            alt="Credix"
+                        >
+                    </div>
+
+                    <div class="banco-informacion">
+                        <h3>Credix</h3>
+                        <p>Cuotas: Máximo 48</p>
+                        <p>Con un mínimo de 25 000 colones</p>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- Transferencia y SINPE -->
+        <section class="pagos-seccion">
+
+            <h2>Transferencia y SINPE Móvil</h2>
+
+            <div class="pagos-sinpe">
+
+                <article class="sinpe-tarjeta">
+
+                    <img
+                        src="img/sinpe.png"
+                        alt="SINPE Móvil"
+                    >
+
+                    <p>Pagar al SINPE:</p>
+
+                    <h3>83300876</h3>
+
+                    <span>TechStore</span>
+
+                </article>
+
+                <article class="sinpe-tarjeta">
+
+                    <img
+                        src="img/sinpe.png"
+                        alt="SINPE Móvil"
+                    >
+
+                    <p>Pagar al SINPE:</p>
+
+                    <h3>83074934</h3>
+
+                    <span>TechStore</span>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- Descuento -->
+        <section class="pagos-descuento">
+            Recibe un 6,7 % de descuento al pagar en efectivo,
+            transferencia o SINPE Móvil.
+        </section>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="pagos-footer">
+        <p>© TechStore. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JavaScript existente -->
+    <script src="main.js"></script>
+
+    <!-- Mostrar usuario conectado -->
+    <script>
+        const datosSesion =
+            localStorage.getItem('usuarioTechStore') ||
+            sessionStorage.getItem('usuarioTechStore');
+
+        if (datosSesion) {
+            try {
+                const usuario = JSON.parse(datosSesion);
+
+                if (usuario.nombre) {
+                    const linkAcceso =
+                        document.getElementById('linkAcceso');
+
+                    linkAcceso.textContent =
+                        'HOLA, ' + usuario.nombre;
+
+                    linkAcceso.href =
+                        '/pantalla-principal.html';
+                }
+            } catch (error) {
+                console.error(
+                    'Error al leer la sesión:',
+                    error
+                );
+            }
+        }
+    </script>
+
+</body>
+</html>
