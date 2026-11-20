@@ -1,0 +1,301 @@
+
+#header-techstore {
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+#header-techstore,
+#header-techstore * {
+    box-sizing: border-box;
+}
+
+/* Encabezado */
+
+#header-techstore .ts-header {
+    width: 100%;
+    background: #0D0B12;
+    color: white;
+}
+
+#header-techstore .ts-header-inner {
+    max-width: 1480px;
+    min-height: 88px;
+    margin: auto;
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+/* Logo */
+
+#header-techstore .ts-marca {
+    display: flex;
+    flex: 0 0 215px;
+    align-items: center;
+    text-decoration: none;
+}
+
+#header-techstore .ts-logo-fondo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 205px;
+    height: 57px;
+    padding: 6px 12px;
+    background: white;
+    border-radius: 11px;
+}
+
+#header-techstore .ts-logo-fondo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 185px;
+    object-fit: contain;
+}
+
+/* Buscador */
+
+#header-techstore .ts-buscador {
+    flex: 1 1 350px;
+    display: flex;
+    align-items: stretch;
+    min-width: 150px;
+    max-width: 600px;
+    height: 48px;
+    margin: 0;
+    padding: 0;
+    background: white;
+    border: 1px solid #DDD6FE;
+    border-radius: 28px;
+    overflow: hidden;
+}
+
+#header-techstore .ts-buscador input {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    margin: 0;
+    padding: 0 18px;
+    border: none;
+    border-radius: 0;
+    background: white;
+    color: #211437;
+    outline: none;
+    box-shadow: none;
+    font-size: 14px;
+}
+
+#header-techstore .ts-buscador input::placeholder {
+    color: #777184;
+}
+
+#header-techstore .ts-buscador button {
+    flex: 0 0 57px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 57px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: #8B5CF6;
+    color: white;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+}
+
+#header-techstore .ts-buscador button:hover {
+    background: #7C3AED;
+}
+
+/* Cuenta y carrito */
+
+#header-techstore .ts-acciones {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 0 0 auto;
+    gap: 19px;
+}
+
+#header-techstore .ts-acciones a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+    padding: 5px 0;
+    background: transparent;
+    color: white;
+    border: none;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+#header-techstore .ts-acciones a:hover {
+    color: #DDD6FE;
+}
+
+#header-techstore #carritoTotal {
+    color: #C4B5FD;
+    font-weight: 700;
+}
+
+/* Íconos */
+
+#header-techstore svg {
+    display: block !important;
+    width: 21px !important;
+    height: 21px !important;
+    min-width: 21px !important;
+    min-height: 21px !important;
+    max-width: 21px !important;
+    max-height: 21px !important;
+    flex: 0 0 21px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: 1.8px !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+    position: static !important;
+    transform: none !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Menú */
+
+#header-techstore .ts-navbar {
+    width: 100%;
+    background: #32264D;
+    color: white;
+    border-bottom: 2px solid #8B5CF6;
+}
+
+#header-techstore .ts-navbar-inner {
+    max-width: 1480px;
+    min-height: 68px;
+    margin: auto;
+    padding: 9px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 8px;
+}
+
+#header-techstore .ts-navbar-inner a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    gap: 9px;
+    min-height: 45px;
+    margin: 0;
+    padding: 10px 13px;
+    background: transparent;
+    color: white;
+    border: none;
+    border-radius: 11px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: none;
+}
+
+#header-techstore .ts-navbar-inner a:hover {
+    background: rgba(139, 92, 246, 0.25);
+}
+
+#header-techstore .ts-navbar-inner a.menu-activo {
+    background: #211437;
+    color: white;
+}
+
+#header-techstore .ts-navbar-inner a::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Pantallas medianas */
+
+@media (max-width: 1100px) {
+    #header-techstore .ts-header-inner {
+        gap: 16px;
+        padding: 13px 18px;
+    }
+
+    #header-techstore .ts-marca {
+        flex-basis: 170px;
+    }
+
+    #header-techstore .ts-logo-fondo {
+        width: 165px;
+    }
+
+    #header-techstore .ts-acciones {
+        gap: 12px;
+    }
+
+    #header-techstore .ts-acciones a {
+        font-size: 12px;
+    }
+
+    #header-techstore .ts-navbar-inner {
+        justify-content: flex-start;
+        overflow-x: auto;
+    }
+}
+
+/* Celulares */
+
+@media (max-width: 760px) {
+    #header-techstore .ts-header-inner {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 14px;
+    }
+
+    #header-techstore .ts-marca {
+        flex-basis: 155px;
+    }
+
+    #header-techstore .ts-logo-fondo {
+        width: 150px;
+        height: 50px;
+    }
+
+    #header-techstore .ts-acciones {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    #header-techstore .ts-acciones a {
+        font-size: 11px;
+    }
+
+    #header-techstore .ts-buscador {
+        order: 3;
+        flex-basis: 100%;
+        max-width: none;
+    }
+
+    #header-techstore .ts-navbar-inner {
+        min-height: 58px;
+        padding: 7px 10px;
+    }
+
+    #header-techstore .ts-navbar-inner a {
+        font-size: 12px;
+        padding: 9px 11px;
+    }
+}

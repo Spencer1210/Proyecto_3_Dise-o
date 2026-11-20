@@ -39,77 +39,8 @@
 
 <body class="tienda-page">
 
-    <!-- Barra superior -->
-    <div class="topbar">
-        <div class="topbar-inner">
-            <span>Datos: 83074934 · tech@gmail.com</span>
-            <span>Envíos a todo el país</span>
-        </div>
-    </div>
-
-    <!-- Encabezado principal -->
-    <header class="header">
-        <div class="header-inner">
-
-            <a href="/pantalla-principal.html" class="marca">
-                <img
-                    src="img/techstore-logo.png"
-                    alt="TechStore"
-                    class="logo-tienda"
-                >
-            </a>
-
-            <div class="buscador">
-                <input
-                    type="search"
-                    placeholder="Búsqueda de productos..."
-                >
-            </div>
-
-            <nav class="header-nav">
-
-                <a href="#" id="linkAcceso">
-                    MI CUENTA
-                </a>
-
-                <a href="/carrito.html" id="linkCarrito">
-                    CARRITO <span id="carritoTotal">¢0</span>
-                </a>
-
-                <a href="#" id="cerrarSesion">
-                    CERRAR SESIÓN
-                </a>
-
-            </nav>
-        </div>
-    </header>
-
-    <!-- Menú de navegación -->
-    <nav class="navbar">
-        <div class="navbar-inner">
-
-            <a href="/categorias.html">
-                VER CATEGORÍAS
-            </a>
-
-            <a href="#">
-                ARMA TU PC
-            </a>
-
-            <a href="/nuestras-tiendas.html">
-                NUESTRAS TIENDAS
-            </a>
-
-            <a href="/metodos-pago.html">
-                MÉTODOS DE PAGO
-            </a>
-
-            <a href="/sobre-nosotros.html">
-                SOBRE NOSOTROS
-            </a>
-
-        </div>
-    </nav>
+    <!-- Encabezado compartido -->
+    <div id="header-techstore"></div>
 
     <!-- Promoción principal -->
     <section class="hero">
@@ -348,6 +279,9 @@
         </div>
 
     </footer>
+
+    <!-- Cargar encabezado compartido -->
+    <script src="/header.js"></script>
 
     <!-- Funcionalidad de sesión y carrito -->
     <script src="main.js"></script>

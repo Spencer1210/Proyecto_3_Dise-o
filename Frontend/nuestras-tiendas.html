@@ -5,69 +5,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestras tiendas - TechStore</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body class="tiendas-page">
 
-    <!-- Encabezado -->
-    <header class="header">
-        <div class="header-inner">
-            <a href="/pantalla-principal.html" class="marca">
-                TechStore
-            </a>
-
-            <div class="buscador">
-                <input
-                    type="search"
-                    placeholder="Búsqueda de productos..."
-                >
-            </div>
-
-            <nav class="header-nav">
-                <a href="/" id="linkAcceso">
-                    ACCESO / REGISTRO
-                </a>
-                <a href="/carrito.html" id="linkCarrito"></a>
-                    CARRITO <span id="carritoTotal">¢0</span>
-                </a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Menú -->
-    <nav class="navbar">
-        <div class="navbar-inner">
-            <a href="/categorias.html">
-                VER CATEGORÍAS
-            </a>
-            <a href="#">ARMA TU PC</a>
-            <a href="/nuestras-tiendas.html" class="tiendas-activa">
-                NUESTRAS TIENDAS
-            </a>
-            <a href="/metodos-pago.html">MÉTODOS DE PAGO</a>
-            <a href="#">SOBRE NOSOTROS
-            </a>
-        </div>
-    </nav>
+    <!-- Encabezado compartido -->
+    <div id="header-techstore"></div>
 
     <!-- Título y filtros -->
     <section class="tiendas-intro">
         <div class="tiendas-contenedor">
             <h1>Encuentra tu tienda más cercana</h1>
+
             <p>
                 Consulta nuestras sucursales por provincia.
             </p>
 
             <div class="tiendas-filtros" id="filtrosProvincias">
-                <button class="filtro-tienda activo" data-provincia="Todas">Todas</button>
-                <button class="filtro-tienda" data-provincia="Alajuela">Alajuela</button>
-                <button class="filtro-tienda" data-provincia="Cartago">Cartago</button>
-                <button class="filtro-tienda" data-provincia="Heredia">Heredia</button>
-                <button class="filtro-tienda" data-provincia="San José">San José</button>
-                <button class="filtro-tienda" data-provincia="Guanacaste">Guanacaste</button>
-                <button class="filtro-tienda" data-provincia="Limón">Limón</button>
-                <button class="filtro-tienda" data-provincia="Puntarenas">Puntarenas</button>
+                <button class="filtro-tienda activo" data-provincia="Todas">
+                    Todas
+                </button>
+
+                <button class="filtro-tienda" data-provincia="Alajuela">
+                    Alajuela
+                </button>
+
+                <button class="filtro-tienda" data-provincia="Cartago">
+                    Cartago
+                </button>
+
+                <button class="filtro-tienda" data-provincia="Heredia">
+                    Heredia
+                </button>
+
+                <button class="filtro-tienda" data-provincia="San José">
+                    San José
+                </button>
+
+                <button class="filtro-tienda" data-provincia="Guanacaste">
+                    Guanacaste
+                </button>
+
+                <button class="filtro-tienda" data-provincia="Limón">
+                    Limón
+                </button>
+
+                <button class="filtro-tienda" data-provincia="Puntarenas">
+                    Puntarenas
+                </button>
             </div>
         </div>
     </section>
@@ -81,6 +67,7 @@
 
         <section class="tiendas-mapa">
             <div class="mapa-interior">
+
                 <img
                     src="img/mapa-costa-rica.png"
                     alt="Mapa de Costa Rica"
@@ -103,59 +90,60 @@
         <p>© TechStore. Todos los derechos reservados.</p>
     </footer>
 
+    <script src="/header.js"></script>
+
     <script>
-       
-const sucursales = [
-    {
-        id: 1,
-        nombre: "Tienda Alajuela",
-        provincia: "Alajuela",
-        x: 45,
-        y: 25
-    },
-    {
-        id: 2,
-        nombre: "Tienda Cartago",
-        provincia: "Cartago",
-        x: 61,
-        y: 46
-    },
-    {
-        id: 3,
-        nombre: "Tienda Heredia",
-        provincia: "Heredia",
-        x: 56,
-        y: 27
-    },
-    {
-        id: 4,
-        nombre: "Tienda San José",
-        provincia: "San José",
-        x: 50,
-        y: 46
-    },
-    {
-        id: 5,
-        nombre: "Tienda Guanacaste",
-        provincia: "Guanacaste",
-        x: 30,
-        y: 28
-    },
-    {
-        id: 6,
-        nombre: "Tienda Limón",
-        provincia: "Limón",
-        x: 80,
-        y: 48
-    },
-    {
-        id: 7,
-        nombre: "Tienda Puntarenas",
-        provincia: "Puntarenas",
-        x: 80,
-        y: 70
-    }
-    ];
+        const sucursales = [
+            {
+                id: 1,
+                nombre: "Tienda Alajuela",
+                provincia: "Alajuela",
+                x: 45,
+                y: 25
+            },
+            {
+                id: 2,
+                nombre: "Tienda Cartago",
+                provincia: "Cartago",
+                x: 61,
+                y: 46
+            },
+            {
+                id: 3,
+                nombre: "Tienda Heredia",
+                provincia: "Heredia",
+                x: 56,
+                y: 27
+            },
+            {
+                id: 4,
+                nombre: "Tienda San José",
+                provincia: "San José",
+                x: 50,
+                y: 46
+            },
+            {
+                id: 5,
+                nombre: "Tienda Guanacaste",
+                provincia: "Guanacaste",
+                x: 30,
+                y: 28
+            },
+            {
+                id: 6,
+                nombre: "Tienda Limón",
+                provincia: "Limón",
+                x: 80,
+                y: 48
+            },
+            {
+                id: 7,
+                nombre: "Tienda Puntarenas",
+                provincia: "Puntarenas",
+                x: 80,
+                y: 70
+            }
+        ];
 
         let provinciaSeleccionada = "Todas";
         let sucursalSeleccionada = 1;
@@ -213,10 +201,12 @@ const sucursales = [
                 nombre.textContent = sucursal.nombre;
 
                 const direccion = document.createElement("p");
-                direccion.textContent = "Dirección pendiente de confirmar";
+                direccion.textContent =
+                    "Dirección pendiente de confirmar";
 
                 const horario = document.createElement("p");
-                horario.textContent = "Horario y teléfono pendientes";
+                horario.textContent =
+                    "Horario y teléfono pendientes";
 
                 informacion.append(nombre, direccion, horario);
                 encabezado.append(numero, informacion);
@@ -224,9 +214,12 @@ const sucursales = [
                 const acciones = document.createElement("div");
                 acciones.className = "tienda-acciones";
 
-                const botonSeleccionar = document.createElement("button");
+                const botonSeleccionar =
+                    document.createElement("button");
+
                 botonSeleccionar.className = "btn-tienda";
                 botonSeleccionar.textContent = "Ver en mapa";
+
                 botonSeleccionar.addEventListener("click", () => {
                     seleccionarSucursal(sucursal.id);
                 });
@@ -235,13 +228,15 @@ const sucursales = [
                 tarjeta.append(encabezado, acciones);
                 lista.appendChild(tarjeta);
 
-                // Marcador ilustrativo sobre el mapa
+                // Marcador del mapa
                 const marcador = document.createElement("button");
+
                 marcador.className = "marcador-tienda";
                 marcador.textContent = sucursal.id;
                 marcador.style.left = sucursal.x + "%";
                 marcador.style.top = sucursal.y + "%";
                 marcador.title = sucursal.nombre;
+
                 marcador.setAttribute(
                     "aria-label",
                     "Seleccionar " + sucursal.nombre
@@ -259,10 +254,13 @@ const sucursales = [
             });
         }
 
+        // Filtros de provincias
         filtros.addEventListener("click", function(evento) {
             const boton = evento.target.closest(".filtro-tienda");
 
-            if (!boton) return;
+            if (!boton) {
+                return;
+            }
 
             provinciaSeleccionada = boton.dataset.provincia;
 
@@ -281,24 +279,7 @@ const sucursales = [
             renderizarSucursales();
         });
 
-        // Mostrar el usuario conectado
-        const datosSesion =
-            localStorage.getItem("usuarioTechStore") ||
-            sessionStorage.getItem("usuarioTechStore");
-
-        if (datosSesion) {
-            try {
-                const usuario = JSON.parse(datosSesion);
-
-                if (usuario.nombre) {
-                    document.getElementById("linkAcceso")
-                        .textContent = "HOLA, " + usuario.nombre;
-                }
-            } catch (error) {
-                console.error("Error al leer la sesión:", error);
-            }
-        }
-
+        // Mostrar sucursales
         renderizarSucursales();
     </script>
 

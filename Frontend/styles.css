@@ -1725,3 +1725,556 @@ input::placeholder { color: #9ca3af; }
         grid-template-columns: 1fr;
     }
 }
+
+/* ==========================================
+   TECHSTORE - NUEVA PALETA
+   NEGRO, VIOLETA Y BLANCO
+   ========================================== */
+
+:root {
+    --morado: #8B5CF6;
+    --morado-hover: #7C3AED;
+    --morado-oscuro: #5B21B6;
+    --morado-fondo: #171421;
+    --negro: #171421;
+    --gris-claro: #F4F1FA;
+    --gris-borde: #E7E2EF;
+    --texto: #171421;
+    --texto-suave: #666078;
+}
+
+/* Fondo general */
+body {
+    background: #F4F1FA;
+}
+
+/* Barra superior */
+.topbar {
+    background: #171421;
+    color: #FFFFFF;
+}
+
+/* Encabezado negro */
+.header,
+.tiendas-page .header,
+.pagos-page .header,
+.carrito-page .header {
+    background: #0D0B12;
+    color: #FFFFFF;
+}
+
+/* Orden del encabezado */
+.header .header-inner {
+    display: flex;
+    align-items: center;
+}
+
+/* Cuenta y carrito a la izquierda */
+.header .header-nav {
+    order: 1;
+}
+
+.header .header-nav a {
+    color: #FFFFFF;
+}
+
+/* Buscador en el centro */
+.header .buscador {
+    order: 2;
+}
+
+.header .buscador input {
+    background: #211B2B;
+    color: #FFFFFF;
+    border: 1px solid #7C3AED;
+}
+
+.header .buscador input::placeholder {
+    color: #D1C7DC;
+}
+
+/* Logo a la derecha */
+.header .marca {
+    order: 3;
+    margin-left: auto;
+}
+
+.header .logo-tienda {
+    width: 180px;
+    height: auto;
+}
+
+/* ==========================================
+   MENÚ DE NAVEGACIÓN
+   ========================================== */
+
+.navbar,
+.tiendas-page .navbar,
+.pagos-page .navbar {
+    background: #32264D;
+    border-bottom: 2px solid #8B5CF6;
+    color: #FFFFFF;
+}
+
+.navbar-inner a {
+    color: #FFFFFF;
+}
+
+.navbar-inner a:hover {
+    color: #E9D5FF;
+}
+
+/* Pestaña seleccionada */
+.categorias-page .categoria-activa,
+.tiendas-page .tiendas-activa,
+.pagos-page .pagos-activo {
+    background: #8B5CF6;
+    color: #FFFFFF;
+    border-bottom-color: #8B5CF6;
+}
+
+/* ==========================================
+   PÁGINA PRINCIPAL
+   ========================================== */
+
+/* Promoción */
+.hero {
+    background: linear-gradient(
+        135deg,
+        #171421,
+        #32264D
+    );
+}
+
+/* Fondos de imágenes */
+.cat-foto,
+.prod-foto {
+    background: #F4F1FA;
+}
+
+/* Tarjetas de productos */
+.producto {
+    background: #FFFFFF;
+    border-color: #E7E2EF;
+}
+
+/* Precios */
+.prod-precio {
+    color: #5B21B6;
+}
+
+/* Botones */
+.btn-add-cart,
+.btn-primary {
+    background: #8B5CF6;
+}
+
+.btn-add-cart:hover,
+.btn-primary:hover {
+    background: #7C3AED;
+}
+
+/* ==========================================
+   OTRAS PÁGINAS
+   ========================================== */
+
+.categorias-page,
+.tiendas-page,
+.pagos-page,
+.carrito-page {
+    background: #F4F1FA;
+    color: #171421;
+}
+
+/* Secciones de introducción */
+.tiendas-page .tiendas-intro,
+.pagos-page .pagos-intro {
+    background: #EDE7F5;
+}
+
+/* Paneles */
+.tiendas-page .tiendas-mapa,
+.pagos-page .sinpe-tarjeta,
+.carrito-page .carrito-envio {
+    background: #EDE7F5;
+}
+
+/* Descuento de métodos de pago */
+.pagos-page .pagos-descuento {
+    background: linear-gradient(
+        90deg,
+        #5B21B6,
+        #8B5CF6
+    );
+}
+
+/* ==========================================
+   PIE DE PÁGINA
+   ========================================== */
+
+.footer,
+.tiendas-page .tiendas-footer,
+.pagos-page .pagos-footer,
+.carrito-page .carrito-footer {
+    background: #171421;
+    color: #FFFFFF;
+}
+
+
+/* ==========================================
+   TECHSTORE - NUEVA PALETA
+   NEGRO, VIOLETA Y BLANCO
+   ========================================== */
+
+:root {
+    --morado: #8B5CF6;
+    --morado-hover: #7C3AED;
+    --morado-oscuro: #5B21B6;
+    --morado-fondo: #171421;
+    --negro: #171421;
+    --gris-claro: #F4F1FA;
+    --gris-borde: #E7E2EF;
+    --texto: #171421;
+    --texto-suave: #666078;
+}
+
+/* Fondo general */
+body {
+    background: #F4F1FA;
+}
+
+/* Barra superior */
+.topbar {
+    background: #171421;
+    color: #FFFFFF;
+}
+
+/* Encabezado negro */
+.header,
+.tiendas-page .header,
+.pagos-page .header,
+.carrito-page .header {
+    background: #0D0B12;
+    color: #FFFFFF;
+}
+
+/* Orden del encabezado */
+.header .header-inner {
+    display: flex;
+    align-items: center;
+}
+
+/* Cuenta y carrito a la izquierda */
+.header .header-nav {
+    order: 1;
+}
+
+.header .header-nav a {
+    color: #FFFFFF;
+}
+
+/* Buscador en el centro */
+.header .buscador {
+    order: 2;
+}
+
+.header .buscador input {
+    background: #211B2B;
+    color: #FFFFFF;
+    border: 1px solid #7C3AED;
+}
+
+.header .buscador input::placeholder {
+    color: #D1C7DC;
+}
+
+/* Logo a la derecha */
+.header .marca {
+    order: 3;
+    margin-left: auto;
+}
+
+.header .logo-tienda {
+    width: 180px;
+    height: auto;
+}
+
+/* ==========================================
+   MENÚ DE NAVEGACIÓN
+   ========================================== */
+
+.navbar,
+.tiendas-page .navbar,
+.pagos-page .navbar {
+    background: #32264D;
+    border-bottom: 2px solid #8B5CF6;
+    color: #FFFFFF;
+}
+
+.navbar-inner a {
+    color: #FFFFFF;
+}
+
+.navbar-inner a:hover {
+    color: #E9D5FF;
+}
+
+/* Pestaña seleccionada */
+.categorias-page .categoria-activa,
+.tiendas-page .tiendas-activa,
+.pagos-page .pagos-activo {
+    background: #8B5CF6;
+    color: #FFFFFF;
+    border-bottom-color: #8B5CF6;
+}
+
+/* ==========================================
+   PÁGINA PRINCIPAL
+   ========================================== */
+
+/* Promoción */
+.hero {
+    background: linear-gradient(
+        135deg,
+        #171421,
+        #32264D
+    );
+}
+
+/* Fondos de imágenes */
+.cat-foto,
+.prod-foto {
+    background: #F4F1FA;
+}
+
+/* Tarjetas de productos */
+.producto {
+    background: #FFFFFF;
+    border-color: #E7E2EF;
+}
+
+/* Precios */
+.prod-precio {
+    color: #5B21B6;
+}
+
+/* Botones */
+.btn-add-cart,
+.btn-primary {
+    background: #8B5CF6;
+}
+
+.btn-add-cart:hover,
+.btn-primary:hover {
+    background: #7C3AED;
+}
+
+/* ==========================================
+   OTRAS PÁGINAS
+   ========================================== */
+
+.categorias-page,
+.tiendas-page,
+.pagos-page,
+.carrito-page {
+    background: #F4F1FA;
+    color: #171421;
+}
+
+/* Secciones de introducción */
+.tiendas-page .tiendas-intro,
+.pagos-page .pagos-intro {
+    background: #EDE7F5;
+}
+
+/* Paneles */
+.tiendas-page .tiendas-mapa,
+.pagos-page .sinpe-tarjeta,
+.carrito-page .carrito-envio {
+    background: #EDE7F5;
+}
+
+/* Descuento de métodos de pago */
+.pagos-page .pagos-descuento {
+    background: linear-gradient(
+        90deg,
+        #5B21B6,
+        #8B5CF6
+    );
+}
+
+/* ==========================================
+   PIE DE PÁGINA
+   ========================================== */
+
+.footer,
+.tiendas-page .tiendas-footer,
+.pagos-page .pagos-footer,
+.carrito-page .carrito-footer {
+    background: #171421;
+    color: #FFFFFF;
+}
+
+/* ==========================================
+   INICIO DE SESIÓN
+   ========================================== */
+
+.login-form-section {
+    background: #171421;
+}
+
+.login-image-section {
+    background: linear-gradient(
+        135deg,
+        #F4F1FA,
+        #DDD6FE
+    );
+}
+
+.login-form-section .btn-primary {
+    background: #8B5CF6;
+}
+
+.login-form-section .btn-primary:hover {
+    background: #7C3AED;
+}
+
+.login-form-section .btn-primary:active {
+    background: #5B21B6;
+}
+
+/* ==========================================
+   TECHSTORE - CORRECCIÓN DEL ENCABEZADO
+   ========================================== */
+
+/* Encabezado negro en todas las páginas */
+.header,
+.tienda-page .header,
+.categorias-page .header,
+.tiendas-page .header,
+.pagos-page .header,
+.carrito-page .header,
+.sobre-nosotros-page .header {
+    background: #0D0B12 !important;
+    color: #FFFFFF;
+}
+
+/* Logo sin recuadro blanco */
+.header .marca {
+    background: transparent !important;
+    padding: 0;
+    border-radius: 0;
+    margin-left: auto;
+}
+
+/* Tamaño del logo */
+.header .logo-tienda {
+    width: 190px;
+    height: auto;
+    display: block;
+}
+
+/* Menú violeta oscuro */
+.navbar,
+.tienda-page .navbar,
+.categorias-page .navbar,
+.tiendas-page .navbar,
+.pagos-page .navbar,
+.carrito-page .navbar,
+.sobre-nosotros-page .navbar {
+    background: #32264D !important;
+    border-bottom: 2px solid #8B5CF6;
+    color: #FFFFFF;
+}
+
+/* Enlaces del menú */
+.navbar-inner a {
+    color: #FFFFFF;
+}
+
+.navbar-inner a:hover {
+    color: #E9D5FF;
+}
+
+/* Buscador */
+.header .buscador input {
+    background: #211B2B;
+    color: #FFFFFF;
+    border: 1px solid #8B5CF6;
+}
+
+/* CORREGIR COLORES DEL MENÚ */
+
+/* Todas las opciones */
+.navbar .navbar-inner a {
+    color: #FFFFFF !important;
+    border-bottom-color: transparent;
+}
+
+/* Al pasar el mouse */
+.navbar .navbar-inner a:hover {
+    color: #FFFFFF !important;
+    background-color: #5B21B6;
+}
+
+/* Pestaña seleccionada */
+.navbar .navbar-inner a.categoria-activa,
+.navbar .navbar-inner a.tiendas-activa,
+.navbar .navbar-inner a.pagos-activo,
+.navbar .navbar-inner a.sobre-activo {
+    color: #FFFFFF !important;
+    background-color: #8B5CF6;
+    border-bottom-color: #8B5CF6;
+}
+
+
+/* Mismo fondo para todas las páginas */
+.navbar,
+.tienda-page .navbar,
+.categorias-page .navbar,
+.tiendas-page .navbar,
+.pagos-page .navbar,
+.carrito-page .navbar,
+.sobre-nosotros-page .navbar {
+    background: #32264D !important;
+    border-bottom: 2px solid #8B5CF6 !important;
+}
+
+/* Todas las opciones del menú */
+.navbar .navbar-inner a {
+    color: #FFFFFF !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    text-decoration: none !important;
+    padding: 0 !important;
+}
+
+/* Al pasar el cursor */
+.navbar .navbar-inner a:hover {
+    color: #E9D5FF !important;
+}
+
+/* Pestaña seleccionada */
+.navbar .navbar-inner a.categoria-activa,
+.navbar .navbar-inner a.tiendas-activa,
+.navbar .navbar-inner a.pagos-activo,
+.navbar .navbar-inner a.sobre-activo {
+    color: #FFFFFF !important;
+    background: transparent !important;
+    border-bottom: 3px solid #8B5CF6 !important;
+    padding-bottom: 5px !important;
+}
+
+@media (min-width: 901px) {
+    .tiendas-page .tiendas-layout {
+        align-items: stretch;
+    }
+
+    .tiendas-page .tiendas-listado {
+        height: 0;
+        min-height: 100%;
+        overflow-y: auto;
+        padding-right: 8px;
+    }
+}

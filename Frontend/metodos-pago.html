@@ -5,65 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Métodos de pago - TechStore</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body class="pagos-page">
 
-    <!-- Encabezado principal -->
-    <header class="header">
-        <div class="header-inner">
-
-            <a href="/pantalla-principal.html" class="marca">
-                TechStore
-            </a>
-
-            <div class="buscador">
-                <input
-                    type="search"
-                    placeholder="Búsqueda de productos..."
-                >
-            </div>
-
-            <nav class="header-nav">
-                <a href="/" id="linkAcceso">
-                    ACCESO / REGISTRO
-                </a>
-
-                <a href="/carrito.html" id="linkCarrito"></a>
-                    CARRITO <span id="carritoTotal">¢0</span>
-                </a>
-            </nav>
-
-        </div>
-    </header>
-
-    <!-- Menú de navegación -->
-    <nav class="navbar">
-        <div class="navbar-inner">
-
-            <a href="/categorias.html">
-                VER CATEGORÍAS
-            </a>
-
-            <a href="#">
-                ARMA TU PC
-            </a>
-
-            <a href="/nuestras-tiendas.html">
-                NUESTRAS TIENDAS
-            </a>
-
-            <a href="/metodos-pago.html" class="pagos-activo">
-                MÉTODOS DE PAGO
-            </a>
-
-            <a href="#">
-                SOBRE NOSOTROS
-            </a>
-
-        </div>
-    </nav>
+    <!-- Encabezado compartido -->
+    <div id="header-techstore"></div>
 
     <!-- Introducción -->
     <section class="pagos-intro">
@@ -226,37 +174,9 @@
         <p>© TechStore. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- JavaScript existente -->
-    <script src="main.js"></script>
-
-    <!-- Mostrar usuario conectado -->
-    <script>
-        const datosSesion =
-            localStorage.getItem('usuarioTechStore') ||
-            sessionStorage.getItem('usuarioTechStore');
-
-        if (datosSesion) {
-            try {
-                const usuario = JSON.parse(datosSesion);
-
-                if (usuario.nombre) {
-                    const linkAcceso =
-                        document.getElementById('linkAcceso');
-
-                    linkAcceso.textContent =
-                        'HOLA, ' + usuario.nombre;
-
-                    linkAcceso.href =
-                        '/pantalla-principal.html';
-                }
-            } catch (error) {
-                console.error(
-                    'Error al leer la sesión:',
-                    error
-                );
-            }
-        }
-    </script>
+    <script src="/header.js"></script>
+    <script src="/main.js"></script>
 
 </body>
 </html>
+

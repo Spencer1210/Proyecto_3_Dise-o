@@ -1,82 +1,23 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Sobre nosotros - TechStore</title>
 
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="sobre-nosotros.css">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/sobre-nosotros.css">
 </head>
 
 <body class="nosotros-page">
 
-    <!-- ENCABEZADO PRINCIPAL -->
-    <header class="header">
-        <div class="header-inner">
+    <div id="header-techstore"></div>
 
-            <a href="/pantalla-principal.html" class="marca">
-                TechStore
-            </a>
-
-            <div class="buscador">
-                <input
-                    type="search"
-                    placeholder="Búsqueda de productos..."
-                    aria-label="Búsqueda de productos"
-                >
-            </div>
-
-            <nav class="header-nav">
-
-                <a href="/" id="linkAcceso">
-                    ACCESO / REGISTRO
-                </a>
-
-                <a href="/carrito.html" id="linkCarrito">
-                    CARRITO
-                    <span id="carritoTotal">¢0</span>
-                </a>
-
-            </nav>
-
-        </div>
-    </header>
-
-    <!-- MENÚ DE NAVEGACIÓN -->
-    <nav class="navbar">
-        <div class="navbar-inner">
-
-            <a href="/categorias.html">
-                VER CATEGORÍAS
-            </a>
-
-            <a href="#">
-                ARMA TU PC
-            </a>
-
-            <a href="/nuestras-tiendas.html">
-                NUESTRAS TIENDAS
-            </a>
-
-            <a href="/metodos-pago.html">
-                MÉTODOS DE PAGO
-            </a>
-
-            <a href="/sobre-nosotros.html"
-               class="nosotros-activo">
-                INFORMACIÓN
-            </a>
-
-        </div>
-    </nav>
-
-    <!-- CONTENIDO -->
     <main class="nosotros-contenedor">
 
-        <!-- RUTA DE NAVEGACIÓN -->
         <div class="nosotros-ruta">
             <a href="/pantalla-principal.html">Inicio</a>
             <span>/</span>
@@ -85,26 +26,20 @@
             <span>Sobre nosotros</span>
         </div>
 
-        <!-- TÍTULO -->
         <section class="nosotros-encabezado">
-
             <h1>Sobre nosotros</h1>
 
             <p>
                 Conoce más sobre TechStore, nuestra misión
                 y lo que nos mueve.
             </p>
-
         </section>
 
-        <!-- PRESENTACIÓN DE TECHSTORE -->
         <section class="nosotros-presentacion">
 
             <div class="nosotros-texto">
 
-                <h2>
-                    Tech<span>Store</span>
-                </h2>
+                <h2>Tech<span>Store</span></h2>
 
                 <p>
                     Somos una tienda de tecnología dedicada
@@ -115,11 +50,10 @@
 
             </div>
 
-            <!-- NUEVA IMAGEN -->
             <div class="nosotros-productos">
 
                 <img
-                    src="img/SobreNosotros.png"
+                    src="/img/SobreNosotros.png"
                     alt="Laptop, audífonos y accesorios tecnológicos"
                     class="nosotros-imagen"
                 >
@@ -128,10 +62,8 @@
 
         </section>
 
-        <!-- MISIÓN, VISIÓN Y VALORES -->
         <section class="nosotros-tarjetas">
 
-            <!-- MISIÓN -->
             <article class="nosotros-tarjeta">
 
                 <div class="nosotros-icono">
@@ -161,7 +93,6 @@
 
             </article>
 
-            <!-- VISIÓN -->
             <article class="nosotros-tarjeta">
 
                 <div class="nosotros-icono">
@@ -174,10 +105,7 @@
                         stroke-linejoin="round"
                         aria-hidden="true"
                     >
-                        <path
-                            d="M2 12s4-7 10-7 10 7 10 7
-                               -4 7-10 7S2 12 2 12Z"
-                        />
+                        <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/>
                         <circle cx="12" cy="12" r="3"/>
                     </svg>
                 </div>
@@ -192,7 +120,6 @@
 
             </article>
 
-            <!-- VALORES -->
             <article class="nosotros-tarjeta">
 
                 <div class="nosotros-icono">
@@ -223,7 +150,6 @@
 
         </section>
 
-        <!-- NUESTRO EQUIPO -->
         <section class="nosotros-equipo">
 
             <div class="equipo-icono">
@@ -238,22 +164,11 @@
                     aria-hidden="true"
                 >
                     <circle cx="32" cy="18" r="8"/>
-
-                    <path
-                        d="M17 48v-5c0-9 6-14 15-14s15 5 15 14v5"
-                    />
-
+                    <path d="M17 48v-5c0-9 6-14 15-14s15 5 15 14v5"/>
                     <circle cx="12" cy="25" r="6"/>
-
-                    <path
-                        d="M3 46v-4c0-7 4-11 10-11"
-                    />
-
+                    <path d="M3 46v-4c0-7 4-11 10-11"/>
                     <circle cx="52" cy="25" r="6"/>
-
-                    <path
-                        d="M61 46v-4c0-7-4-11-10-11"
-                    />
+                    <path d="M61 46v-4c0-7-4-11-10-11"/>
                 </svg>
 
             </div>
@@ -274,100 +189,11 @@
 
     </main>
 
-    <!-- PIE DE PÁGINA -->
     <footer class="nosotros-footer">
-
-        <p>
-            © TechStore. Todos los derechos reservados.
-        </p>
-
+        <p>© TechStore. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- FUNCIONALIDAD -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-
-            // =====================================
-            // MOSTRAR USUARIO CONECTADO
-            // =====================================
-
-            const datosSesion =
-                localStorage.getItem("usuarioTechStore") ||
-                sessionStorage.getItem("usuarioTechStore");
-
-            const linkAcceso =
-                document.getElementById("linkAcceso");
-
-            if (datosSesion) {
-
-                try {
-
-                    const usuario = JSON.parse(datosSesion);
-
-                    if (usuario && usuario.nombre) {
-
-                        linkAcceso.textContent =
-                            "HOLA, " + usuario.nombre;
-
-                        linkAcceso.href =
-                            "/pantalla-principal.html";
-                    }
-
-                } catch (error) {
-
-                    console.error(
-                        "Error al leer la sesión:",
-                        error
-                    );
-
-                }
-            }
-
-            // =====================================
-            // MOSTRAR TOTAL DEL CARRITO
-            // =====================================
-
-            const carritoTotal =
-                document.getElementById("carritoTotal");
-
-            try {
-
-                const carrito = JSON.parse(
-                    localStorage.getItem("carritoTechStore") || "[]"
-                );
-
-                if (Array.isArray(carrito)) {
-
-                    const total = carrito.reduce(
-                        function(suma, producto) {
-
-                            const precio =
-                                Number(producto.precio) || 0;
-
-                            const cantidad =
-                                Number(producto.cantidad) || 0;
-
-                            return suma + precio * cantidad;
-                        },
-                        0
-                    );
-
-                    carritoTotal.textContent =
-                        "¢" + total.toLocaleString("es-CR");
-
-                }
-
-            } catch (error) {
-
-                console.error(
-                    "Error al leer el carrito:",
-                    error
-                );
-
-            }
-
-        });
-    </script>
+    <script src="/header.js"></script>
 
 </body>
 </html>

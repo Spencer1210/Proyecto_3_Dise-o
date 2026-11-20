@@ -1,395 +1,304 @@
 
-/* =========================================
-   TECHSTORE - SOBRE NOSOTROS
-========================================= */
+/* Página Sobre nosotros */
 
 .nosotros-page {
-    margin: 0;
-    background: #ffffff;
-    color: #11112e;
-    font-family: Arial, Helvetica, sans-serif;
+    background: #F4F1FA;
+    color: #171421;
 }
 
-/* =========================================
-   ENCABEZADO
-========================================= */
-
-.nosotros-page .header {
-    background: #7125d5;
+.nosotros-page * {
+    box-sizing: border-box;
 }
 
-.nosotros-page .marca {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 25px;
-    font-weight: 800;
-}
-
-.nosotros-page .navbar {
-    background: #ffffff;
-    border-bottom: 1px solid #eeeaf4;
-}
-
-.nosotros-page .navbar-inner a {
-    text-decoration: none;
-}
-
-.nosotros-page .navbar-inner .nosotros-activo {
-    color: #6d22d2;
-    border-bottom: 3px solid #6d22d2;
-}
-
-/* =========================================
-   CONTENEDOR PRINCIPAL
-========================================= */
+/* Contenedor */
 
 .nosotros-contenedor {
-    width: calc(100% - 80px);
-    max-width: 1200px;
+    width: min(1200px, calc(100% - 48px));
     margin: 0 auto;
-    padding: 35px 0 55px;
+    padding: 32px 0 65px;
 }
 
-/* =========================================
-   RUTA DE NAVEGACIÓN
-========================================= */
+/* Ruta */
 
 .nosotros-ruta {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    gap: 8px;
-    font-size: 14px;
-    color: #55556b;
-    margin-bottom: 24px;
+    gap: 9px;
+    margin-bottom: 30px;
+    color: #777184;
+    font-size: 13px;
 }
 
 .nosotros-ruta a {
-    color: inherit;
+    color: #6D28D9;
     text-decoration: none;
 }
 
 .nosotros-ruta a:hover {
-    color: #7125d5;
+    text-decoration: underline;
 }
 
-/* =========================================
-   TÍTULO
-========================================= */
+/* Encabezado de contenido */
 
 .nosotros-encabezado {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
 }
 
 .nosotros-encabezado h1 {
-    font-size: 42px;
-    font-weight: 800;
     margin: 0 0 12px;
-    color: #11112e;
+    color: #171421;
+    font-size: 34px;
+    font-weight: 800;
 }
 
 .nosotros-encabezado p {
-    font-size: 18px;
-    color: #44445a;
     margin: 0;
-    line-height: 1.5;
+    color: #666078;
+    font-size: 16px;
+    line-height: 1.6;
 }
 
-/* =========================================
-   PRESENTACIÓN DE TECHSTORE
-========================================= */
+/* Presentación */
 
 .nosotros-presentacion {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 315px;
-    background: #f1edfc;
-    border-radius: 24px;
-    overflow: hidden;
-    margin-bottom: 38px;
+    align-items: center;
+    gap: 45px;
+    padding: 35px;
+    margin-bottom: 35px;
+    background: #FFFFFF;
+    border: 1px solid #E7E2EF;
+    border-radius: 16px;
 }
 
-/* TEXTO DEL BANNER */
-
 .nosotros-texto {
-    padding: 45px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    min-width: 0;
 }
 
 .nosotros-texto h2 {
-    font-size: 55px;
+    margin: 0 0 22px;
+    color: #171421;
+    font-size: 38px;
     font-weight: 800;
-    letter-spacing: -2px;
-    margin: 0 0 18px;
-    color: #11112e;
 }
 
 .nosotros-texto h2 span {
-    color: #7125d5;
+    color: #8B5CF6;
 }
 
 .nosotros-texto p {
-    font-size: 19px;
-    line-height: 1.65;
     margin: 0;
-    max-width: 460px;
+    color: #666078;
+    font-size: 16px;
+    line-height: 1.9;
 }
-
-/* =========================================
-   NUEVA IMAGEN DEL BANNER
-========================================= */
 
 .nosotros-productos {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0;
+    min-width: 0;
     overflow: hidden;
-    background: #f1edfc;
+    background: #F4F1FA;
+    border-radius: 12px;
 }
 
 .nosotros-imagen {
     display: block;
     width: 100%;
-    height: 100%;
-    min-height: 315px;
-    object-fit: cover;
-    object-position: center;
+    max-width: 520px;
+    height: 330px;
+    object-fit: contain;
 }
 
-/* =========================================
-   TARJETAS
-========================================= */
+/* Misión, visión y valores */
 
 .nosotros-tarjetas {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-bottom: 35px;
 }
 
 .nosotros-tarjeta {
-    border: 1px solid #e6e3ee;
-    border-radius: 22px;
-    background: #ffffff;
-    padding: 28px;
-    min-height: 260px;
-    box-sizing: border-box;
+    min-width: 0;
+    padding: 30px 25px;
+    background: #FFFFFF;
+    border: 1px solid #E7E2EF;
+    border-radius: 14px;
+    transition: box-shadow 0.2s ease;
+}
+
+.nosotros-tarjeta:hover {
+    box-shadow: 0 8px 25px rgba(23, 20, 33, 0.08);
 }
 
 .nosotros-icono {
-    width: 72px;
-    height: 72px;
-    background: #f0e9fc;
-    color: #7125d5;
-    border-radius: 18px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
     margin-bottom: 22px;
+    background: #EDE7F5;
+    color: #7C3AED;
+    border-radius: 12px;
 }
 
 .nosotros-icono svg {
-    width: 42px;
-    height: 42px;
+    display: block;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
 }
 
 .nosotros-tarjeta h2 {
-    font-size: 25px;
-    font-weight: 800;
-    margin: 0 0 16px;
-    color: #11112e;
+    margin: 0 0 14px;
+    color: #171421;
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .nosotros-tarjeta p {
-    font-size: 17px;
-    line-height: 1.65;
     margin: 0;
-    color: #28283b;
+    color: #666078;
+    font-size: 14px;
+    line-height: 1.8;
 }
 
 .nosotros-tarjeta ul {
     margin: 0;
-    padding-left: 28px;
-    font-size: 17px;
-    line-height: 1.7;
-    color: #28283b;
+    padding-left: 20px;
+    color: #666078;
+    font-size: 14px;
+    line-height: 2;
 }
 
-.nosotros-tarjeta li::marker {
-    color: #7125d5;
-}
-
-/* =========================================
-   NUESTRO EQUIPO
-========================================= */
+/* Equipo */
 
 .nosotros-equipo {
     display: flex;
     align-items: center;
-    gap: 60px;
-    background: #7125d5;
-    border-radius: 24px;
-    padding: 35px 65px;
-    color: #ffffff;
+    gap: 30px;
+    padding: 35px 40px;
+    background: #EDE7F5;
+    border: 1px solid #DDD6FE;
+    border-radius: 16px;
 }
 
 .equipo-icono {
-    flex-shrink: 0;
-    width: 125px;
-    height: 125px;
-    background: rgba(255, 255, 255, 0.24);
-    border-radius: 22px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex: 0 0 85px;
+    width: 85px;
+    height: 85px;
+    background: #FFFFFF;
+    color: #7C3AED;
+    border-radius: 50%;
 }
 
 .equipo-icono svg {
-    width: 75px;
-    height: 75px;
-    color: #ffffff;
+    display: block;
+    width: 48px;
+    height: 48px;
+}
+
+.equipo-texto {
+    flex: 1;
+    min-width: 0;
 }
 
 .equipo-texto h2 {
-    font-size: 31px;
-    margin: 0 0 15px;
-    font-weight: 800;
-    color: #ffffff;
+    margin: 0 0 12px;
+    color: #171421;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 .equipo-texto p {
-    font-size: 20px;
-    line-height: 1.6;
     margin: 0;
-    max-width: 750px;
-    color: #ffffff;
+    color: #666078;
+    font-size: 15px;
+    line-height: 1.8;
 }
 
-/* =========================================
-   FOOTER
-========================================= */
+/* Pie de página */
 
 .nosotros-footer {
-    background: #211b50;
-    color: #ffffff;
-    padding: 30px 5%;
-    font-size: 14px;
+    width: 100%;
+    padding: 24px;
+    background: #171421;
+    color: #FFFFFF;
+    text-align: center;
 }
 
 .nosotros-footer p {
     margin: 0;
+    color: #D1D5DB;
+    font-size: 13px;
 }
 
-/* =========================================
-   RESPONSIVE - TABLET
-========================================= */
+/* Pantallas medianas */
 
 @media (max-width: 900px) {
-
     .nosotros-presentacion {
         grid-template-columns: 1fr;
-    }
-
-    .nosotros-texto {
-        padding: 35px;
-    }
-
-    .nosotros-productos {
-        min-height: 250px;
-    }
-
-    .nosotros-imagen {
-        height: 300px;
-        min-height: 0;
-        object-fit: contain;
+        gap: 25px;
     }
 
     .nosotros-tarjetas {
-        grid-template-columns: 1fr;
-        gap: 18px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .nosotros-tarjeta {
-        min-height: auto;
-    }
-
-    .nosotros-equipo {
-        gap: 25px;
-        padding: 30px;
+    .nosotros-imagen {
+        max-width: 100%;
     }
 }
 
-/* =========================================
-   RESPONSIVE - CELULAR
-========================================= */
+/* Celulares */
 
 @media (max-width: 600px) {
-
     .nosotros-contenedor {
         width: calc(100% - 32px);
-        padding-top: 25px;
+        padding: 25px 0 45px;
     }
 
     .nosotros-encabezado h1 {
-        font-size: 32px;
+        font-size: 28px;
     }
 
-    .nosotros-encabezado p {
-        font-size: 16px;
-    }
-
-    .nosotros-texto {
-        padding: 30px;
+    .nosotros-presentacion {
+        padding: 22px;
     }
 
     .nosotros-texto h2 {
-        font-size: 42px;
-    }
-
-    .nosotros-texto p {
-        font-size: 17px;
-    }
-
-    .nosotros-productos {
-        min-height: 200px;
+        font-size: 30px;
     }
 
     .nosotros-imagen {
         height: 230px;
-        object-fit: contain;
+    }
+
+    .nosotros-tarjetas {
+        grid-template-columns: 1fr;
+        gap: 16px;
     }
 
     .nosotros-tarjeta {
-        padding: 24px;
-    }
-
-    .nosotros-tarjeta h2 {
-        font-size: 23px;
+        padding: 25px;
     }
 
     .nosotros-equipo {
         flex-direction: column;
         align-items: flex-start;
         gap: 20px;
-    }
-
-    .equipo-icono {
-        width: 95px;
-        height: 95px;
-    }
-
-    .equipo-icono svg {
-        width: 60px;
-        height: 60px;
+        padding: 25px;
     }
 
     .equipo-texto h2 {
-        font-size: 25px;
-    }
-
-    .equipo-texto p {
-        font-size: 17px;
+        font-size: 21px;
     }
 }
