@@ -302,3 +302,169 @@
         font-size: 21px;
     }
 }
+body.nosotros-page .nosotros-contenedor .sobre-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    width: 100%;
+    min-height: 210px;
+    margin: 0 0 35px;
+    padding: 26px 48px;
+    box-sizing: border-box;
+    border-radius: 22px;
+    background: linear-gradient(
+        110deg,
+        #f3eaff 0%,
+        #f5edff 55%,
+        #ebd8ff 100%
+    );
+}
+
+body.nosotros-page .sobre-hero::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 65%;
+    height: 210px;
+    right: -8%;
+    bottom: -145px;
+    border-radius: 50%;
+    background: rgba(169, 94, 239, 0.22);
+    transform: rotate(-10deg);
+    pointer-events: none;
+}
+
+body.nosotros-page .sobre-hero::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 45%;
+    height: 145px;
+    right: -10%;
+    bottom: -105px;
+    border-radius: 50%;
+    background: rgba(165, 64, 229, 0.24);
+    transform: rotate(-8deg);
+    pointer-events: none;
+}
+
+body.nosotros-page .sobre-hero-contenido {
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================
+   AJUSTE FINAL - BANNER SOBRE NOSOTROS
+   IGUAL AL DE MÉTODOS DE PAGO
+   ========================================== */
+
+body.nosotros-page .nosotros-contenedor .sobre-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    width: 100%;
+    min-height: 198px;
+
+    margin: 0 0 35px;
+    padding: 26px 30px;
+
+    border-radius: 0;
+
+    background: #f3eaff;
+    box-sizing: border-box;
+}
+
+/* CONTENIDO */
+
+body.nosotros-page .sobre-hero-contenido {
+    position: relative;
+    z-index: 1;
+}
+
+/* RUTA SUPERIOR */
+
+body.nosotros-page .sobre-ruta {
+    margin: 0 0 22px;
+
+    color: #211044;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+body.nosotros-page .sobre-ruta a {
+    color: #211044;
+    text-decoration: none;
+}
+
+/* TÍTULO */
+
+body.nosotros-page .sobre-hero h1 {
+    margin: 0;
+
+    color: #281052;
+
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.15;
+}
+
+/* LÍNEA MORADA */
+
+body.nosotros-page .sobre-linea {
+    display: block;
+
+    width: 178px;
+    height: 7px;
+
+    margin: 12px 0 15px;
+
+    background: #8423e2;
+    border-radius: 8px;
+}
+
+/* DESCRIPCIÓN */
+
+body.nosotros-page .sobre-hero-descripcion {
+    margin: 0;
+
+    color: #211044;
+
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* QUITAR LAS ONDAS SOLO EN ESTE BANNER */
+
+body.nosotros-page .sobre-hero::before,
+body.nosotros-page .sobre-hero::after {
+    content: none;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 650px) {
+
+    body.nosotros-page .nosotros-contenedor .sobre-hero {
+        min-height: 200px;
+        padding: 25px 20px;
+    }
+
+    body.nosotros-page .sobre-ruta {
+        font-size: 13px;
+        margin-bottom: 18px;
+    }
+
+    body.nosotros-page .sobre-hero h1 {
+        font-size: 32px;
+    }
+
+    body.nosotros-page .sobre-linea {
+        width: 120px;
+        height: 5px;
+    }
+
+    body.nosotros-page .sobre-hero-descripcion {
+        font-size: 14px;
+    }
+}

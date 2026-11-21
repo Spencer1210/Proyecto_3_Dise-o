@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechStore - Inicio</title>
-    <link rel="stylesheet" href="styles.css">
 
-    <!-- Verificar sesión -->
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/inicio.css">
+
     <script>
         const sesionTechStore =
             localStorage.getItem('usuarioTechStore') ||
@@ -37,216 +38,246 @@
     </script>
 </head>
 
-<body class="tienda-page">
+<body class="tienda-page inicio-page">
 
-    <!-- Encabezado compartido -->
     <div id="header-techstore"></div>
 
-    <!-- Promoción principal -->
-    <section class="hero">
-        <div class="hero-inner">
+    <main class="inicio-contenido">
 
-            <div class="hero-texto">
-                <h1>OFERTAS EN ORDENADORES</h1>
+        <section class="inicio-banner">
+
+            <div class="inicio-banner-texto">
+
+                <span class="inicio-etiqueta">
+                    TECHSTORE · OFERTAS DESTACADAS
+                </span>
+
+                <h1>
+                    Tu próximo setup
+                    comienza <span>aquí.</span>
+                </h1>
 
                 <p>
-                    Consigue tu nuevo equipo Asus al mejor precio
+                    Equipos y accesorios para trabajar,
+                    estudiar y jugar.
                 </p>
+
+                <a href="/categorias.html" class="inicio-boton-principal">
+                    Explorar productos
+                    <span aria-hidden="true">→</span>
+                </a>
+
             </div>
 
-            <div class="hero-foto">
+            <div class="inicio-banner-imagen">
                 <img
-                    src="img/Promo.png"
-                    alt="Ofertas ASUS Black Friday"
+                    src="/img/Promo.png"
+                    alt="Promoción de equipos ASUS"
                 >
             </div>
 
-        </div>
-    </section>
+        </section>
 
-    <!-- Categorías populares -->
-    <section class="seccion">
+        <section class="inicio-seccion">
 
-        <div class="seccion-header">
-            <h2>Categorías populares</h2>
-        </div>
+            <div class="inicio-seccion-encabezado">
 
-        <div class="carrusel categorias">
-
-            <div class="cat">
-                <div class="cat-foto">
-                    <img src="img/mouse.png" alt="Mouse">
+                <div class="inicio-titulo-grupo">
+                    <h2>Categorías preferidas</h2>
+                    <p>
+                        Encuentra los accesorios y equipos
+                        que más te gustan.
+                    </p>
                 </div>
-                <span>Mouse</span>
+
+                <a href="/categorias.html" class="inicio-ver-todas">
+                    Ver todas
+                    <span aria-hidden="true">→</span>
+                </a>
+
             </div>
 
-            <div class="cat">
-                <div class="cat-foto">
-                    <img src="img/Monitor.png" alt="Monitores">
-                </div>
-                <span>Monitores</span>
+            <div class="inicio-categorias-grid">
+
+                <a href="/categorias.html" class="inicio-categoria">
+                    <div class="inicio-categoria-imagen">
+                        <img src="/img/Monitor.png" alt="Monitores">
+                    </div>
+                    <span>Monitores</span>
+                </a>
+
+                <a href="/categorias.html" class="inicio-categoria">
+                    <div class="inicio-categoria-imagen">
+                        <img src="/img/mouse.png" alt="Mouse">
+                    </div>
+                    <span>Mouse</span>
+                </a>
+
+                <a href="/categorias.html" class="inicio-categoria">
+                    <div class="inicio-categoria-imagen">
+                        <img src="/img/Teclado.png" alt="Teclados">
+                    </div>
+                    <span>Teclados</span>
+                </a>
+
+                <a href="/categorias.html" class="inicio-categoria">
+                    <div class="inicio-categoria-imagen">
+                        <img src="/img/Parlante.png" alt="Audio">
+                    </div>
+                    <span>Audio</span>
+                </a>
+
             </div>
 
-            <div class="cat">
-                <div class="cat-foto">
-                    <img src="img/Teclado.png" alt="Teclados">
+        </section>
+
+        <section class="inicio-seccion">
+
+            <div class="inicio-seccion-encabezado">
+
+                <div class="inicio-titulo-grupo">
+                    <h2>Productos destacados</h2>
+                    <p>
+                        Una selección de productos para llevar
+                        tu experiencia al siguiente nivel.
+                    </p>
                 </div>
-                <span>Teclados</span>
+
             </div>
 
-            <div class="cat">
-                <div class="cat-foto">
-                    <img src="img/Parlante.png" alt="Audio">
-                </div>
-                <span>Audio</span>
-            </div>
+            <div class="inicio-productos-grid">
 
-        </div>
-    </section>
+                <article class="inicio-producto">
 
-    <!-- Productos destacados -->
-    <section class="seccion">
+                    <div class="inicio-producto-imagen">
+                        <img
+                            src="/img/MouseErgonomica.png"
+                            alt="Mouse inalámbrico ergonómico"
+                        >
+                    </div>
 
-        <div class="seccion-header">
-            <h2>Productos destacados</h2>
-        </div>
+                    <h3>Mouse inalámbrico ergonómico</h3>
 
-        <div class="carrusel productos">
+                    <div class="inicio-producto-precio">¢14.900</div>
 
-            <!-- Mouse -->
-            <div class="producto">
-
-                <div class="prod-foto">
-                    <img
-                        src="img/MouseErgonomica.png"
-                        alt="Mouse inalámbrico ergonómico"
+                    <button
+                        type="button"
+                        class="btn-add-cart inicio-agregar"
+                        data-id="mouse"
+                        data-precio="14900"
                     >
-                </div>
+                        Agregar al carrito
+                    </button>
 
-                <div class="prod-nombre">
-                    Mouse inalámbrico ergonómico
-                </div>
+                </article>
 
-                <div class="prod-precio">¢14.900</div>
+                <article class="inicio-producto">
 
-                <button
-                    class="btn-add-cart"
-                    data-id="mouse"
-                    data-precio="14900">
-                    Agregar al carrito
-                </button>
+                    <span class="inicio-oferta">Oferta</span>
 
-            </div>
+                    <div class="inicio-producto-imagen">
+                        <img
+                            src="/img/monitor27.png"
+                            alt="Monitor 27 pulgadas"
+                        >
+                    </div>
 
-            <!-- Monitor -->
-            <div class="producto">
+                    <h3>Monitor 27" 144 Hz</h3>
 
-                <span class="badge">Oferta</span>
+                    <div class="inicio-producto-precio">¢159.000</div>
 
-                <div class="prod-foto">
-                    <img
-                        src="img/monitor27.png"
-                        alt="Monitor 27 pulgadas"
+                    <button
+                        type="button"
+                        class="btn-add-cart inicio-agregar"
+                        data-id="monitor"
+                        data-precio="159000"
                     >
-                </div>
+                        Agregar al carrito
+                    </button>
 
-                <div class="prod-nombre">
-                    Monitor 27" 144 Hz
-                </div>
+                </article>
 
-                <div class="prod-precio">¢159.000</div>
+                <article class="inicio-producto">
 
-                <button
-                    class="btn-add-cart"
-                    data-id="monitor"
-                    data-precio="159000">
-                    Agregar al carrito
-                </button>
+                    <div class="inicio-producto-imagen">
+                        <img
+                            src="/img/TecladoMecanico.png"
+                            alt="Teclado mecánico"
+                        >
+                    </div>
 
-            </div>
+                    <h3>Teclado mecánico 75 %</h3>
 
-            <!-- Teclado -->
-            <div class="producto">
+                    <div class="inicio-producto-precio">¢42.500</div>
 
-                <div class="prod-foto">
-                    <img
-                        src="img/TecladoMecanico.png"
-                        alt="Teclado mecánico"
+                    <button
+                        type="button"
+                        class="btn-add-cart inicio-agregar"
+                        data-id="teclado"
+                        data-precio="42500"
                     >
-                </div>
+                        Agregar al carrito
+                    </button>
 
-                <div class="prod-nombre">
-                    Teclado mecánico 75 %
-                </div>
+                </article>
 
-                <div class="prod-precio">¢42.500</div>
+                <article class="inicio-producto">
 
-                <button
-                    class="btn-add-cart"
-                    data-id="teclado"
-                    data-precio="42500">
-                    Agregar al carrito
-                </button>
+                    <div class="inicio-producto-imagen">
+                        <img
+                            src="/img/AuricularesMicro.png"
+                            alt="Auriculares con micrófono"
+                        >
+                    </div>
 
-            </div>
+                    <h3>Auriculares con micrófono</h3>
 
-            <!-- Auriculares -->
-            <div class="producto">
+                    <div class="inicio-producto-precio">¢27.900</div>
 
-                <div class="prod-foto">
-                    <img
-                        src="img/AuricularesMicro.png"
-                        alt="Auriculares con micrófono"
+                    <button
+                        type="button"
+                        class="btn-add-cart inicio-agregar"
+                        data-id="auriculares"
+                        data-precio="27900"
                     >
-                </div>
+                        Agregar al carrito
+                    </button>
 
-                <div class="prod-nombre">
-                    Auriculares con micrófono
-                </div>
+                </article>
 
-                <div class="prod-precio">¢27.900</div>
+                <article class="inicio-producto">
 
-                <button
-                    class="btn-add-cart"
-                    data-id="auriculares"
-                    data-precio="27900">
-                    Agregar al carrito
-                </button>
+                    <span class="inicio-oferta">Oferta</span>
 
-            </div>
+                    <div class="inicio-producto-imagen">
+                        <img
+                            src="/img/WebcamHD.png"
+                            alt="Webcam Full HD"
+                        >
+                    </div>
 
-            <!-- Webcam -->
-            <div class="producto">
+                    <h3>Webcam Full HD</h3>
 
-                <span class="badge">Oferta</span>
+                    <div class="inicio-producto-precio">¢21.500</div>
 
-                <div class="prod-foto">
-                    <img
-                        src="img/WebcamHD.png"
-                        alt="Webcam Full HD"
+                    <button
+                        type="button"
+                        class="btn-add-cart inicio-agregar"
+                        data-id="webcam"
+                        data-precio="21500"
                     >
-                </div>
+                        Agregar al carrito
+                    </button>
 
-                <div class="prod-nombre">
-                    Webcam Full HD
-                </div>
-
-                <div class="prod-precio">¢21.500</div>
-
-                <button
-                    class="btn-add-cart"
-                    data-id="webcam"
-                    data-precio="21500">
-                    Agregar al carrito
-                </button>
+                </article>
 
             </div>
 
-        </div>
-    </section>
+        </section>
 
-    <!-- Pie de página -->
-    <footer class="footer">
+    </main>
+
+    <footer class="footer inicio-footer">
 
         <div class="footer-inner">
 
@@ -280,11 +311,8 @@
 
     </footer>
 
-    <!-- Cargar encabezado compartido -->
     <script src="/header.js"></script>
-
-    <!-- Funcionalidad de sesión y carrito -->
-    <script src="main.js"></script>
+    <script src="/main.js"></script>
 
 </body>
 </html>

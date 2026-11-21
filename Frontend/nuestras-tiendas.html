@@ -6,86 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestras tiendas - TechStore</title>
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/nuestras-tiendas.css">
 </head>
 
 <body class="tiendas-page">
 
-    <!-- Encabezado compartido -->
     <div id="header-techstore"></div>
 
-    <!-- Título y filtros -->
-    <section class="tiendas-intro">
-        <div class="tiendas-contenedor">
+    <main class="tiendas-contenedor">
+
+        <!-- Título -->
+        <section class="tiendas-intro">
             <h1>Encuentra tu tienda más cercana</h1>
+            <p>Conoce la ubicación de nuestras sucursales en Costa Rica.</p>
+            <div class="tiendas-linea"></div>
+        </section>
 
-            <p>
-                Consulta nuestras sucursales por provincia.
-            </p>
+        <div class="tiendas-layout">
 
-            <div class="tiendas-filtros" id="filtrosProvincias">
-                <button class="filtro-tienda activo" data-provincia="Todas">
-                    Todas
-                </button>
+            <!-- Mapa -->
+            <section class="tiendas-mapa">
+                <div class="mapa-interior">
+                    <img
+                        src="/img/mapa-costa-rica.png"
+                        alt="Mapa de Costa Rica"
+                        class="mapa-costa-rica"
+                    >
+                    <div id="marcadoresMapa"></div>
+                </div>
 
-                <button class="filtro-tienda" data-provincia="Alajuela">
-                    Alajuela
-                </button>
+                <p class="mapa-aviso">
+                    Ubicaciones aproximadas de demostración.
+                </p>
+            </section>
 
-                <button class="filtro-tienda" data-provincia="Cartago">
-                    Cartago
-                </button>
+            <!-- Sucursales -->
+            <section class="tiendas-listado">
+                <h2>Nuestras sucursales</h2>
+                <div id="listaSucursales"></div>
+            </section>
 
-                <button class="filtro-tienda" data-provincia="Heredia">
-                    Heredia
-                </button>
-
-                <button class="filtro-tienda" data-provincia="San José">
-                    San José
-                </button>
-
-                <button class="filtro-tienda" data-provincia="Guanacaste">
-                    Guanacaste
-                </button>
-
-                <button class="filtro-tienda" data-provincia="Limón">
-                    Limón
-                </button>
-
-                <button class="filtro-tienda" data-provincia="Puntarenas">
-                    Puntarenas
-                </button>
-            </div>
         </div>
-    </section>
-
-    <!-- Sucursales y mapa -->
-    <main class="tiendas-contenedor tiendas-layout">
-
-        <section class="tiendas-listado">
-            <div id="listaSucursales"></div>
-        </section>
-
-        <section class="tiendas-mapa">
-            <div class="mapa-interior">
-
-                <img
-                    src="img/mapa-costa-rica.png"
-                    alt="Mapa de Costa Rica"
-                    class="mapa-costa-rica"
-                >
-
-                <div id="marcadoresMapa"></div>
-            </div>
-
-            <p class="mapa-aviso">
-                Ubicaciones ilustrativas. Pendiente confirmar
-                las direcciones de las sucursales.
-            </p>
-        </section>
-
     </main>
 
-    <!-- Pie de página -->
     <footer class="tiendas-footer">
         <p>© TechStore. Todos los derechos reservados.</p>
     </footer>
@@ -93,144 +56,136 @@
     <script src="/header.js"></script>
 
     <script>
+        // Datos de las sucursales
         const sucursales = [
             {
                 id: 1,
-                nombre: "Tienda Alajuela",
-                provincia: "Alajuela",
-                x: 45,
-                y: 25
-            },
-            {
-                id: 2,
-                nombre: "Tienda Cartago",
-                provincia: "Cartago",
-                x: 61,
-                y: 46
-            },
-            {
-                id: 3,
-                nombre: "Tienda Heredia",
-                provincia: "Heredia",
-                x: 56,
-                y: 27
-            },
-            {
-                id: 4,
-                nombre: "Tienda San José",
+                nombre: "TechStore San José",
                 provincia: "San José",
+                direccion: "Avenida Central, San José.",
                 x: 50,
                 y: 46
             },
             {
+                id: 2,
+                nombre: "TechStore Alajuela",
+                provincia: "Alajuela",
+                direccion: "Plaza Real, Alajuela.",
+                x: 45,
+                y: 25
+            },
+            {
+                id: 3,
+                nombre: "TechStore Cartago",
+                provincia: "Cartago",
+                direccion: "Diagonal al TEC, Cartago.",
+                x: 61,
+                y: 46
+            },
+            {
+                id: 4,
+                nombre: "TechStore Heredia",
+                provincia: "Heredia",
+                direccion: "Centro Comercial Oxígeno, Heredia.",
+                x: 56,
+                y: 27
+            },
+            {
                 id: 5,
-                nombre: "Tienda Guanacaste",
+                nombre: "TechStore Guanacaste",
                 provincia: "Guanacaste",
+                direccion: "Liberia, frente al hospital.",
                 x: 30,
                 y: 28
             },
             {
                 id: 6,
-                nombre: "Tienda Limón",
+                nombre: "TechStore Limón",
                 provincia: "Limón",
+                direccion: "Avenida 2, Limón Centro.",
                 x: 80,
                 y: 48
             },
             {
                 id: 7,
-                nombre: "Tienda Puntarenas",
+                nombre: "TechStore Puntarenas",
                 provincia: "Puntarenas",
+                direccion: "Paseo de las Brisas, Puntarenas.",
                 x: 80,
                 y: 70
             }
         ];
 
-        let provinciaSeleccionada = "Todas";
         let sucursalSeleccionada = 1;
 
         const lista = document.getElementById("listaSucursales");
         const marcadores = document.getElementById("marcadoresMapa");
-        const filtros = document.getElementById("filtrosProvincias");
 
-        function obtenerSucursalesVisibles() {
-            if (provinciaSeleccionada === "Todas") {
-                return sucursales;
-            }
-
-            return sucursales.filter(
-                sucursal =>
-                    sucursal.provincia === provinciaSeleccionada
-            );
-        }
-
+        // Seleccionar sucursal
         function seleccionarSucursal(id) {
             sucursalSeleccionada = id;
             renderizarSucursales();
         }
 
+        // Mostrar tarjetas y marcadores
         function renderizarSucursales() {
-            const visibles = obtenerSucursalesVisibles();
-
             lista.innerHTML = "";
             marcadores.innerHTML = "";
 
-            if (visibles.length === 0) {
-                lista.textContent = "No hay sucursales disponibles.";
-                return;
-            }
-
-            visibles.forEach(sucursal => {
-
-                const tarjeta = document.createElement("article");
+            sucursales.forEach(sucursal => {
+                const tarjeta = document.createElement("button");
+                tarjeta.type = "button";
                 tarjeta.className = "tienda-tarjeta";
 
                 if (sucursal.id === sucursalSeleccionada) {
                     tarjeta.classList.add("seleccionada");
                 }
 
-                const encabezado = document.createElement("div");
-                encabezado.className = "tienda-tarjeta-encabezado";
+                const icono = document.createElement("span");
+                icono.className = "tienda-icono";
+                icono.setAttribute("aria-hidden", "true");
 
-                const numero = document.createElement("span");
-                numero.className = "tienda-numero";
-                numero.textContent = sucursal.id;
+                icono.innerHTML = `
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="1.8"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 10h18l-2-6H5l-2 6Z"/>
+                        <path d="M5 10v10h14V10"/>
+                        <path d="M9 20v-6h6v6"/>
+                        <path d="M3 10c0 2 3 3 4.5 1"/>
+                        <path d="M7.5 11c1.5 2 3 2 4.5 0"/>
+                        <path d="M12 11c1.5 2 3 2 4.5 0"/>
+                        <path d="M16.5 11c1.5 2 4.5 1 4.5-1"/>
+                    </svg>
+                `;
 
                 const informacion = document.createElement("div");
+                informacion.className = "tienda-informacion";
 
-                const nombre = document.createElement("h2");
+                const nombre = document.createElement("h3");
                 nombre.textContent = sucursal.nombre;
 
                 const direccion = document.createElement("p");
-                direccion.textContent =
-                    "Dirección pendiente de confirmar";
+                direccion.textContent = sucursal.direccion;
 
-                const horario = document.createElement("p");
-                horario.textContent =
-                    "Horario y teléfono pendientes";
+                informacion.append(nombre, direccion);
 
-                informacion.append(nombre, direccion, horario);
-                encabezado.append(numero, informacion);
+                // Número de la sucursal
+                const numero = document.createElement("span");
+                numero.className = "tienda-provincia";
+                numero.textContent = sucursal.id;
 
-                const acciones = document.createElement("div");
-                acciones.className = "tienda-acciones";
+                tarjeta.append(icono, informacion, numero);
 
-                const botonSeleccionar =
-                    document.createElement("button");
-
-                botonSeleccionar.className = "btn-tienda";
-                botonSeleccionar.textContent = "Ver en mapa";
-
-                botonSeleccionar.addEventListener("click", () => {
+                tarjeta.addEventListener("click", () => {
                     seleccionarSucursal(sucursal.id);
                 });
 
-                acciones.appendChild(botonSeleccionar);
-                tarjeta.append(encabezado, acciones);
                 lista.appendChild(tarjeta);
 
-                // Marcador del mapa
+                // Número en el mapa
                 const marcador = document.createElement("button");
-
+                marcador.type = "button";
                 marcador.className = "marcador-tienda";
                 marcador.textContent = sucursal.id;
                 marcador.style.left = sucursal.x + "%";
@@ -254,32 +209,6 @@
             });
         }
 
-        // Filtros de provincias
-        filtros.addEventListener("click", function(evento) {
-            const boton = evento.target.closest(".filtro-tienda");
-
-            if (!boton) {
-                return;
-            }
-
-            provinciaSeleccionada = boton.dataset.provincia;
-
-            document.querySelectorAll(".filtro-tienda")
-                .forEach(elemento => {
-                    elemento.classList.remove("activo");
-                });
-
-            boton.classList.add("activo");
-
-            const visibles = obtenerSucursalesVisibles();
-
-            sucursalSeleccionada =
-                visibles.length > 0 ? visibles[0].id : null;
-
-            renderizarSucursales();
-        });
-
-        // Mostrar sucursales
         renderizarSucursales();
     </script>
 

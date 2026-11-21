@@ -27,7 +27,14 @@ document.addEventListener('DOMContentLoaded', async function () {
                 const usuario = JSON.parse(datosSesion);
 
                 if (usuario.nombre) {
-                    linkAcceso.textContent = 'HOLA, ' + usuario.nombre;
+                    const textoAcceso =
+                        linkAcceso.querySelector('.texto-acceso');
+
+                    if (textoAcceso) {
+                        textoAcceso.textContent =
+                            'HOLA, ' + usuario.nombre;
+                    }
+
                     linkAcceso.href = '/pantalla-principal.html';
                 }
 
