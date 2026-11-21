@@ -15,9 +15,330 @@
     {
       "id": 3,
       "nombre": "Josimar Spencer Suarez",
-      "email": "spencer@gmail.com",
+      "email": "josimar122007@gmail.com",
       "password": "123456"
     }
   ],
-  "productos": []
+  "productos": [
+    {
+      "id": 101,
+      "tipo": "Monitor",
+      "nombre": "Monitor de oficina 22\"",
+      "precio": 59900,
+      "stock": 14,
+      "imagen": "/img/Catalogo/Monitor1.png"
+    },
+    {
+      "id": 102,
+      "tipo": "Monitor",
+      "nombre": "Monitor gamer 24\" 75Hz",
+      "precio": 74900,
+      "stock": 11,
+      "imagen": "/img/Catalogo/Monitor2.png"
+    },
+    {
+      "id": 103,
+      "tipo": "Monitor",
+      "nombre": "Monitor Full HD 24\" IPS",
+      "precio": 89900,
+      "stock": 18,
+      "imagen": "/img/Catalogo/Monitor3.png"
+    },
+    {
+      "id": 104,
+      "tipo": "Monitor",
+      "nombre": "Monitor gamer 24\" 144Hz",
+      "precio": 104900,
+      "stock": 13,
+      "imagen": "/img/Catalogo/Monitor4.png"
+    },
+    {
+      "id": 105,
+      "tipo": "Monitor",
+      "nombre": "Monitor curvo 27\" Full HD",
+      "precio": 119900,
+      "stock": 16,
+      "imagen": "/img/Catalogo/Monitor5.png"
+    },
+    {
+      "id": 106,
+      "tipo": "Monitor",
+      "nombre": "Monitor gamer 27\" 165Hz",
+      "precio": 134900,
+      "stock": 12,
+      "imagen": "/img/Catalogo/Monitor6.png"
+    },
+    {
+      "id": 107,
+      "tipo": "Monitor",
+      "nombre": "Monitor 4K 27\" UHD",
+      "precio": 149900,
+      "stock": 10,
+      "imagen": "/img/Catalogo/Monitor7.png"
+    },
+    {
+      "id": 108,
+      "tipo": "Monitor",
+      "nombre": "Monitor ultrawide 29\"",
+      "precio": 164900,
+      "stock": 15,
+      "imagen": "/img/Catalogo/Monitor8.png"
+    },
+    {
+      "id": 109,
+      "tipo": "Monitor",
+      "nombre": "Monitor gamer 27\" 240Hz",
+      "precio": 179900,
+      "stock": 17,
+      "imagen": "/img/Catalogo/Monitor9.png"
+    },
+    {
+      "id": 110,
+      "tipo": "Monitor",
+      "nombre": "Monitor ultrawide 34\" curvo",
+      "precio": 194900,
+      "stock": 19,
+      "imagen": "/img/Catalogo/Monitor10.png"
+    },
+    {
+      "id": 201,
+      "tipo": "Teclado",
+      "nombre": "Teclado de membrana básico",
+      "precio": 22500,
+      "stock": 16,
+      "imagen": "/img/Catalogo/Teclado1.png"
+    },
+    {
+      "id": 202,
+      "tipo": "Teclado",
+      "nombre": "Teclado inalámbrico compacto",
+      "precio": 30500,
+      "stock": 13,
+      "imagen": "/img/Catalogo/Teclado2.png"
+    },
+    {
+      "id": 203,
+      "tipo": "Teclado",
+      "nombre": "Teclado mecánico switches azules",
+      "precio": 38500,
+      "stock": 11,
+      "imagen": "/img/Catalogo/Teclado3.png"
+    },
+    {
+      "id": 204,
+      "tipo": "Teclado",
+      "nombre": "Teclado mecánico 60%",
+      "precio": 46500,
+      "stock": 18,
+      "imagen": "/img/Catalogo/Teclado4.png"
+    },
+    {
+      "id": 205,
+      "tipo": "Teclado",
+      "nombre": "Teclado gamer RGB membrana",
+      "precio": 54500,
+      "stock": 14,
+      "imagen": "/img/Catalogo/Teclado5.png"
+    },
+    {
+      "id": 206,
+      "tipo": "Teclado",
+      "nombre": "Teclado mecánico TKL RGB",
+      "precio": 62500,
+      "stock": 12,
+      "imagen": "/img/Catalogo/Teclado6.png"
+    },
+    {
+      "id": 207,
+      "tipo": "Teclado",
+      "nombre": "Teclado mecánico 75% hot-swap",
+      "precio": 70500,
+      "stock": 17,
+      "imagen": "/img/Catalogo/Teclado7.png"
+    },
+    {
+      "id": 208,
+      "tipo": "Teclado",
+      "nombre": "Teclado gamer mecánico full-size",
+      "precio": 78500,
+      "stock": 10,
+      "imagen": "/img/Catalogo/Teclado8.png"
+    },
+    {
+      "id": 209,
+      "tipo": "Teclado",
+      "nombre": "Teclado mecánico premium wireless",
+      "precio": 86500,
+      "stock": 15,
+      "imagen": "/img/Catalogo/Teclado9.png"
+    },
+    {
+      "id": 210,
+      "tipo": "Teclado",
+      "nombre": "Teclado mecánico gaming RGB premium",
+      "precio": 94500,
+      "stock": 20,
+      "imagen": "/img/Catalogo/Teclado10.png"
+    },
+    {
+      "id": 301,
+      "tipo": "Mouse",
+      "nombre": "Mouse básico inalámbrico",
+      "precio": 14900,
+      "stock": 15,
+      "imagen": "/img/Catalogo/Mouse1.png"
+    },
+    {
+      "id": 302,
+      "tipo": "Mouse",
+      "nombre": "Mouse inalámbrico compacto",
+      "precio": 21900,
+      "stock": 12,
+      "imagen": "/img/Catalogo/Mouse2.png"
+    },
+    {
+      "id": 303,
+      "tipo": "Mouse",
+      "nombre": "Mouse ergonómico vertical",
+      "precio": 28900,
+      "stock": 18,
+      "imagen": "/img/Catalogo/Mouse3.png"
+    },
+    {
+      "id": 304,
+      "tipo": "Mouse",
+      "nombre": "Mouse gamer RGB",
+      "precio": 35900,
+      "stock": 14,
+      "imagen": "/img/Catalogo/Mouse4.png"
+    },
+    {
+      "id": 305,
+      "tipo": "Mouse",
+      "nombre": "Mouse gamer profesional",
+      "precio": 42900,
+      "stock": 11,
+      "imagen": "/img/Catalogo/Mouse5.png"
+    },
+    {
+      "id": 306,
+      "tipo": "Mouse",
+      "nombre": "Mouse óptico de alta precisión",
+      "precio": 49900,
+      "stock": 17,
+      "imagen": "/img/Catalogo/Mouse6.png"
+    },
+    {
+      "id": 307,
+      "tipo": "Mouse",
+      "nombre": "Mouse inalámbrico silencioso",
+      "precio": 56900,
+      "stock": 13,
+      "imagen": "/img/Catalogo/Mouse7.png"
+    },
+    {
+      "id": 308,
+      "tipo": "Mouse",
+      "nombre": "Mouse gamer ultraligero",
+      "precio": 63900,
+      "stock": 19,
+      "imagen": "/img/Catalogo/Mouse8.png"
+    },
+    {
+      "id": 309,
+      "tipo": "Mouse",
+      "nombre": "Mouse ergonómico premium",
+      "precio": 70900,
+      "stock": 10,
+      "imagen": "/img/Catalogo/Mouse9.png"
+    },
+    {
+      "id": 310,
+      "tipo": "Mouse",
+      "nombre": "Mouse gamer inalámbrico RGB",
+      "precio": 77900,
+      "stock": 16,
+      "imagen": "/img/Catalogo/Mouse10.png"
+    },
+    {
+      "id": 401,
+      "tipo": "Audífonos",
+      "nombre": "Audífonos básicos con cable",
+      "precio": 19900,
+      "stock": 18,
+      "imagen": "/img/Catalogo/Audifonos1.png"
+    },
+    {
+      "id": 402,
+      "tipo": "Audífonos",
+      "nombre": "Audífonos inalámbricos Bluetooth",
+      "precio": 28900,
+      "stock": 14,
+      "imagen": "/img/Catalogo/Audifonos2.png"
+    },
+    {
+      "id": 403,
+      "tipo": "Audífonos",
+      "nombre": "Audífonos over-ear cerrados",
+      "precio": 37900,
+      "stock": 11,
+      "imagen": "/img/Catalogo/Audifonos3.png"
+    },
+    {
+      "id": 404,
+      "tipo": "Audífonos",
+      "nombre": "Audífonos gamer con micrófono",
+      "precio": 46900,
+      "stock": 16,
+      "imagen": "/img/Catalogo/Audifonos4.png"
+    },
+    {
+      "id": 405,
+      "tipo": "Audífonos",
+      "nombre": "Audífonos inalámbricos con cancelación de ruido",
+      "precio": 55900,
+      "stock": 13,
+      "imagen": "/img/Catalogo/Audifonos5.png"
+    },
+    {
+      "id": 406,
+      "tipo": "Audífonos",
+      "nombre": "Audífonos gamer RGB 7.1",
+      "precio": 64900,
+      "stock": 17,
+      "imagen": "/img/Catalogo/Audifonos6.png"
+    },
+    {
+      "id": 407,
+      "tipo": "Audífonos",
+      "nombre": "Audífonos inalámbricos premium",
+      "precio": 73900,
+      "stock": 12,
+      "imagen": "/img/Catalogo/Audifonos7.png"
+    },
+    {
+      "id": 408,
+      "tipo": "Audífonos",
+      "nombre": "Audífonos gamer inalámbricos",
+      "precio": 82900,
+      "stock": 19,
+      "imagen": "/img/Catalogo/Audifonos8.png"
+    },
+    {
+      "id": 409,
+      "tipo": "Audífonos",
+      "nombre": "Audífonos profesionales estudio",
+      "precio": 91900,
+      "stock": 10,
+      "imagen": "/img/Catalogo/Audifonos9.png"
+    },
+    {
+      "id": 410,
+      "tipo": "Audífonos",
+      "nombre": "Audífonos gamer premium wireless RGB",
+      "precio": 100900,
+      "stock": 15,
+      "imagen": "/img/Catalogo/Audifonos10.png"
+    }
+  ]
 }
