@@ -1,21 +1,86 @@
 # Proyecto_3_Diseño
-Instrucciones para ejecutar el proyecto
+1. Requisitos previos
+Para ejecutar el proyecto, se recomienda contar con los siguientes programas instalados:
+- Visual Studio Code.
+- Node.js (versión LTS).
+- Navegador web, preferiblemente Google Chrome o Microsoft Edge.
+- Git (opcional, si se desea clonar el repositorio).
 
-Para ejecutar TechStore de manera local, es necesario contar con Node.js y npm instalados en la computadora.
+Node.js se puede descargar desde la página oficial: https://nodejs.org/es/download
 
-Paso 1. Clonar el repositorio de GitHub o descargar el proyecto en formato ZIP y descomprimirlo.
-Paso 2. Abrir la carpeta del proyecto en Visual Studio Code.
-Paso 3. Abrir una terminal e ingresar a la carpeta del backend mediante el siguiente comando:
+Durante la instalación, se recomienda mantener las opciones predeterminadas, incluyendo npm y la incorporación de Node.js al PATH del sistema.
+
+2. Descargar y abrir el proyecto
+   
+1. Ingresar al repositorio de GitHub del proyecto.
+2. Descargar el proyecto en formato ZIP o clonar el repositorio mediante Git.
+3. Descomprimir el archivo en caso de haber descargado el ZIP.
+4. Abrir la carpeta principal del proyecto en Visual Studio Code.
+5. Abrir una terminal desde la opción Terminal → Nueva terminal.
+3. Verificar la instalación de Node.js
+Ejecutar los siguientes comandos en la terminal:
+node -v
+
+
+npm -v
+
+
+Si ambos comandos muestran sus respectivas versiones, se puede continuar con la instalación del proyecto.
+Si no También es posible cambiar el tipo de terminal de Visual Studio Code a Command Prompt (CMD) y utilizar los comandos de npm normalmente.
+
+Si todo fue bien:
+4. Instalar las dependencias
+Desde la terminal de Visual Studio Code, ingresar a la carpeta Backend:
 cd Backend
-Paso 4. Instalar las dependencias necesarias para el funcionamiento del sistema:
+
+
+Una vez dentro de esta carpeta, ejecutar:
 npm install
-Paso 5. Iniciar el servidor ejecutando el siguiente comando:
+
+
+Este comando instalará automáticamente las dependencias establecidas en el archivo package.json y generará la carpeta node_modules, necesaria para el funcionamiento del servidor.
+5. Ejecutar el servidor
+Desde la misma carpeta Backend, ejecutar:
 node server.js
-Paso 6. Abrir el navegador e ingresar a la siguiente dirección:
-http://localhost:5000
 
-Una vez realizados estos pasos, se mostrará la pantalla de inicio de sesión de TechStore, desde la cual se podrá registrar un usuario y acceder a las funcionalidades del sistema.
 
-Consideraciones importantes:
-- No es necesario instalar ni configurar una base de datos, debido a que el sistema utiliza archivos JSON.
-- La terminal debe permanecer abierta mientras se utiliza la aplicación.
+Una vez iniciado el servidor, abrir el navegador e ingresar a la siguiente dirección:
+
+**http://localhost:5000**
+
+Se mostrará la pantalla de inicio de sesión de TechStore, desde la cual se podrá registrar un usuario y acceder a las diferentes funcionalidades del sistema.
+
+En caso de ocurrir un error en Powershell. Poner los siguientes comandos en modo cmd
+
+npm.cmd -v
+
+
+Ingresar a la carpeta Backend, si todavía no se encuentra dentro de ella:
+cd Backend
+
+
+Instalar las dependencias:
+npm.cmd install
+
+
+Iniciar el servidor:
+node server.js
+
+
+
+6.Resumen de comandos
+los comandos necesarios para ejecutar el proyecto una vez tenga todo instalado son:
+cd Backend
+npm install
+node server.js
+
+
+7.En caso de presentar restricciones de PowerShell:
+cd Backend
+npm.cmd install
+node server.js
+
+
+Finalmente, acceder desde el navegador a:
+
+**http://localhost:5000**
