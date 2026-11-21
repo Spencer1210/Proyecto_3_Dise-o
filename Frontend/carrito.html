@@ -1,44 +1,21 @@
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Tu carrito - TechStore</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="carrito.css">
+
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/carrito.css">
 </head>
 
 <body class="carrito-page">
 
-    <header class="header">
-        <div class="header-inner">
-            <a href="/pantalla-principal.html" class="marca">
-                TechStore
-            </a>
-
-            <div class="buscador">
-                <input type="search" placeholder="Búsqueda de productos...">
-            </div>
-
-            <nav class="header-nav">
-                <a href="/" id="linkAcceso">ACCESO / REGISTRO</a>
-                <a href="/carrito.html" id="linkCarrito">
-                    CARRITO <span id="carritoTotal">¢0</span>
-                </a>
-            </nav>
-        </div>
-    </header>
-
-    <nav class="navbar">
-        <div class="navbar-inner">
-            <a href="/categorias.html">VER CATEGORÍAS</a>
-            <a href="#">ARMA TU PC</a>
-            <a href="/nuestras-tiendas.html">NUESTRAS TIENDAS</a>
-            <a href="/metodos-pago.html">MÉTODOS DE PAGO</a>
-            <a href="#">INFORMACIÓN</a>
-        </div>
-    </nav>
+    <!-- Encabezado compartido -->
+    <div id="header-techstore"></div>
 
     <main class="carrito-contenedor">
 
@@ -47,27 +24,38 @@
         </div>
 
         <h1>Tu carrito</h1>
-        <p class="carrito-subtitulo" id="cantidadProductos">0 productos</p>
+
+        <p class="carrito-subtitulo" id="cantidadProductos">
+            0 productos
+        </p>
 
         <div class="carrito-layout">
 
+            <!-- Productos del carrito -->
             <section class="carrito-izquierda">
 
                 <div class="carrito-envio">
+
                     <p id="mensajeEnvio"></p>
+
                     <div class="carrito-barra">
                         <div id="progresoEnvio"></div>
                     </div>
+
                 </div>
 
                 <div id="listaCarrito" class="carrito-lista"></div>
 
-                <a href="/pantalla-principal.html" class="carrito-seguir">
+                <a href="/pantalla-principal.html"
+                   class="carrito-seguir">
                     ← Seguir comprando
                 </a>
+
             </section>
 
+            <!-- Resumen del pedido -->
             <aside class="carrito-resumen">
+
                 <h2>Resumen del pedido</h2>
 
                 <div class="resumen-linea">
@@ -85,333 +73,225 @@
                     <span id="descuento">¢0</span>
                 </div>
 
+                <!-- Aplicar descuento -->
                 <div class="carrito-cupon">
+
                     <input
                         type="text"
                         id="codigoDescuento"
                         placeholder="Código de descuento"
+                        aria-label="Código de descuento"
+                        autocomplete="off"
                     >
-                    <button id="aplicarDescuento">Aplicar</button>
+
+                    <button id="aplicarDescuento" type="button">
+                        Aplicar
+                    </button>
+
                 </div>
 
-                <p id="mensajeDescuento" class="mensaje-cupon"></p>
+                <p id="mensajeDescuento"
+                   class="mensaje-cupon"
+                   aria-live="polite"></p>
+
+                <!-- Cupón aplicado -->
+                <div id="cuponAplicado"
+                     class="cupon-aplicado"
+                     hidden>
+
+                    <span id="nombreCuponAplicado"></span>
+
+                    <button
+                        id="quitarDescuento"
+                        class="btn-quitar-cupon"
+                        type="button">
+                        Quitar
+                    </button>
+
+                </div>
+
+                <!-- Cupones disponibles -->
+                <section class="cupones-disponibles">
+
+                    <h3>Cupones disponibles</h3>
+
+                    <p class="cupones-descripcion">
+                        Aprovechá nuestros descuentos.
+                    </p>
+
+                    <div id="listaCupones"
+                         class="lista-cupones">
+
+                        <p>Cargando cupones...</p>
+
+                    </div>
+
+                </section>
 
                 <div class="resumen-total">
                     <strong>Total</strong>
                     <strong id="total">¢0</strong>
                 </div>
 
-                <button id="finalizarCompra" class="btn-finalizar">
+                <button
+                    id="finalizarCompra"
+                    class="btn-finalizar"
+                    type="button"
+                    disabled>
                     Finalizar compra
                 </button>
 
-                <p class="carrito-seguridad">Pago seguro</p>
+                <p class="carrito-seguridad">
+                    Pago seguro
+                </p>
+
             </aside>
 
         </div>
 
+        <!-- Productos recomendados -->
         <section class="carrito-recomendados">
+
             <h2>Te puede interesar</h2>
 
             <div class="recomendados-grid">
 
                 <article class="recomendado">
+
                     <div class="recomendado-foto">
-                        <img src="img/MouseErgonomica.png" alt="Mouse ergonómico">
+                        <img
+                            src="/img/MouseErgonomica.png"
+                            alt="Mouse ergonómico">
                     </div>
+
                     <h3>Mouse inalámbrico ergonómico</h3>
+
                     <p>¢14.900</p>
-                    <button data-id="mouse">Agregar</button>
+
+                    <button data-id="mouse" type="button">
+                        Agregar
+                    </button>
+
                 </article>
 
                 <article class="recomendado">
+
                     <div class="recomendado-foto">
-                        <img src="img/WebcamHD.png" alt="Webcam Full HD">
+                        <img
+                            src="/img/WebcamHD.png"
+                            alt="Webcam Full HD">
                     </div>
+
                     <h3>Webcam Full HD</h3>
+
                     <p>¢21.500</p>
-                    <button data-id="webcam">Agregar</button>
+
+                    <button data-id="webcam" type="button">
+                        Agregar
+                    </button>
+
                 </article>
 
                 <article class="recomendado">
+
                     <div class="recomendado-foto">
-                        <img src="img/TecladoMecanico.png" alt="Teclado mecánico">
+                        <img
+                            src="/img/TecladoMecanico.png"
+                            alt="Teclado mecánico">
                     </div>
+
                     <h3>Teclado mecánico 75 %</h3>
+
                     <p>¢42.500</p>
-                    <button data-id="teclado">Agregar</button>
+
+                    <button data-id="teclado" type="button">
+                        Agregar
+                    </button>
+
                 </article>
 
                 <article class="recomendado">
+
                     <div class="recomendado-foto">
-                        <img src="img/AuricularesMicro.png" alt="Auriculares">
+                        <img
+                            src="/img/AuricularesMicro.png"
+                            alt="Auriculares">
                     </div>
+
                     <h3>Auriculares con micrófono</h3>
+
                     <p>¢27.900</p>
-                    <button data-id="auriculares">Agregar</button>
+
+                    <button data-id="auriculares" type="button">
+                        Agregar
+                    </button>
+
                 </article>
 
             </div>
+
         </section>
 
     </main>
 
+    <!-- Footer -->
     <footer class="carrito-footer">
         © TechStore. Todos los derechos reservados.
     </footer>
 
-    <script src="main.js"></script>
+    <!-- Confirmación de compra -->
+    <dialog
+        id="confirmacionCompra"
+        class="confirmacion-compra"
+        aria-labelledby="tituloConfirmacion"
+        aria-describedby="mensajeConfirmacion">
 
-    <script>
-        const CLAVE_CARRITO_PAGINA = 'carritoTechStore';
+        <div class="confirmacion-icono">
 
-        const productosRecomendados = {
-            mouse: {
-                id: 'mouse',
-                nombre: 'Mouse inalámbrico ergonómico',
-                precio: 14900,
-                imagen: 'img/MouseErgonomica.png'
-            },
-            webcam: {
-                id: 'webcam',
-                nombre: 'Webcam Full HD',
-                precio: 21500,
-                imagen: 'img/WebcamHD.png'
-            },
-            teclado: {
-                id: 'teclado',
-                nombre: 'Teclado mecánico 75 %',
-                precio: 42500,
-                imagen: 'img/TecladoMecanico.png'
-            },
-            auriculares: {
-                id: 'auriculares',
-                nombre: 'Auriculares con micrófono',
-                precio: 27900,
-                imagen: 'img/AuricularesMicro.png'
-            }
-        };
+            <svg
+                viewBox="0 0 24 24"
+                width="48"
+                height="48"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true">
 
-        function leerCarrito() {
-            try {
-                const datos = JSON.parse(
-                    localStorage.getItem(CLAVE_CARRITO_PAGINA) || '[]'
-                );
-                return Array.isArray(datos) ? datos : [];
-            } catch (error) {
-                return [];
-            }
-        }
+                <path d="M5 12l4 4L19 6"></path>
 
-        let carrito = leerCarrito();
-        let descuentoActivo = false;
+            </svg>
 
-        function guardarCarrito() {
-            localStorage.setItem(
-                CLAVE_CARRITO_PAGINA,
-                JSON.stringify(carrito)
-            );
-        }
+        </div>
 
-        function formatoPrecio(valor) {
-            return '¢' + valor.toLocaleString('es-CR');
-        }
+        <span class="confirmacion-marca">
+            TechStore
+        </span>
 
-        function agregarProducto(id) {
-            const producto = productosRecomendados[id];
-            if (!producto) return;
+        <h2 id="tituloConfirmacion">
+            ¡Gracias por su compra!
+        </h2>
 
-            const existente = carrito.find(p => p.id === id);
+        <p id="mensajeConfirmacion">
+            Le agradecemos por contar con nosotros
+            y confiar en TechStore.
+        </p>
 
-            if (existente) {
-                existente.cantidad++;
-            } else {
-                carrito.push({ ...producto, cantidad: 1 });
-            }
+        <p>
+            ¡Esperamos verle pronto!
+        </p>
 
-            guardarCarrito();
-            renderizarCarrito();
-        }
+        <a href="/pantalla-principal.html"
+           class="confirmacion-boton">
+            Seguir comprando
+        </a>
 
-        function cambiarCantidad(id, cambio) {
-            const producto = carrito.find(p => p.id === id);
-            if (!producto) return;
+    </dialog>
 
-            producto.cantidad += cambio;
-
-            if (producto.cantidad <= 0) {
-                carrito = carrito.filter(p => p.id !== id);
-            }
-
-            guardarCarrito();
-            renderizarCarrito();
-        }
-
-        function eliminarProducto(id) {
-            carrito = carrito.filter(p => p.id !== id);
-            guardarCarrito();
-            renderizarCarrito();
-        }
-
-        function renderizarCarrito() {
-            const lista = document.getElementById('listaCarrito');
-            lista.innerHTML = '';
-
-            const cantidad = carrito.reduce(
-                (total, p) => total + p.cantidad, 0
-            );
-
-            const subtotal = carrito.reduce(
-                (total, p) => total + p.precio * p.cantidad, 0
-            );
-
-            // Valores de demostración.
-            const envioGratisDesde = 150000;
-            const restante = Math.max(0, envioGratisDesde - subtotal);
-
-            document.getElementById('cantidadProductos').textContent =
-                cantidad + (cantidad === 1 ? ' producto' : ' productos');
-
-            document.getElementById('mensajeEnvio').textContent =
-                restante > 0
-                    ? 'Te faltan ' + formatoPrecio(restante) +
-                      ' para tener envío gratis.'
-                    : '¡Tu pedido alcanza el mínimo para envío gratis!';
-
-            document.getElementById('progresoEnvio').style.width =
-                Math.min(100, subtotal / envioGratisDesde * 100) + '%';
-
-            if (carrito.length === 0) {
-                const mensaje = document.createElement('p');
-                mensaje.className = 'carrito-vacio';
-                mensaje.textContent = 'Tu carrito está vacío.';
-                lista.appendChild(mensaje);
-            }
-
-            carrito.forEach(producto => {
-                const fila = document.createElement('article');
-                fila.className = 'carrito-producto';
-
-                const foto = document.createElement('div');
-                foto.className = 'carrito-producto-foto';
-
-                if (producto.imagen) {
-                    const img = document.createElement('img');
-                    img.src = producto.imagen;
-                    img.alt = producto.nombre;
-                    foto.appendChild(img);
-                } else {
-                    foto.textContent = 'Sin imagen';
-                }
-
-                const detalle = document.createElement('div');
-                detalle.className = 'carrito-producto-detalle';
-
-                const nombre = document.createElement('h3');
-                nombre.textContent = producto.nombre;
-
-                const precioUnitario = document.createElement('p');
-                precioUnitario.textContent =
-                    'Precio: ' + formatoPrecio(producto.precio);
-
-                const eliminar = document.createElement('button');
-                eliminar.className = 'carrito-eliminar';
-                eliminar.textContent = 'Eliminar';
-                eliminar.addEventListener('click', () => {
-                    eliminarProducto(producto.id);
-                });
-
-                detalle.append(nombre, precioUnitario, eliminar);
-
-                const controles = document.createElement('div');
-                controles.className = 'carrito-cantidad';
-
-                const menos = document.createElement('button');
-                menos.textContent = '−';
-                menos.addEventListener('click', () => {
-                    cambiarCantidad(producto.id, -1);
-                });
-
-                const numero = document.createElement('span');
-                numero.textContent = producto.cantidad;
-
-                const mas = document.createElement('button');
-                mas.textContent = '+';
-                mas.addEventListener('click', () => {
-                    cambiarCantidad(producto.id, 1);
-                });
-
-                controles.append(menos, numero, mas);
-
-                const precio = document.createElement('strong');
-                precio.className = 'carrito-precio';
-                precio.textContent = formatoPrecio(
-                    producto.precio * producto.cantidad
-                );
-
-                fila.append(foto, detalle, controles, precio);
-                lista.appendChild(fila);
-            });
-
-            const descuento = descuentoActivo
-                ? Math.round(subtotal * 0.10)
-                : 0;
-
-            const total = subtotal - descuento;
-
-            document.getElementById('subtotal').textContent =
-                formatoPrecio(subtotal);
-
-            document.getElementById('descuento').textContent =
-                descuento ? '-' + formatoPrecio(descuento) : '¢0';
-
-            document.getElementById('total').textContent =
-                formatoPrecio(total);
-
-            document.getElementById('carritoTotal').textContent =
-                formatoPrecio(subtotal);
-
-            document.getElementById('finalizarCompra').disabled =
-                carrito.length === 0;
-        }
-
-        document.querySelectorAll('.recomendado button')
-            .forEach(boton => {
-                boton.addEventListener('click', () => {
-                    agregarProducto(boton.dataset.id);
-                });
-            });
-
-        document.getElementById('aplicarDescuento')
-            .addEventListener('click', () => {
-                const codigo = document.getElementById(
-                    'codigoDescuento'
-                ).value.trim().toUpperCase();
-
-                const mensaje = document.getElementById(
-                    'mensajeDescuento'
-                );
-
-                if (codigo === 'DEMO10') {
-                    descuentoActivo = true;
-                    mensaje.textContent = 'Descuento aplicado.';
-                } else {
-                    descuentoActivo = false;
-                    mensaje.textContent = 'Código no válido.';
-                }
-
-                renderizarCarrito();
-            });
-
-        document.getElementById('finalizarCompra')
-            .addEventListener('click', () => {
-                alert(
-                    'El proceso de pago todavía está pendiente de implementar.'
-                );
-            });
-
-        renderizarCarrito();
-    </script>
+    <script src="/header.js"></script>
+    <script src="/carrito.js"></script>
 
 </body>
+
 </html>

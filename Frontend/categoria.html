@@ -1,52 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Categoría - TechStore</title>
-    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body class="categoria-detalle-page">
 
-    <!-- Barra superior -->
-    <div class="topbar">
-        <div class="topbar-inner">
-            <span>Datos: 83074934 · tech@gmail.com</span>
-            <span>Envíos a todo el país</span>
-        </div>
-    </div>
+    <div id="header-techstore"></div>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="header-inner">
-            <nav class="header-nav">
-                <a href="#" id="linkCarrito">CARRITO <span id="carritoTotal">¢0</span></a>
-            </nav>
-            <div class="buscador">
-                <svg class="buscador-icono" viewBox="0 0 24 24">
-                    <circle cx="11" cy="11" r="8"/>
-                    <path d="m21 21-4.35-4.35"/>
-                </svg>
-                <input type="text" placeholder="Búsqueda de productos...">
-            </div>
-            <a href="/" class="marca marca-destacada">
-                <img src="img/logo-techstore.png" alt="TechStore" class="logo-tienda">
-            </a>
-        </div>
-    </header>
-
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-inner">
-            <a href="/pantalla-principal.html">VER CATEGORÍAS</a>
-            <a href="#">NUESTRAS TIENDAS</a>
-            <a href="#">MÉTODOS DE PAGO</a>
-            <a href="#">INFORMACIÓN</a>
-        </div>
-    </nav>
-
-    <!-- Contenido principal -->
     <main class="detalle-contenedor">
 
         <div class="detalle-ruta">
@@ -55,63 +23,157 @@
             <span id="rutaCategoria">Cargando...</span>
         </div>
 
-        <h1 class="detalle-titulo" id="tituloCategoria">Cargando...</h1>
+        <h1 class="detalle-titulo" id="tituloCategoria">
+            Cargando...
+        </h1>
 
         <div class="detalle-layout">
 
             <!-- Panel de filtros -->
             <aside class="filtros-panel">
+
                 <h2 class="filtros-titulo">Precio</h2>
 
                 <div class="filtro-precio">
-                    <input type="range" class="filtro-slider" id="sliderPrecio" min="0" max="300000" value="200000">
+
+                    <input
+                        type="range"
+                        class="filtro-slider"
+                        id="sliderPrecio"
+                        min="0"
+                        max="300000"
+                        value="200000"
+                    >
+
                     <div class="filtro-rangos">
-                        <input type="number" id="precioMin" value="0" placeholder="Mínimo">
-                        <input type="number" id="precioMax" value="200000" placeholder="Máximo">
+
+                        <input
+                            type="number"
+                            id="precioMin"
+                            value="0"
+                            placeholder="Mínimo"
+                        >
+
+                        <input
+                            type="number"
+                            id="precioMax"
+                            value="200000"
+                            placeholder="Máximo"
+                        >
+
                     </div>
-                    <button class="btn-aplicar" id="btnAplicarPrecio">Aplicar precio</button>
+
+                    <button
+                        class="btn-aplicar"
+                        id="btnAplicarPrecio">
+                        Aplicar precio
+                    </button>
+
                 </div>
 
                 <ul class="filtro-rangos-check">
+
                     <li>
-                        <input type="checkbox" id="rango1" value="0-100000">
-                        <label for="rango1">Menos de ₡100.000</label>
+                        <input
+                            type="checkbox"
+                            id="rango1"
+                            value="0-100000"
+                        >
+
+                        <label for="rango1">
+                            Menos de ₡100.000
+                        </label>
                     </li>
+
                     <li>
-                        <input type="checkbox" id="rango2" value="100000-200000">
-                        <label for="rango2">₡100.000 - ₡200.000</label>
+                        <input
+                            type="checkbox"
+                            id="rango2"
+                            value="100000-200000"
+                        >
+
+                        <label for="rango2">
+                            ₡100.000 - ₡200.000
+                        </label>
                     </li>
+
                     <li>
-                        <input type="checkbox" id="rango3" value="200000-300000">
-                        <label for="rango3">₡200.000 - ₡300.000</label>
+                        <input
+                            type="checkbox"
+                            id="rango3"
+                            value="200000-300000"
+                        >
+
+                        <label for="rango3">
+                            ₡200.000 - ₡300.000
+                        </label>
                     </li>
+
                     <li>
-                        <input type="checkbox" id="rango4" value="300000-999999">
-                        <label for="rango4">Más de ₡300.000</label>
+                        <input
+                            type="checkbox"
+                            id="rango4"
+                            value="300000-999999"
+                        >
+
+                        <label for="rango4">
+                            Más de ₡300.000
+                        </label>
                     </li>
+
                 </ul>
+
             </aside>
 
             <!-- Área de productos -->
             <section class="productos-area">
 
-                <!-- Filtros aplicados -->
-                <div class="filtros-aplicados" id="filtrosAplicados" style="display: none;">
+                <div
+                    class="filtros-aplicados"
+                    id="filtrosAplicados"
+                    style="display: none;"
+                >
+
                     <span>Filtros aplicados:</span>
-                    <span class="filtro-tag" id="filtroPrecioTag">
+
+                    <span
+                        class="filtro-tag"
+                        id="filtroPrecioTag"
+                    >
+
                         <span id="filtroPrecioTexto"></span>
-                        <span class="quitar" id="quitarFiltroPrecio">×</span>
+
+                        <span
+                            class="quitar"
+                            id="quitarFiltroPrecio">
+                            ×
+                        </span>
+
                     </span>
-                    <button class="limpiar-filtros" id="limpiarFiltros">Limpiar filtros</button>
+
+                    <button
+                        class="limpiar-filtros"
+                        id="limpiarFiltros">
+                        Limpiar filtros
+                    </button>
+
                 </div>
 
-                <!-- Grid de productos -->
-                <div class="productos-grid" id="productosGrid">
-                    <div class="cargando">Cargando productos...</div>
+                <div
+                    class="productos-grid"
+                    id="productosGrid"
+                >
+
+                    <div class="cargando">
+                        Cargando productos...
+                    </div>
+
                 </div>
 
-                <!-- Paginación -->
-                <div class="paginacion" id="paginacion"></div>
+                <div
+                    class="paginacion"
+                    id="paginacion">
+                </div>
 
             </section>
 
@@ -121,240 +183,647 @@
 
     <!-- Footer -->
     <footer class="footer">
+
         <div class="footer-inner">
+
             <div class="footer-col footer-marca">
+
                 <h3>TechStore</h3>
+
                 <p>83074934</p>
+
                 <p>tech@gmail.com</p>
+
                 <p>[DIRECCIÓN]</p>
+
             </div>
+
             <div class="footer-col">
+
                 <h4>Página</h4>
+
                 <a href="#">Inicio</a>
                 <a href="#">Productos</a>
                 <a href="#">Ofertas</a>
                 <a href="#">Contacto</a>
+
             </div>
+
             <div class="footer-col">
+
                 <h4>Ayuda</h4>
+
                 <a href="#">Métodos de pago</a>
                 <a href="#">Envíos</a>
                 <a href="#">Garantías</a>
+
             </div>
+
         </div>
-        <div class="footer-copy">© TechStore. Todos los derechos reservados.</div>
+
+        <div class="footer-copy">
+            © TechStore. Todos los derechos reservados.
+        </div>
+
     </footer>
 
     <script>
-        // ==========================================
-        // CONFIGURACIÓN DE CATEGORÍAS
-        // ==========================================
+
+        // Configuración de categorías
         const CONFIG_CATEGORIAS = {
-            'Monitor':   { idMin: 101, idMax: 110, titulo: 'Monitores' },
-            'Teclado':   { idMin: 201, idMax: 210, titulo: 'Teclados' },
-            'Mouse':     { idMin: 301, idMax: 310, titulo: 'Mouse' },
-            'Audífonos': { idMin: 401, idMax: 410, titulo: 'Audífonos' }
+
+            'Monitor': {
+                idMin: 101,
+                idMax: 110,
+                titulo: 'Monitores'
+            },
+
+            'Teclado': {
+                idMin: 201,
+                idMax: 210,
+                titulo: 'Teclados'
+            },
+
+            'Mouse': {
+                idMin: 301,
+                idMax: 310,
+                titulo: 'Mouse'
+            },
+
+            'Audífonos': {
+                idMin: 401,
+                idMax: 410,
+                titulo: 'Audífonos'
+            }
+
         };
 
-        // ==========================================
-        // LEER EL TIPO DESDE LA URL
-        // ==========================================
-        const params = new URLSearchParams(window.location.search);
+        // Leer categoría desde la URL
+        const params = new URLSearchParams(
+            window.location.search
+        );
+
         const tipoProducto = params.get('tipo');
+
         const config = CONFIG_CATEGORIAS[tipoProducto];
 
         if (!config) {
-            document.getElementById('tituloCategoria').textContent = 'Categoría no encontrada';
-            document.getElementById('rutaCategoria').textContent = '???';
-            document.getElementById('productosGrid').innerHTML = 
+
+            document.getElementById(
+                'tituloCategoria'
+            ).textContent = 'Categoría no encontrada';
+
+            document.getElementById(
+                'rutaCategoria'
+            ).textContent = '???';
+
+            document.getElementById(
+                'productosGrid'
+            ).innerHTML =
                 '<div class="cargando">Categoría no válida. Usa ?tipo=Monitor, Mouse, Teclado o Audífonos</div>';
+
         } else {
-            document.getElementById('tituloCategoria').textContent = config.titulo;
-            document.getElementById('rutaCategoria').textContent = config.titulo;
-            document.title = config.titulo + ' - TechStore';
+
+            document.getElementById(
+                'tituloCategoria'
+            ).textContent = config.titulo;
+
+            document.getElementById(
+                'rutaCategoria'
+            ).textContent = config.titulo;
+
+            document.title =
+                config.titulo + ' - TechStore';
+
         }
 
-        // ==========================================
-        // VARIABLES GLOBALES
-        // ==========================================
+        // Variables del catálogo
         let todosLosProductos = [];
         let productosFiltrados = [];
         let paginaActual = 1;
+        let agregandoProducto = false;
+
         const productosPorPagina = 9;
 
-        // ==========================================
-        // CARGAR PRODUCTOS
-        // ==========================================
+        // Cargar productos
         async function cargarProductos() {
+
             if (!config) return;
 
             try {
-                const response = await fetch('/api/productos');
-                const productos = await response.json();
-                
-                todosLosProductos = productos.filter(
-                    p => p.id >= config.idMin && p.id <= config.idMax
+
+                const response = await fetch(
+                    '/api/productos'
                 );
-                
-                todosLosProductos.sort((a, b) => a.id - b.id);
-                productosFiltrados = [...todosLosProductos];
-                
-                const precioMaximo = Math.max(...todosLosProductos.map(p => p.precio));
-                document.getElementById('precioMax').value = precioMaximo;
-                document.getElementById('sliderPrecio').max = precioMaximo;
-                document.getElementById('sliderPrecio').value = precioMaximo;
-                
-                renderizarProductos();
-                renderizarPaginacion();
-                
-            } catch (error) {
-                console.error('Error cargando productos:', error);
-                document.getElementById('productosGrid').innerHTML = 
-                    '<div class="cargando">Error al cargar los productos.</div>';
-            }
-        }
 
-        // ==========================================
-        // RENDERIZAR PRODUCTOS
-        // ==========================================
-        function renderizarProductos() {
-            const grid = document.getElementById('productosGrid');
-            const inicio = (paginaActual - 1) * productosPorPagina;
-            const fin = inicio + productosPorPagina;
-            const productosPagina = productosFiltrados.slice(inicio, fin);
-            
-            if (productosPagina.length === 0) {
-                grid.innerHTML = '<div class="cargando">No hay productos que coincidan con los filtros.</div>';
-                return;
-            }
-            
-            grid.innerHTML = productosPagina.map(producto => `
-                <article class="producto-card">
-                    <div class="producto-card-img">
-                        ${producto.oferta ? '<span class="badge-oferta">Oferta</span>' : ''}
-                        <img src="${producto.imagen}" alt="${producto.nombre}">
-                    </div>
-                    <h3>${producto.nombre}</h3>
-                    <p class="specs">Producto de alta calidad</p>
-                    <p class="precio">₡${producto.precio.toLocaleString('es-CR')}</p>
-                    <button class="btn-agregar" onclick="agregarAlCarrito(${producto.id})">Agregar al carrito</button>
-                </article>
-            `).join('');
-        }
-
-        // ==========================================
-        // RENDERIZAR PAGINACIÓN
-        // ==========================================
-        function renderizarPaginacion() {
-            const paginacion = document.getElementById('paginacion');
-            const totalPaginas = Math.ceil(productosFiltrados.length / productosPorPagina);
-            
-            if (totalPaginas <= 1) {
-                paginacion.innerHTML = '';
-                return;
-            }
-            
-            let html = '';
-            for (let i = 1; i <= totalPaginas; i++) {
-                html += `<button class="${i === paginaActual ? 'activo' : ''}" onclick="cambiarPagina(${i})">${i}</button>`;
-            }
-            if (paginaActual < totalPaginas) {
-                html += `<button class="siguiente" onclick="cambiarPagina(${paginaActual + 1})">Siguiente →</button>`;
-            }
-            paginacion.innerHTML = html;
-        }
-
-        function cambiarPagina(nuevaPagina) {
-            paginaActual = nuevaPagina;
-            renderizarProductos();
-            renderizarPaginacion();
-            document.getElementById('productosGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-
-        function agregarAlCarrito(id) {
-            const producto = todosLosProductos.find(p => p.id === id);
-            if (producto) {
-                alert(`✅ ${producto.nombre} agregado al carrito`);
-            }
-        }
-
-        // ==========================================
-        // FILTROS
-        // ==========================================
-        document.getElementById('sliderPrecio').addEventListener('input', function() {
-            document.getElementById('precioMax').value = this.value;
-        });
-
-        document.getElementById('precioMax').addEventListener('input', function() {
-            document.getElementById('sliderPrecio').value = this.value;
-        });
-
-        document.getElementById('btnAplicarPrecio').addEventListener('click', function() {
-            const min = parseInt(document.getElementById('precioMin').value) || 0;
-            const max = parseInt(document.getElementById('precioMax').value) || 300000;
-            aplicarFiltroPrecio(min, max);
-        });
-
-        function aplicarFiltroPrecio(min, max) {
-            productosFiltrados = todosLosProductos.filter(p => p.precio >= min && p.precio <= max);
-            paginaActual = 1;
-            document.getElementById('filtrosAplicados').style.display = 'flex';
-            document.getElementById('filtroPrecioTexto').textContent = `₡${min.toLocaleString()} - ₡${max.toLocaleString()}`;
-            renderizarProductos();
-            renderizarPaginacion();
-        }
-
-        document.getElementById('quitarFiltroPrecio').addEventListener('click', function() {
-            productosFiltrados = [...todosLosProductos];
-            paginaActual = 1;
-            document.getElementById('filtrosAplicados').style.display = 'none';
-            document.getElementById('precioMin').value = 0;
-            const precioMaximo = Math.max(...todosLosProductos.map(p => p.precio));
-            document.getElementById('precioMax').value = precioMaximo;
-            document.getElementById('sliderPrecio').value = precioMaximo;
-            renderizarProductos();
-            renderizarPaginacion();
-        });
-
-        document.getElementById('limpiarFiltros').addEventListener('click', function() {
-            productosFiltrados = [...todosLosProductos];
-            paginaActual = 1;
-            document.getElementById('filtrosAplicados').style.display = 'none';
-            document.getElementById('precioMin').value = 0;
-            const precioMaximo = Math.max(...todosLosProductos.map(p => p.precio));
-            document.getElementById('precioMax').value = precioMaximo;
-            document.getElementById('sliderPrecio').value = precioMaximo;
-            document.querySelectorAll('.filtro-rangos-check input').forEach(cb => cb.checked = false);
-            renderizarProductos();
-            renderizarPaginacion();
-        });
-
-        document.querySelectorAll('.filtro-rangos-check input').forEach(checkbox => {
-            checkbox.addEventListener('change', function() {
-                document.querySelectorAll('.filtro-rangos-check input').forEach(cb => {
-                    if (cb !== this) cb.checked = false;
-                });
-                if (this.checked) {
-                    const [min, max] = this.value.split('-').map(Number);
-                    aplicarFiltroPrecio(min, max);
-                    document.getElementById('precioMin').value = min;
-                    document.getElementById('precioMax').value = max;
-                    document.getElementById('sliderPrecio').value = max;
-                } else {
-                    productosFiltrados = [...todosLosProductos];
-                    paginaActual = 1;
-                    document.getElementById('filtrosAplicados').style.display = 'none';
-                    renderizarProductos();
-                    renderizarPaginacion();
+                if (!response.ok) {
+                    throw new Error(
+                        'No se pudieron cargar los productos'
+                    );
                 }
+
+                const productos = await response.json();
+
+                todosLosProductos = productos.filter(
+                    p =>
+                        p.id >= config.idMin &&
+                        p.id <= config.idMax
+                );
+
+                todosLosProductos.sort(
+                    (a, b) => a.id - b.id
+                );
+
+                productosFiltrados = [
+                    ...todosLosProductos
+                ];
+
+                const precioMaximo = Math.max(
+                    ...todosLosProductos.map(
+                        p => p.precio
+                    )
+                );
+
+                document.getElementById(
+                    'precioMax'
+                ).value = precioMaximo;
+
+                document.getElementById(
+                    'sliderPrecio'
+                ).max = precioMaximo;
+
+                document.getElementById(
+                    'sliderPrecio'
+                ).value = precioMaximo;
+
+                renderizarProductos();
+
+                renderizarPaginacion();
+
+            } catch (error) {
+
+                console.error(
+                    'Error cargando productos:',
+                    error
+                );
+
+                document.getElementById(
+                    'productosGrid'
+                ).innerHTML =
+                    '<div class="cargando">Error al cargar los productos.</div>';
+
+            }
+
+        }
+
+        // Mostrar productos
+        function renderizarProductos() {
+
+            const grid = document.getElementById(
+                'productosGrid'
+            );
+
+            const inicio =
+                (paginaActual - 1) * productosPorPagina;
+
+            const fin =
+                inicio + productosPorPagina;
+
+            const productosPagina =
+                productosFiltrados.slice(inicio, fin);
+
+            if (productosPagina.length === 0) {
+
+                grid.innerHTML =
+                    '<div class="cargando">No hay productos que coincidan con los filtros.</div>';
+
+                return;
+
+            }
+
+            grid.innerHTML = productosPagina.map(producto => `
+
+                <article class="producto-card">
+
+                    <div class="producto-card-img">
+
+                        ${producto.oferta
+                            ? '<span class="badge-oferta">Oferta</span>'
+                            : ''}
+
+                        <img
+                            src="${producto.imagen}"
+                            alt="${producto.nombre}"
+                        >
+
+                    </div>
+
+                    <h3>${producto.nombre}</h3>
+
+                    <p class="specs">
+                        Producto de alta calidad
+                    </p>
+
+                    <p class="precio">
+                        ₡${producto.precio.toLocaleString('es-CR')}
+                    </p>
+
+                    <button
+                        class="btn-agregar"
+                        onclick="agregarAlCarrito(${producto.id}, this)"
+                    >
+                        Agregar al carrito
+                    </button>
+
+                </article>
+
+            `).join('');
+
+        }
+
+        // Mostrar paginación
+        function renderizarPaginacion() {
+
+            const paginacion = document.getElementById(
+                'paginacion'
+            );
+
+            const totalPaginas = Math.ceil(
+                productosFiltrados.length /
+                productosPorPagina
+            );
+
+            if (totalPaginas <= 1) {
+
+                paginacion.innerHTML = '';
+
+                return;
+
+            }
+
+            let html = '';
+
+            for (let i = 1; i <= totalPaginas; i++) {
+
+                html += `
+
+                    <button
+                        class="${i === paginaActual ? 'activo' : ''}"
+                        onclick="cambiarPagina(${i})"
+                    >
+                        ${i}
+                    </button>
+
+                `;
+
+            }
+
+            if (paginaActual < totalPaginas) {
+
+                html += `
+
+                    <button
+                        class="siguiente"
+                        onclick="cambiarPagina(${paginaActual + 1})"
+                    >
+                        Siguiente →
+                    </button>
+
+                `;
+
+            }
+
+            paginacion.innerHTML = html;
+
+        }
+
+        // Cambiar página
+        function cambiarPagina(nuevaPagina) {
+
+            paginaActual = nuevaPagina;
+
+            renderizarProductos();
+
+            renderizarPaginacion();
+
+            document.getElementById(
+                'productosGrid'
+            ).scrollIntoView({
+
+                behavior: 'smooth',
+                block: 'start'
+
             });
+
+        }
+
+        // Agregar producto al carrito
+        async function agregarAlCarrito(id, boton) {
+
+            if (agregandoProducto) return;
+
+            const producto = todosLosProductos.find(
+                p => String(p.id) === String(id)
+            );
+
+            if (!producto) return;
+
+            agregandoProducto = true;
+
+            if (boton) {
+                boton.disabled = true;
+            }
+
+            try {
+
+                const respuesta = await fetch(
+                    '/api/carrito',
+                    {
+
+                        method: 'POST',
+
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+
+                        body: JSON.stringify({
+
+                            id: producto.id,
+                            nombre: producto.nombre,
+                            precio: producto.precio,
+                            imagen: producto.imagen,
+                            cantidad: 1
+
+                        })
+
+                    }
+                );
+
+                const datos = await respuesta.json();
+
+                if (!respuesta.ok) {
+
+                    throw new Error(
+                        datos.mensaje ||
+                        'Error al agregar el producto'
+                    );
+
+                }
+
+                // Actualizar el monto del carrito
+                document.dispatchEvent(
+                    new CustomEvent(
+                        'techstore:carrito-actualizado'
+                    )
+                );
+
+            } catch (error) {
+
+                console.error(
+                    'Error al agregar producto:',
+                    error
+                );
+
+                alert(
+                    'No se pudo agregar el producto al carrito.'
+                );
+
+            } finally {
+
+                agregandoProducto = false;
+
+                if (boton) {
+                    boton.disabled = false;
+                }
+
+            }
+
+        }
+
+        // Actualizar precio máximo
+        document.getElementById(
+            'sliderPrecio'
+        ).addEventListener('input', function () {
+
+            document.getElementById(
+                'precioMax'
+            ).value = this.value;
+
         });
 
-        // ==========================================
-        // INICIALIZAR
-        // ==========================================
+        document.getElementById(
+            'precioMax'
+        ).addEventListener('input', function () {
+
+            document.getElementById(
+                'sliderPrecio'
+            ).value = this.value;
+
+        });
+
+        // Aplicar filtro de precio
+        document.getElementById(
+            'btnAplicarPrecio'
+        ).addEventListener('click', function () {
+
+            const min = parseInt(
+                document.getElementById(
+                    'precioMin'
+                ).value
+            ) || 0;
+
+            const max = parseInt(
+                document.getElementById(
+                    'precioMax'
+                ).value
+            ) || 300000;
+
+            aplicarFiltroPrecio(min, max);
+
+        });
+
+        // Filtrar productos
+        function aplicarFiltroPrecio(min, max) {
+
+            productosFiltrados =
+                todosLosProductos.filter(
+                    p =>
+                        p.precio >= min &&
+                        p.precio <= max
+                );
+
+            paginaActual = 1;
+
+            document.getElementById(
+                'filtrosAplicados'
+            ).style.display = 'flex';
+
+            document.getElementById(
+                'filtroPrecioTexto'
+            ).textContent =
+                `₡${min.toLocaleString()} - ₡${max.toLocaleString()}`;
+
+            renderizarProductos();
+
+            renderizarPaginacion();
+
+        }
+
+        // Quitar filtro de precio
+        document.getElementById(
+            'quitarFiltroPrecio'
+        ).addEventListener('click', function () {
+
+            productosFiltrados = [
+                ...todosLosProductos
+            ];
+
+            paginaActual = 1;
+
+            document.getElementById(
+                'filtrosAplicados'
+            ).style.display = 'none';
+
+            document.getElementById(
+                'precioMin'
+            ).value = 0;
+
+            const precioMaximo = Math.max(
+                ...todosLosProductos.map(
+                    p => p.precio
+                )
+            );
+
+            document.getElementById(
+                'precioMax'
+            ).value = precioMaximo;
+
+            document.getElementById(
+                'sliderPrecio'
+            ).value = precioMaximo;
+
+            renderizarProductos();
+
+            renderizarPaginacion();
+
+        });
+
+        // Limpiar filtros
+        document.getElementById(
+            'limpiarFiltros'
+        ).addEventListener('click', function () {
+
+            productosFiltrados = [
+                ...todosLosProductos
+            ];
+
+            paginaActual = 1;
+
+            document.getElementById(
+                'filtrosAplicados'
+            ).style.display = 'none';
+
+            document.getElementById(
+                'precioMin'
+            ).value = 0;
+
+            const precioMaximo = Math.max(
+                ...todosLosProductos.map(
+                    p => p.precio
+                )
+            );
+
+            document.getElementById(
+                'precioMax'
+            ).value = precioMaximo;
+
+            document.getElementById(
+                'sliderPrecio'
+            ).value = precioMaximo;
+
+            document.querySelectorAll(
+                '.filtro-rangos-check input'
+            ).forEach(cb => {
+
+                cb.checked = false;
+
+            });
+
+            renderizarProductos();
+
+            renderizarPaginacion();
+
+        });
+
+        // Filtrar por rango de precio
+        document.querySelectorAll(
+            '.filtro-rangos-check input'
+        ).forEach(checkbox => {
+
+            checkbox.addEventListener(
+                'change',
+                function () {
+
+                    document.querySelectorAll(
+                        '.filtro-rangos-check input'
+                    ).forEach(cb => {
+
+                        if (cb !== this) {
+                            cb.checked = false;
+                        }
+
+                    });
+
+                    if (this.checked) {
+
+                        const [min, max] =
+                            this.value.split('-').map(Number);
+
+                        aplicarFiltroPrecio(min, max);
+
+                        document.getElementById(
+                            'precioMin'
+                        ).value = min;
+
+                        document.getElementById(
+                            'precioMax'
+                        ).value = max;
+
+                        document.getElementById(
+                            'sliderPrecio'
+                        ).value = max;
+
+                    } else {
+
+                        productosFiltrados = [
+                            ...todosLosProductos
+                        ];
+
+                        paginaActual = 1;
+
+                        document.getElementById(
+                            'filtrosAplicados'
+                        ).style.display = 'none';
+
+                        renderizarProductos();
+
+                        renderizarPaginacion();
+
+                    }
+
+                }
+
+            );
+
+        });
+
+        // Iniciar catálogo
         cargarProductos();
+
     </script>
 
+    <script src="/header.js"></script>
+
 </body>
+
 </html>

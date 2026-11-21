@@ -1,0 +1,27 @@
+
+[
+    {
+        "codigo": "DEMO10",
+        "porcentaje": 10,
+        "activo": true,
+        "publico": true
+    },
+    {
+        "codigo": "TECH15",
+        "porcentaje": 15,
+        "activo": true,
+        "publico": true
+    },
+    {
+        "codigo": "BIENVENIDA5",
+        "porcentaje": 5,
+        "activo": true,
+        "publico": true
+    },
+    {
+        "codigo": "BLACK20",
+        "porcentaje": 20,
+        "activo": true,
+        "publico": false
+    }
+]

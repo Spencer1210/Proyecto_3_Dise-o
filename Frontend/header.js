@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', async function () {
 
     const contenedor = document.getElementById('header-techstore');
@@ -6,6 +5,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     if (!contenedor) return;
 
     try {
+
+        // Cargar encabezado
         const respuesta = await fetch('/header.html', {
             cache: 'no-cache'
         });
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         contenedor.innerHTML = await respuesta.text();
 
+        // Mostrar usuario
         const datosSesion =
             localStorage.getItem('usuarioTechStore') ||
             sessionStorage.getItem('usuarioTechStore');
@@ -23,10 +25,13 @@ document.addEventListener('DOMContentLoaded', async function () {
         const linkAcceso = contenedor.querySelector('#linkAcceso');
 
         if (datosSesion && linkAcceso) {
+
             try {
+
                 const usuario = JSON.parse(datosSesion);
 
                 if (usuario.nombre) {
+
                     const textoAcceso =
                         linkAcceso.querySelector('.texto-acceso');
 
@@ -41,67 +46,139 @@ document.addEventListener('DOMContentLoaded', async function () {
             } catch (error) {
                 console.error('Error al leer la sesión:', error);
             }
+
         }
 
-        const cerrarSesion = contenedor.querySelector('#cerrarSesion');
+        // Cerrar sesión
+        const cerrarSesion =
+            contenedor.querySelector('#cerrarSesion');
 
         if (cerrarSesion) {
+
             cerrarSesion.addEventListener('click', function (evento) {
+
                 evento.preventDefault();
 
                 localStorage.removeItem('usuarioTechStore');
                 sessionStorage.removeItem('usuarioTechStore');
 
                 window.location.href = '/';
+
             });
+
         }
 
-        const carritoTotal = contenedor.querySelector('#carritoTotal');
+        // Actualizar total del carrito
+        const carritoTotal =
+            contenedor.querySelector('#carritoTotal');
 
-        function actualizarTotalCarrito() {
+        async function actualizarTotalCarrito() {
+
             if (!carritoTotal) return;
 
-            const totalGuardado = Number(
-                localStorage.getItem('carritoTotal') || 0
-            );
+            try {
 
-            carritoTotal.textContent =
-                '¢' + (
-                    Number.isFinite(totalGuardado) ? totalGuardado : 0
-                ).toLocaleString('es-CR');
+                const respuestaCarrito = await fetch('/api/carrito', {
+                    cache: 'no-store'
+                });
+
+                if (!respuestaCarrito.ok) {
+                    throw new Error('No se pudo consultar el carrito');
+                }
+
+                const datos = await respuestaCarrito.json();
+
+                const total = Number(
+                    datos.resumen?.total || 0
+                );
+
+                carritoTotal.textContent =
+                    '¢' + total.toLocaleString('es-CR');
+
+            } catch (error) {
+
+                console.error('Error al actualizar el carrito:', error);
+
+                carritoTotal.textContent = '¢0';
+
+            }
+
         }
 
-        actualizarTotalCarrito();
+        // Escuchar cambios del carrito
+        window.addEventListener(
+            'carritoActualizado',
+            actualizarTotalCarrito
+        );
 
-        window.addEventListener('storage', actualizarTotalCarrito);
+        document.addEventListener(
+            'techstore:carrito-actualizado',
+            actualizarTotalCarrito
+        );
 
-        const formulario = contenedor.querySelector('#formBusqueda');
+        window.addEventListener('pageshow', function () {
+            actualizarTotalCarrito();
+        });
 
-        if (formulario) {
+        // Barra de búsqueda
+        const formulario =
+            contenedor.querySelector('#formBusqueda');
+
+        const input =
+            contenedor.querySelector('#busquedaHeader');
+
+        if (formulario && input) {
+
+            const parametros = new URLSearchParams(
+                window.location.search
+            );
+
+            if (window.location.pathname === '/busqueda.html') {
+                input.value = parametros.get('q') || '';
+            }
+
             formulario.addEventListener('submit', function (evento) {
+
                 evento.preventDefault();
 
-                const input = contenedor.querySelector('#busquedaHeader');
                 const termino = input.value.trim();
 
                 if (!termino) return;
 
-                document.dispatchEvent(
-                    new CustomEvent('techstore:buscar', {
-                        detail: {
-                            termino: termino
-                        }
-                    })
-                );
+                window.location.href =
+                    '/busqueda.html?q=' +
+                    encodeURIComponent(termino);
+
             });
+
+            const lupa = formulario.querySelector('.buscador-icono');
+
+            if (lupa) {
+
+                lupa.style.cursor = 'pointer';
+
+                lupa.addEventListener('click', function () {
+
+                    formulario.requestSubmit();
+
+                });
+
+            }
+
         }
 
+        // Cargar total del carrito
+        await actualizarTotalCarrito();
+
+        // Avisar que el encabezado está listo
         document.dispatchEvent(
             new CustomEvent('techstore:header-listo')
         );
 
     } catch (error) {
+
         console.error('Error al cargar el encabezado:', error);
+
     }
 
 });

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Resultados de búsqueda - TechStore</title>
+
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/busqueda.css">
+
+</head>
+
+<body class="busqueda-page">
+
+    <div id="header-techstore"></div>
+
+    <main class="busqueda-contenedor">
+
+        <div class="busqueda-ruta">
+
+            <a href="/pantalla-principal.html">Inicio</a>
+            / Resultados de búsqueda
+
+        </div>
+
+        <div class="busqueda-encabezado">
+
+            <h1 id="tituloBusqueda">
+                Resultados de búsqueda
+            </h1>
+
+            <p id="cantidadResultados">
+                Buscando productos...
+            </p>
+
+        </div>
+
+        <p id="mensajeBusqueda" aria-live="polite"></p>
+
+        <section
+            id="resultadosBusqueda"
+            class="busqueda-grid">
+
+        </section>
+
+        <div id="sinResultados"
+             class="busqueda-vacia"
+             hidden>
+
+            <svg viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="1.5">
+
+                <circle cx="10.5" cy="10.5" r="7"></circle>
+
+                <path d="m16 16 5 5"></path>
+
+            </svg>
+
+            <h2>No encontramos productos</h2>
+
+            <p>
+                Intentá buscar con otro nombre o categoría.
+            </p>
+
+            <a href="/categorias.html">
+                Ver todas las categorías
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer class="busqueda-footer">
+
+        © TechStore. Todos los derechos reservados.
+
+    </footer>
+
+    <script src="/header.js"></script>
+    <script src="/busqueda.js"></script>
+
+</body>
+
+</html>

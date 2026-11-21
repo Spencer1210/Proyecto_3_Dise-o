@@ -1,0 +1,224 @@
+.busqueda-page {
+    background: #f3f0fa;
+    color: #17152c;
+    min-height: 100vh;
+}
+
+/* Contenedor principal */
+
+.busqueda-page .busqueda-contenedor {
+    width: min(1250px, calc(100% - 48px));
+    margin: auto;
+    padding: 35px 0 65px;
+    min-height: 65vh;
+}
+
+.busqueda-page .busqueda-ruta {
+    color: #64748b;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.busqueda-page .busqueda-ruta a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.busqueda-page .busqueda-encabezado {
+    margin-bottom: 30px;
+}
+
+.busqueda-page .busqueda-encabezado h1 {
+    font-size: 32px;
+    margin: 0 0 12px;
+    overflow-wrap: anywhere;
+}
+
+.busqueda-page #cantidadResultados {
+    color: #64748b;
+    font-size: 15px;
+}
+
+.busqueda-page #mensajeBusqueda {
+    color: #b42335;
+    font-size: 14px;
+}
+
+/* Distribución de productos */
+
+.busqueda-page .busqueda-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+/* Tarjeta de producto */
+
+.busqueda-page .busqueda-producto {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s ease;
+}
+
+.busqueda-page .busqueda-producto:hover {
+    box-shadow: 0 6px 20px rgba(33, 27, 80, 0.10);
+}
+
+.busqueda-page .busqueda-producto-imagen {
+    background: #f0edff;
+    border-radius: 9px;
+    height: 210px;
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+
+.busqueda-page .busqueda-producto-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.busqueda-page .busqueda-producto-tipo {
+    color: #6d28d9;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.busqueda-page .busqueda-producto h3 {
+    font-size: 17px;
+    line-height: 1.5;
+    margin: 0 0 15px;
+    flex-grow: 1;
+}
+
+.busqueda-page .busqueda-producto-precio {
+    font-size: 23px;
+    font-weight: 800;
+    color: #17152c;
+    margin: 0 0 10px;
+}
+
+.busqueda-page .busqueda-producto-stock {
+    font-size: 12px;
+    color: #15803d;
+    margin: 0 0 18px;
+}
+
+.busqueda-page .stock-agotado {
+    color: #b42335;
+}
+
+/* Botón del carrito */
+
+.busqueda-page .busqueda-agregar {
+    width: 100%;
+    background: #6d28d9;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 13px 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.busqueda-page .busqueda-agregar:hover {
+    background: #581cba;
+}
+
+.busqueda-page .busqueda-agregar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Sin resultados */
+
+.busqueda-page .busqueda-vacia {
+    text-align: center;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 15px;
+    padding: 65px 25px;
+}
+
+.busqueda-page .busqueda-vacia[hidden] {
+    display: none;
+}
+
+.busqueda-page .busqueda-vacia svg {
+    width: 70px;
+    height: 70px;
+    color: #6d28d9;
+    margin-bottom: 20px;
+}
+
+.busqueda-page .busqueda-vacia h2 {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.busqueda-page .busqueda-vacia p {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.busqueda-page .busqueda-vacia a {
+    display: inline-block;
+    background: #6d28d9;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Footer */
+
+.busqueda-page .busqueda-footer {
+    background: #211b50;
+    color: white;
+    padding: 25px 30px;
+    font-size: 13px;
+}
+
+/* Responsive */
+
+@media (max-width: 1100px) {
+
+    .busqueda-page .busqueda-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    .busqueda-page .busqueda-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .busqueda-page .busqueda-contenedor {
+        width: calc(100% - 32px);
+    }
+
+    .busqueda-page .busqueda-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .busqueda-page .busqueda-encabezado h1 {
+        font-size: 25px;
+    }
+
+}
