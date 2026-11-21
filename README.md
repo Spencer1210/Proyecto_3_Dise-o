@@ -84,3 +84,6 @@ node server.js
 Finalmente, acceder desde el navegador a:
 
 **http://localhost:5000**
+
+En caso de haber dificultades y se pone la mano en el corazón 
+Contactarnos por Correo :).
