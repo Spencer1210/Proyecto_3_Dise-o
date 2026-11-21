@@ -19,51 +19,85 @@ class PagoEfectivo {
 function realizarPago(metodoPago) {
     return metodoPago.procesarPago();
 }
+
 document.addEventListener('DOMContentLoaded', function () {
 
     const CLAVE_SESION = 'usuarioTechStore';
-    const CLAVE_CARRITO = 'carritoTechStore';
+    const API_CARRITO = '/api/carrito';
 
-    // ======================================
     // CATÁLOGO
-    // ======================================
 
     const catalogo = {
         mouse: {
             id: 'mouse',
             nombre: 'Mouse inalámbrico ergonómico',
             precio: 14900,
-            imagen: 'img/MouseErgonomica.png'
+            imagen: '/img/MouseErgonomica.png'
         },
         monitor: {
             id: 'monitor',
             nombre: 'Monitor 27" 144 Hz',
             precio: 159000,
-            imagen: 'img/monitor27.png'
+            imagen: '/img/monitor27.png'
         },
         teclado: {
             id: 'teclado',
             nombre: 'Teclado mecánico 75 %',
             precio: 42500,
-            imagen: 'img/TecladoMecanico.png'
+            imagen: '/img/TecladoMecanico.png'
         },
         auriculares: {
             id: 'auriculares',
             nombre: 'Auriculares con micrófono',
             precio: 27900,
-            imagen: 'img/AuricularesMicro.png'
+            imagen: '/img/AuricularesMicro.png'
         },
         webcam: {
             id: 'webcam',
             nombre: 'Webcam Full HD',
             precio: 21500,
-            imagen: 'img/WebcamHD.png'
+            imagen: '/img/WebcamHD.png'
         }
     };
 
-    // ======================================
+    // OBTENER IDENTIFICADOR DEL USUARIO
+
+    function obtenerIdUsuario() {
+
+        const datosSesion =
+            localStorage.getItem(CLAVE_SESION) ||
+            sessionStorage.getItem(CLAVE_SESION);
+
+        if (!datosSesion) {
+            return null;
+        }
+
+        try {
+
+            const usuario = JSON.parse(datosSesion);
+
+            if (
+                !usuario ||
+                !Number.isSafeInteger(usuario.id) ||
+                usuario.id < 1
+            ) {
+                return null;
+            }
+
+            return String(usuario.id);
+
+        } catch (error) {
+
+            console.error(
+                'Error al obtener el usuario:',
+                error
+            );
+
+            return null;
+        }
+    }
+
     // INICIO DE SESIÓN
-    // ======================================
 
     const loginForm = document.getElementById('loginForm');
 
@@ -114,9 +148,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ======================================
     // REGISTRO
-    // ======================================
 
     const registroForm = document.getElementById('registroForm');
 
@@ -157,49 +189,60 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ======================================
     // FUNCIONES DEL CARRITO
-    // ======================================
-
-    function obtenerCarrito() {
-        try {
-            const datos = JSON.parse(
-                localStorage.getItem(CLAVE_CARRITO) || '[]'
-            );
-
-            return Array.isArray(datos) ? datos : [];
-        } catch (error) {
-            console.error('Error al leer el carrito:', error);
-            return [];
-        }
-    }
-
-    function guardarCarrito(carrito) {
-        localStorage.setItem(
-            CLAVE_CARRITO,
-            JSON.stringify(carrito)
-        );
-    }
-
-    function calcularSubtotal() {
-        return obtenerCarrito().reduce(function (total, producto) {
-            return total + producto.precio * producto.cantidad;
-        }, 0);
-    }
 
     function formatoPrecio(cantidad) {
-        return '¢' + cantidad.toLocaleString('es-CR');
+        return '¢' + Number(cantidad).toLocaleString('es-CR');
     }
 
-    function actualizarTotalCarrito() {
+    // Consultar el total del carrito individual
+    async function actualizarTotalCarrito() {
+
         const elemento = document.getElementById('carritoTotal');
 
-        if (elemento) {
-            elemento.textContent = formatoPrecio(calcularSubtotal());
+        try {
+
+            const usuarioId = obtenerIdUsuario();
+
+            if (!usuarioId) {
+
+                if (elemento) {
+                    elemento.textContent = '¢0';
+                }
+
+                return;
+            }
+
+            const respuesta = await fetch(API_CARRITO, {
+                cache: 'no-store',
+                headers: {
+                    'X-Usuario-Id': usuarioId
+                }
+            });
+
+            if (!respuesta.ok) {
+                throw new Error('No se pudo consultar el carrito.');
+            }
+
+            const datos = await respuesta.json();
+
+            if (elemento) {
+                elemento.textContent = formatoPrecio(
+                    datos.resumen.total
+                );
+            }
+
+        } catch (error) {
+            console.error(
+                'Error al actualizar el total del carrito:',
+                error
+            );
         }
     }
 
-    function agregarAlCarrito(id) {
+    // Agregar productos al carrito individual
+    async function agregarAlCarrito(id) {
+
         const producto = catalogo[id];
 
         if (!producto) {
@@ -207,42 +250,72 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        const carrito = obtenerCarrito();
+        const usuarioId = obtenerIdUsuario();
 
-        const existente = carrito.find(function (item) {
-            return item.id === id;
-        });
+        if (!usuarioId) {
 
-        if (existente) {
-            existente.cantidad += 1;
-        } else {
-            carrito.push({
-                ...producto,
-                cantidad: 1
-            });
+            alert('Debés iniciar sesión para agregar productos.');
+
+            window.location.href = '/';
+
+            return;
         }
 
-        guardarCarrito(carrito);
-        actualizarTotalCarrito();
+        try {
+            const respuesta = await fetch(API_CARRITO, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Usuario-Id': usuarioId
+                },
+                body: JSON.stringify({
+                    ...producto,
+                    cantidad: 1
+                })
+            });
 
-        alert('Agregaste al carrito: ' + producto.nombre);
+            const datos = await respuesta.json();
+
+            if (!respuesta.ok) {
+                throw new Error(
+                    datos.mensaje || 'No se pudo agregar el producto.'
+                );
+            }
+
+            // Patrón Observer: avisar al encabezado compartido
+            document.dispatchEvent(
+                new CustomEvent('techstore:carrito-actualizado')
+            );
+
+            // Actualizar también si existe un total local
+            await actualizarTotalCarrito();
+
+        } catch (error) {
+            console.error('Error al agregar al carrito:', error);
+            alert('No se pudo agregar el producto al carrito.');
+        }
     }
 
-    // ======================================
     // BOTONES AGREGAR AL CARRITO
-    // ======================================
 
     document.querySelectorAll('.btn-add-cart').forEach(function (boton) {
-        boton.addEventListener('click', function () {
-            agregarAlCarrito(this.dataset.id);
+        boton.addEventListener('click', async function () {
+            if (this.disabled) return;
+
+            this.disabled = true;
+
+            try {
+                await agregarAlCarrito(this.dataset.id);
+            } finally {
+                this.disabled = false;
+            }
         });
     });
 
+    // Sincronizar el total del carrito
     actualizarTotalCarrito();
 
-    // ======================================
     // USUARIO CONECTADO
-    // ======================================
 
     const datosSesion =
         localStorage.getItem(CLAVE_SESION) ||
@@ -263,9 +336,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // ======================================
     // CERRAR SESIÓN
-    // ======================================
 
     const cerrarSesion = document.getElementById('cerrarSesion');
 

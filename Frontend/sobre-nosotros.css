@@ -353,10 +353,6 @@ body.nosotros-page .sobre-hero-contenido {
     z-index: 1;
 }
 
-/* ==========================================
-   AJUSTE FINAL - BANNER SOBRE NOSOTROS
-   IGUAL AL DE MÉTODOS DE PAGO
-   ========================================== */
 
 body.nosotros-page .nosotros-contenedor .sobre-hero {
     position: relative;
@@ -434,7 +430,7 @@ body.nosotros-page .sobre-hero-descripcion {
     line-height: 1.6;
 }
 
-/* QUITAR LAS ONDAS SOLO EN ESTE BANNER */
+/* QUITAR LAS ONDAS EN ESTE BANNER */
 
 body.nosotros-page .sobre-hero::before,
 body.nosotros-page .sobre-hero::after {

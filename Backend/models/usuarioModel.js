@@ -48,25 +48,34 @@ function actualizarPassword(correo, nuevaPassword) {
         usuario => usuario.email === correo
     );
 
-    // Si el usuario no existe
     if (!usuario) {
         return false;
     }
 
-    // Actualizar contraseña
     usuario.password = nuevaPassword;
 
-    // Guardar los cambios en BaseD.json
     guardarBaseDatos(baseDatos);
 
     return true;
 }
 
-// Exportar todas las funciones del modelo
+// Obtener usuarios sin mostrar sus contraseñas
+function obtenerUsuarios() {
+    const baseDatos = leerBaseDatos();
+
+    return baseDatos.usuarios.map(usuario => ({
+        id: usuario.id,
+        nombre: usuario.nombre,
+        email: usuario.email
+    }));
+}
+
+// Exportar funciones del modelo
 module.exports = {
     leerBaseDatos,
     guardarBaseDatos,
     buscarUsuarioPorCorreo,
     crearUsuario,
-    actualizarPassword
+    actualizarPassword,
+    obtenerUsuarios
 };

@@ -4,6 +4,39 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     if (!contenedor) return;
 
+    // Obtener el ID del usuario que inició sesión
+    function obtenerIdUsuarioHeader() {
+
+        const datosSesion =
+            localStorage.getItem('usuarioTechStore') ||
+            sessionStorage.getItem('usuarioTechStore');
+
+        if (!datosSesion) {
+            return null;
+        }
+
+        try {
+
+            const usuario = JSON.parse(datosSesion);
+
+            if (
+                !usuario ||
+                !Number.isSafeInteger(usuario.id) ||
+                usuario.id < 1
+            ) {
+                return null;
+            }
+
+            return String(usuario.id);
+
+        } catch (error) {
+
+            console.error('Error al obtener usuario:', error);
+
+            return null;
+        }
+    }
+
     try {
 
         // Cargar encabezado
@@ -78,8 +111,23 @@ document.addEventListener('DOMContentLoaded', async function () {
 
             try {
 
+                // Obtener el identificador del usuario actual
+                const usuarioId = obtenerIdUsuarioHeader();
+
+                // Si no existe una sesión, mostrar carrito vacío
+                if (!usuarioId) {
+
+                    carritoTotal.textContent = '¢0';
+
+                    return;
+                }
+
+                // Consultar el carrito individual del usuario
                 const respuestaCarrito = await fetch('/api/carrito', {
-                    cache: 'no-store'
+                    cache: 'no-store',
+                    headers: {
+                        'X-Usuario-Id': usuarioId
+                    }
                 });
 
                 if (!respuestaCarrito.ok) {
@@ -105,7 +153,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         }
 
-        // Escuchar cambios del carrito
+        // Patrón Observer: escuchar cambios del carrito
         window.addEventListener(
             'carritoActualizado',
             actualizarTotalCarrito
@@ -167,7 +215,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         }
 
-        // Cargar total del carrito
+        // Cargar total del carrito del usuario
         await actualizarTotalCarrito();
 
         // Avisar que el encabezado está listo

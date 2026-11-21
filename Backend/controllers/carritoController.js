@@ -1,10 +1,25 @@
-
 const carritoModel = require("../models/carritoModel");
 const descuentoModel = require("../models/descuentoModel");
 
-// Usuario temporal de demostración
+// Obtener el identificador del usuario conectado
 function obtenerUsuarioId(req) {
-    return "demo";
+
+    const usuarioId = req.get("X-Usuario-Id");
+
+    if (!usuarioId) {
+        return null;
+    }
+
+    const idNumerico = Number(usuarioId);
+
+    if (
+        !Number.isSafeInteger(idNumerico) ||
+        idNumerico < 1
+    ) {
+        return null;
+    }
+
+    return String(idNumerico);
 }
 
 // Calcular el resumen del carrito
@@ -46,11 +61,18 @@ function calcularResumen(productos, usuarioId) {
     };
 }
 
-// Consultar el carrito
+// Consultar el carrito individual
 function obtenerCarrito(req, res) {
 
     try {
+
         const usuarioId = obtenerUsuarioId(req);
+
+        if (!usuarioId) {
+            return res.status(401).json({
+                mensaje: "Se requiere un identificador de usuario válido"
+            });
+        }
 
         const productos =
             carritoModel.obtenerCarrito(usuarioId);
@@ -62,6 +84,7 @@ function obtenerCarrito(req, res) {
         });
 
     } catch (error) {
+
         console.error("Error al obtener carrito:", error);
 
         return res.status(500).json({
@@ -70,11 +93,18 @@ function obtenerCarrito(req, res) {
     }
 }
 
-// Agregar producto
+// Agregar producto al carrito individual
 function agregarProducto(req, res) {
 
     try {
+
         const usuarioId = obtenerUsuarioId(req);
+
+        if (!usuarioId) {
+            return res.status(401).json({
+                mensaje: "Se requiere un identificador de usuario válido"
+            });
+        }
 
         const {
             id,
@@ -123,6 +153,7 @@ function agregarProducto(req, res) {
         });
 
     } catch (error) {
+
         console.error("Error al agregar producto:", error);
 
         return res.status(500).json({
@@ -135,7 +166,15 @@ function agregarProducto(req, res) {
 function actualizarCantidad(req, res) {
 
     try {
+
         const usuarioId = obtenerUsuarioId(req);
+
+        if (!usuarioId) {
+            return res.status(401).json({
+                mensaje: "Se requiere un identificador de usuario válido"
+            });
+        }
+
         const productoId = req.params.productoId;
         const cantidad = Number(req.body.cantidad);
 
@@ -167,6 +206,7 @@ function actualizarCantidad(req, res) {
         });
 
     } catch (error) {
+
         console.error("Error al actualizar cantidad:", error);
 
         return res.status(500).json({
@@ -179,7 +219,15 @@ function actualizarCantidad(req, res) {
 function eliminarProducto(req, res) {
 
     try {
+
         const usuarioId = obtenerUsuarioId(req);
+
+        if (!usuarioId) {
+            return res.status(401).json({
+                mensaje: "Se requiere un identificador de usuario válido"
+            });
+        }
+
         const productoId = req.params.productoId;
 
         const productos = carritoModel.eliminarProducto(
@@ -194,6 +242,7 @@ function eliminarProducto(req, res) {
         });
 
     } catch (error) {
+
         console.error("Error al eliminar producto:", error);
 
         return res.status(500).json({
@@ -202,11 +251,18 @@ function eliminarProducto(req, res) {
     }
 }
 
-// Vaciar carrito
+// Vaciar únicamente el carrito del usuario
 function vaciarCarrito(req, res) {
 
     try {
+
         const usuarioId = obtenerUsuarioId(req);
+
+        if (!usuarioId) {
+            return res.status(401).json({
+                mensaje: "Se requiere un identificador de usuario válido"
+            });
+        }
 
         const productos =
             carritoModel.vaciarCarrito(usuarioId);
@@ -218,6 +274,7 @@ function vaciarCarrito(req, res) {
         });
 
     } catch (error) {
+
         console.error("Error al vaciar carrito:", error);
 
         return res.status(500).json({
@@ -230,6 +287,7 @@ function vaciarCarrito(req, res) {
 function obtenerDescuentos(req, res) {
 
     try {
+
         const descuentos =
             descuentoModel.obtenerDescuentos();
 
@@ -239,6 +297,7 @@ function obtenerDescuentos(req, res) {
         });
 
     } catch (error) {
+
         console.error("Error al consultar descuentos:", error);
 
         return res.status(500).json({
@@ -247,11 +306,18 @@ function obtenerDescuentos(req, res) {
     }
 }
 
-// Aplicar código de descuento
+// Aplicar código de descuento al carrito individual
 function aplicarDescuento(req, res) {
 
     try {
+
         const usuarioId = obtenerUsuarioId(req);
+
+        if (!usuarioId) {
+            return res.status(401).json({
+                mensaje: "Se requiere un identificador de usuario válido"
+            });
+        }
 
         const { codigo } = req.body;
 
@@ -285,6 +351,7 @@ function aplicarDescuento(req, res) {
         });
 
     } catch (error) {
+
         console.error("Error al aplicar descuento:", error);
 
         return res.status(500).json({
@@ -297,7 +364,14 @@ function aplicarDescuento(req, res) {
 function eliminarDescuento(req, res) {
 
     try {
+
         const usuarioId = obtenerUsuarioId(req);
+
+        if (!usuarioId) {
+            return res.status(401).json({
+                mensaje: "Se requiere un identificador de usuario válido"
+            });
+        }
 
         carritoModel.eliminarCupon(usuarioId);
 
@@ -311,6 +385,7 @@ function eliminarDescuento(req, res) {
         });
 
     } catch (error) {
+
         console.error("Error al eliminar descuento:", error);
 
         return res.status(500).json({
@@ -319,6 +394,7 @@ function eliminarDescuento(req, res) {
     }
 }
 
+// Exportar funciones del controlador
 module.exports = {
     obtenerCarrito,
     agregarProducto,

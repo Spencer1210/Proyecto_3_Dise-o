@@ -6,7 +6,6 @@ function registrarUsuario(req, res) {
     try {
         const { nombre, email, password } = req.body;
 
-        // Validar que todos los campos estén completos
         if (!nombre || !email || !password) {
             return res.status(400).json({
                 success: false,
@@ -14,7 +13,6 @@ function registrarUsuario(req, res) {
             });
         }
 
-        // Verificar si el correo ya existe
         const usuarioExistente =
             usuarioModel.buscarUsuarioPorCorreo(email);
 
@@ -25,7 +23,6 @@ function registrarUsuario(req, res) {
             });
         }
 
-        // Obtener los usuarios para generar el ID
         const baseDatos = usuarioModel.leerBaseDatos();
 
         const nuevoId = Math.max(
@@ -42,8 +39,10 @@ function registrarUsuario(req, res) {
 
         usuarioModel.crearUsuario(nuevoUsuario);
 
-        // Excluir la contraseña de la respuesta
-        const { password: contraseña, ...usuarioPublico } = nuevoUsuario;
+        const {
+            password: contraseña,
+            ...usuarioPublico
+        } = nuevoUsuario;
 
         return res.status(201).json({
             success: true,
@@ -83,8 +82,10 @@ function iniciarSesion(req, res) {
             });
         }
 
-        // Enviar los datos sin contraseña
-        const { password: contraseña, ...usuarioPublico } = usuario;
+        const {
+            password: contraseña,
+            ...usuarioPublico
+        } = usuario;
 
         return res.json({
             success: true,
@@ -102,54 +103,79 @@ function iniciarSesion(req, res) {
     }
 }
 
+// Recuperar contraseña
 function recuperarPassword(req, res) {
+    try {
+        const { email, nuevaPassword } = req.body;
 
-    const { email, nuevaPassword } = req.body;
+        if (!email || !email.trim()) {
+            return res.status(400).json({
+                success: false,
+                message: 'El campo correo electrónico está vacío.'
+            });
+        }
 
-    // Validar campos vacíos
-    if (!email || !email.trim()) {
-        return res.status(400).json({
+        if (!nuevaPassword || !nuevaPassword.trim()) {
+            return res.status(400).json({
+                success: false,
+                message: 'El campo nueva contraseña está vacío.'
+            });
+        }
+
+        if (nuevaPassword.length < 6) {
+            return res.status(400).json({
+                success: false,
+                message: 'La contraseña debe tener al menos 6 caracteres.'
+            });
+        }
+
+        const actualizado = usuarioModel.actualizarPassword(
+            email.trim(),
+            nuevaPassword
+        );
+
+        if (!actualizado) {
+            return res.status(404).json({
+                success: false,
+                message: 'No existe una cuenta registrada con ese correo.'
+            });
+        }
+
+        return res.json({
+            success: true,
+            message: 'Contraseña actualizada correctamente.'
+        });
+
+    } catch (error) {
+        console.error('Error al recuperar contraseña:', error);
+
+        return res.status(500).json({
             success: false,
-            message: 'El campo correo electrónico está vacío.'
+            message: 'Error interno del servidor'
         });
     }
-
-    if (!nuevaPassword || !nuevaPassword.trim()) {
-        return res.status(400).json({
-            success: false,
-            message: 'El campo nueva contraseña está vacío.'
-        });
-    }
-
-    // Validar longitud de contraseña
-    if (nuevaPassword.length < 6) {
-        return res.status(400).json({
-            success: false,
-            message: 'La contraseña debe tener al menos 6 caracteres.'
-        });
-    }
-
-    // Buscar el usuario y actualizar su contraseña
-    const actualizado = usuarioModel.actualizarPassword(
-        email.trim(),
-        nuevaPassword
-    );
-
-    if (!actualizado) {
-        return res.status(404).json({
-            success: false,
-            message: 'No existe una cuenta registrada con ese correo.'
-        });
-    }
-
-    return res.json({
-        success: true,
-        message: 'Contraseña actualizada correctamente.'
-    });
 }
 
+// Obtener usuarios
+function obtenerUsuarios(req, res) {
+    try {
+        const usuarios = usuarioModel.obtenerUsuarios();
+
+        return res.json(usuarios);
+
+    } catch (error) {
+        console.error('Error al obtener usuarios:', error);
+
+        return res.status(500).json({
+            error: 'Error al leer la base de datos'
+        });
+    }
+}
+
+// Exportar funciones del controlador
 module.exports = {
     registrarUsuario,
     iniciarSesion,
-    recuperarPassword
+    recuperarPassword,
+    obtenerUsuarios
 };

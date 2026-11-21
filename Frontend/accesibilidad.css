@@ -1,0 +1,270 @@
+.accesibilidad-contenedor {
+
+    --panel-fondo: #ffffff;
+    --panel-texto: #202020;
+    --panel-borde: #dddddd;
+    --panel-opcion: #f5f3ff;
+
+    position: fixed !important;
+    bottom: 24px !important;
+    right: 24px !important;
+
+    z-index: 2147483647 !important;
+
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.accesibilidad-boton {
+
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    width: 58px !important;
+    height: 58px !important;
+
+    padding: 0 !important;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #6d28d9 !important;
+    color: #ffffff !important;
+
+    visibility: visible !important;
+    opacity: 1 !important;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+    transition: background 0.2s;
+}
+
+.accesibilidad-boton:hover {
+
+    background: #5b21b6 !important;
+}
+
+.accesibilidad-panel {
+
+    position: absolute;
+
+    right: 0;
+    bottom: 72px;
+
+    width: 290px;
+
+    max-width: calc(100vw - 32px);
+    max-height: calc(100vh - 120px);
+
+    overflow-y: auto;
+    box-sizing: border-box;
+
+    padding: 18px;
+
+    border: 1px solid var(--panel-borde);
+    border-radius: 16px;
+
+    background: var(--panel-fondo) !important;
+    color: var(--panel-texto) !important;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.accesibilidad-panel[hidden] {
+
+    display: none !important;
+}
+
+.accesibilidad-panel:not([hidden]) {
+
+    display: block !important;
+}
+
+.accesibilidad-encabezado {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid var(--panel-borde);
+}
+
+.accesibilidad-encabezado h2 {
+
+    margin: 0;
+
+    font-size: 19px;
+    font-weight: 700;
+
+    color: var(--panel-texto) !important;
+}
+
+.accesibilidad-cerrar {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 6px;
+
+    background: transparent !important;
+    color: var(--panel-texto) !important;
+
+    font-size: 27px;
+
+    cursor: pointer;
+}
+
+.accesibilidad-opcion {
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    width: 100%;
+    min-height: 44px;
+
+    margin-bottom: 9px;
+    padding: 12px;
+
+    box-sizing: border-box;
+
+    border: 1px solid var(--panel-borde);
+    border-radius: 8px;
+
+    background: var(--panel-opcion) !important;
+    color: var(--panel-texto) !important;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.accesibilidad-opcion:hover:not(:disabled) {
+
+    background: #6d28d9 !important;
+    color: #ffffff !important;
+}
+
+.accesibilidad-opcion:disabled {
+
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.accesibilidad-opcion span:first-child {
+
+    width: 23px;
+
+    font-size: 19px;
+    text-align: center;
+}
+
+.accesibilidad-ayuda {
+
+    margin: 14px 0 8px;
+
+    font-size: 12px;
+    line-height: 1.6;
+
+    color: var(--panel-texto) !important;
+}
+
+.accesibilidad-estado {
+
+    margin: 8px 0 0;
+
+    min-height: 16px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    color: var(--panel-texto) !important;
+}
+
+/* Tema del panel */
+
+html.modo-oscuro .accesibilidad-contenedor {
+
+    --panel-fondo: #212121;
+    --panel-texto: #f4f4f5;
+    --panel-borde: #636363;
+    --panel-opcion: #303030;
+}
+
+html.modo-oscuro {
+
+    color-scheme: dark;
+}
+
+/* Navegación por teclado */
+
+:where(
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    [tabindex]
+):focus-visible {
+
+    outline: 3px solid #8b5cf6 !important;
+    outline-offset: 4px !important;
+}
+
+html.modo-oscuro :focus-visible {
+
+    outline-color: #c4b5fd !important;
+}
+
+@media (max-width: 600px) {
+
+    .accesibilidad-contenedor {
+
+        bottom: 16px !important;
+        right: 16px !important;
+    }
+
+    .accesibilidad-boton {
+
+        width: 52px !important;
+        height: 52px !important;
+    }
+
+    .accesibilidad-panel {
+
+        bottom: 65px;
+        width: 275px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .accesibilidad-boton {
+
+        transition: none;
+    }
+}

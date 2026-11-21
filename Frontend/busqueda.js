@@ -1,6 +1,44 @@
 const API_PRODUCTOS = '/api/productos';
 const API_CARRITO_BUSQUEDA = '/api/carrito';
 
+// Obtener el ID del usuario conectado
+function obtenerIdUsuarioBusqueda() {
+
+    const datosSesion =
+        localStorage.getItem('usuarioTechStore') ||
+        sessionStorage.getItem('usuarioTechStore');
+
+    if (!datosSesion) {
+        return null;
+    }
+
+    try {
+
+        const usuario = JSON.parse(datosSesion);
+
+        if (
+            !usuario ||
+            !Number.isSafeInteger(usuario.id) ||
+            usuario.id < 1
+        ) {
+            return null;
+        }
+
+        return String(usuario.id);
+
+    } catch (error) {
+
+        console.error(
+            'Error al obtener el usuario:',
+            error
+        );
+
+        return null;
+
+    }
+
+}
+
 // Normalizar palabras
 function normalizarTexto(texto) {
 
@@ -50,10 +88,25 @@ function coincideProducto(producto, termino) {
 
 }
 
-// Agregar producto al carrito
+// Agregar producto al carrito individual
 async function agregarAlCarrito(producto, boton) {
 
     if (boton.disabled) return;
+
+    // Identificar al usuario conectado
+    const usuarioId = obtenerIdUsuarioBusqueda();
+
+    if (!usuarioId) {
+
+        alert(
+            'Debés iniciar sesión para agregar productos.'
+        );
+
+        window.location.href = '/';
+
+        return;
+
+    }
 
     boton.disabled = true;
 
@@ -70,7 +123,8 @@ async function agregarAlCarrito(producto, boton) {
                 method: 'POST',
 
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'X-Usuario-Id': usuarioId
                 },
 
                 body: JSON.stringify({
@@ -96,7 +150,7 @@ async function agregarAlCarrito(producto, boton) {
 
         }
 
-        // Actualizar encabezado
+        // Patrón Observer: actualizar encabezado
         document.dispatchEvent(
             new CustomEvent('techstore:carrito-actualizado')
         );

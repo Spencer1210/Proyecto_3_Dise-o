@@ -1,4 +1,3 @@
-
 /* Cupones disponibles */
 
 .carrito-page .cupones-disponibles {
@@ -151,7 +150,6 @@
 /* Cupones en dispositivos móviles */
 
 @media (max-width: 380px) {
-
     .carrito-page .cupon-disponible {
         flex-direction: column;
         align-items: stretch;
@@ -160,15 +158,20 @@
     .carrito-page .btn-usar-cupon {
         width: 100%;
     }
-
 }
 
 /* Confirmación de compra */
 
 .carrito-page .confirmacion-compra {
+    position: fixed;
+    inset: 0;
+    margin: auto;
     width: min(440px, calc(100% - 32px));
+    height: fit-content;
     box-sizing: border-box;
     max-width: 440px;
+    max-height: calc(100vh - 32px);
+    overflow-y: auto;
     border: none;
     border-radius: 22px;
     padding: 40px 30px;
@@ -232,21 +235,106 @@
 .carrito-page .confirmacion-boton:hover {
     background: #581cba;
 }
-.carrito-page .confirmacion-compra {
+
+/* Ventana de selección de pago */
+
+.carrito-page .seleccion-pago {
     position: fixed;
     inset: 0;
     margin: auto;
-    width: min(440px, calc(100% - 32px));
-    height: fit-content;
-    box-sizing: border-box;
-    max-width: 440px;
+    width: min(460px, calc(100% - 32px));
     max-height: calc(100vh - 32px);
     overflow-y: auto;
+    box-sizing: border-box;
+    padding: 32px;
     border: none;
-    border-radius: 22px;
-    padding: 40px 30px;
-    background: #ffffff;
+    border-radius: 18px;
+    background: #fff;
     color: #17152c;
-    text-align: center;
-    box-shadow: 0 20px 70px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 20px 70px rgba(0, 0, 0, .25);
+}
+
+.carrito-page .seleccion-pago::backdrop {
+    background: rgba(13, 11, 18, .75);
+}
+
+.carrito-page .seleccion-pago h2 {
+    margin: 0 0 12px;
+    font-size: 25px;
+}
+
+.carrito-page .seleccion-pago p {
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+.carrito-page .opciones-pago {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.carrito-page .opcion-pago {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    border: 1px solid #ddd6fe;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.carrito-page .opcion-pago:has(input:checked) {
+    background: #f5f3ff;
+    border-color: #6d28d9;
+}
+
+.carrito-page .opcion-pago input {
+    accent-color: #6d28d9;
+}
+
+.carrito-page .acciones-pago {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.carrito-page .acciones-pago button {
+    flex: 1;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.carrito-page #cancelarPago {
+    background: #e5e7eb;
+    color: #17152c;
+}
+
+.carrito-page #confirmarPago {
+    background: #6d28d9;
+    color: white;
+}
+
+.carrito-page #confirmarPago:disabled {
+    opacity: .6;
+    cursor: wait;
+}
+
+.carrito-page .mensaje-metodo-pago {
+    margin: 12px 0 0;
+    font-size: 14px;
+    min-height: 18px;
+}
+
+@media (max-width: 480px) {
+    .carrito-page .seleccion-pago {
+        padding: 24px 18px;
+    }
+
+    .carrito-page .acciones-pago {
+        flex-direction: column;
+    }
 }

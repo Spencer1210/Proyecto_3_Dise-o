@@ -673,9 +673,6 @@ input::placeholder { color: #9ca3af; }
     }
 }
 
-/* ==========================================
-   TECHSTORE - PÁGINA DE CATEGORÍAS
-   ========================================== */
 .categorias-page {
     background-color: #F8F9FC;
     color: #111044;
@@ -841,9 +838,7 @@ input::placeholder { color: #9ca3af; }
     }
 }
 
-/* ==========================================
-   TECHSTORE - NUESTRAS TIENDAS
-   ========================================== */
+
 .tiendas-page {
     background: #FFFFFF;
     color: #111044;
@@ -1113,9 +1108,8 @@ input::placeholder { color: #9ca3af; }
     }
 }
 
-/* ==========================================
-   TECHSTORE - MÉTODOS DE PAGO
-   ========================================== */
+/* MÉTODOS DE PAGO
+   */
 
 .pagos-page {
     background: #FFFFFF;
@@ -1346,9 +1340,8 @@ input::placeholder { color: #9ca3af; }
     }
 }
 
-/* ==========================================
-   TECHSTORE - CARRITO DE COMPRAS
-   ========================================== */
+/* CARRITO DE COMPRAS
+    */
 
 .carrito-page {
     background: #FFFFFF;
@@ -1724,10 +1717,9 @@ input::placeholder { color: #9ca3af; }
     }
 }
 
-/* ==========================================
-   TECHSTORE - NUEVA PALETA
+/* NUEVA PALETA
    NEGRO, VIOLETA Y BLANCO
-   ========================================== */
+   */
 
 :root {
     --morado: #8B5CF6;
@@ -1802,9 +1794,9 @@ body {
     height: auto;
 }
 
-/* ==========================================
+/* 
    MENÚ DE NAVEGACIÓN
-   ========================================== */
+   */
 
 .navbar,
 .tiendas-page .navbar,
@@ -1831,9 +1823,9 @@ body {
     border-bottom-color: #8B5CF6;
 }
 
-/* ==========================================
+/* 
    PÁGINA PRINCIPAL
-   ========================================== */
+   */
 
 /* Promoción */
 .hero {
@@ -1872,9 +1864,9 @@ body {
     background: #7C3AED;
 }
 
-/* ==========================================
+/* 
    OTRAS PÁGINAS
-   ========================================== */
+    */
 
 .categorias-page,
 .tiendas-page,
@@ -1906,9 +1898,9 @@ body {
     );
 }
 
-/* ==========================================
+/* 
    PIE DE PÁGINA
-   ========================================== */
+   */
 
 .footer,
 .tiendas-page .tiendas-footer,
@@ -1919,10 +1911,10 @@ body {
 }
 
 
-/* ==========================================
+/*
    TECHSTORE - NUEVA PALETA
    NEGRO, VIOLETA Y BLANCO
-   ========================================== */
+   */
 
 :root {
     --morado: #8B5CF6;
@@ -1997,9 +1989,9 @@ body {
     height: auto;
 }
 
-/* ==========================================
+/* 
    MENÚ DE NAVEGACIÓN
-   ========================================== */
+   */
 
 .navbar,
 .tiendas-page .navbar,
@@ -2026,9 +2018,9 @@ body {
     border-bottom-color: #8B5CF6;
 }
 
-/* ==========================================
+/* 
    PÁGINA PRINCIPAL
-   ========================================== */
+   */
 
 /* Promoción */
 .hero {
@@ -2067,9 +2059,9 @@ body {
     background: #7C3AED;
 }
 
-/* ==========================================
+/* 
    OTRAS PÁGINAS
-   ========================================== */
+   */
 
 .categorias-page,
 .tiendas-page,
@@ -2101,9 +2093,9 @@ body {
     );
 }
 
-/* ==========================================
+/* 
    PIE DE PÁGINA
-   ========================================== */
+  */
 
 .footer,
 .tiendas-page .tiendas-footer,
@@ -2113,9 +2105,9 @@ body {
     color: #FFFFFF;
 }
 
-/* ==========================================
+/* 
    INICIO DE SESIÓN
-   ========================================== */
+    */
 
 .login-form-section {
     background: #171421;
@@ -2141,9 +2133,9 @@ body {
     background: #5B21B6;
 }
 
-/* ==========================================
-   TECHSTORE - CORRECCIÓN DEL ENCABEZADO
-   ========================================== */
+/* 
+ENCABEZADO
+    */
 
 /* Encabezado negro en todas las páginas */
 .header,
@@ -3151,9 +3143,9 @@ body {
     object-fit: contain;
 }
 
-/* ==========================================
-   TECHSTORE - MÉTODOS DE PAGO NUEVO DISEÑO
-   ========================================== */
+/* 
+    MÉTODOS DE PAGO
+   */
 
 .pagos-nuevo {
     max-width: 1400px;
@@ -3417,10 +3409,8 @@ body {
     }
 }
 
-/* ==============================================
-   TECHSTORE
-   NUEVO DISEÑO - MÉTODOS DE PAGO
-   ============================================== */
+/* MÉTODOS DE PAGO
+    */
 
 /* FONDO GENERAL */
 
@@ -3439,9 +3429,9 @@ body.pagos-page {
     box-sizing: border-box;
 }
 
-/* ==============================================
+/* 
    BANNER SUPERIOR
-   ============================================== */
+    */
 
 .pagos-page .pagos-nuevo .pagos-hero {
     position: relative;
@@ -3593,9 +3583,9 @@ body.pagos-page {
     line-height: 1.6;
 }
 
-/* ==============================================
+/* 
    SECCIONES
-   ============================================== */
+ */
 
 .pagos-page .pagos-bloque {
     margin-top: 34px;
@@ -3649,9 +3639,9 @@ body.pagos-page {
     line-height: 1.5;
 }
 
-/* ==============================================
+/* 
    TARJETAS BANCARIAS
-   ============================================== */
+    */
 
 .pagos-page .pagos-entidades {
     display: grid;
@@ -3767,10 +3757,10 @@ body.pagos-page {
     line-height: 1;
 }
 
-/* ==============================================
+/* 
    SINPE MÓVIL
-   DISEÑO ORIGINAL
-   ============================================== */
+   DISEÑO 
+   */
 
 .pagos-page .pagos-sinpe-seccion {
     margin-top: 34px;
@@ -3867,9 +3857,9 @@ body.pagos-page {
     font-size: 13px;
 }
 
-/* ==============================================
+/* 
    RESPONSIVE
-   ============================================== */
+   */
 
 /* TABLET */
 
@@ -3971,9 +3961,10 @@ body.pagos-page {
     }
 }
 
-/* ==========================================
-   TECHSTORE - MÉTODOS DE PAGO
-   ========================================== */
+/* 
+   MÉTODOS DE PAGO
+   */
+  
 
 body.pagos-page {
     background: #ffffff;
@@ -3989,9 +3980,9 @@ body.pagos-page {
     box-sizing: border-box;
 }
 
-/* ==========================================
+/*
    BANNER SUPERIOR
-   ========================================== */
+    */
 
 .pagos-page .pagos-nuevo .pagos-hero {
     position: relative;
@@ -4118,9 +4109,9 @@ body.pagos-page {
     line-height: 1.6;
 }
 
-/* ==========================================
+/* 
    SECCIONES
-   ========================================== */
+    */
 
 .pagos-page .pagos-bloque {
     margin-top: 34px;
@@ -4167,9 +4158,9 @@ body.pagos-page {
     line-height: 1.5;
 }
 
-/* ==========================================
+/* 
    TARJETAS BANCARIAS
-   ========================================== */
+    */
 
 .pagos-page .pagos-entidades {
     display: grid;
@@ -4264,9 +4255,9 @@ body.pagos-page {
     line-height: 1;
 }
 
-/* ==========================================
+/* 
    SINPE MÓVIL
-   ========================================== */
+    */
 
 .pagos-page .pagos-sinpe-seccion {
     margin-top: 34px;
@@ -4347,9 +4338,9 @@ body.pagos-page {
     font-size: 13px;
 }
 
-/* ==========================================
+/* 
    RESPONSIVE
-   ========================================== */
+    */
 
 @media (max-width: 950px) {
 
@@ -4443,9 +4434,9 @@ body.pagos-page {
     }
 }
 
-/* ==========================================
-   TECHSTORE - BANNER SOBRE NOSOTROS
-   ========================================== */
+/* 
+   BANNER SOBRE NOSOTROS
+   */
 
 .sobre-nosotros-page .sobre-hero {
     position: relative;
@@ -4608,10 +4599,10 @@ body.pagos-page {
     }
 }
 
-/* ==========================================
+/* 
    PÁGINA DE CATEGORÍA - FILTROS Y PRODUCTOS
-   (categoria.html genérico)
-   ========================================== */
+   
+    */
 
 .categoria-detalle-page {
     background: #F4F1FA;

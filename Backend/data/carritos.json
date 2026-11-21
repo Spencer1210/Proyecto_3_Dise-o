@@ -1,4 +1,21 @@
 {
+  "1": [],
+  "3": [
+    {
+      "id": "mouse",
+      "nombre": "Mouse inalámbrico ergonómico",
+      "precio": 14900,
+      "imagen": "/img/MouseErgonomica.png",
+      "cantidad": 1
+    },
+    {
+      "id": "webcam",
+      "nombre": "Webcam Full HD",
+      "precio": 21500,
+      "imagen": "/img/WebcamHD.png",
+      "cantidad": 1
+    }
+  ],
   "demo": [],
   "cupones": {}
 }

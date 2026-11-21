@@ -94,7 +94,10 @@ function actualizarCantidad(usuarioId, productoId, cantidad) {
         producto.cantidad = cantidad;
     }
 
-    if (carritos[usuarioId].length === 0 && carritos.cupones) {
+    if (
+        carritos[usuarioId].length === 0 &&
+        carritos.cupones
+    ) {
         delete carritos.cupones[usuarioId];
     }
 

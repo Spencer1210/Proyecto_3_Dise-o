@@ -1,18 +1,20 @@
-
 const express = require('express');
-const fs = require('fs');
 const path = require('path');
+const fs = require('fs');
 
 const usuarioRoutes = require('./routes/usuarioRoutes');
 const carritoRoutes = require('./routes/carritoRoutes');
+const productoRoutes = require('./routes/productoRoutes');
 
 const app = express();
 const PORT = 5000;
 
-// Middleware para entender JSON
+const rutaFrontend = path.join(__dirname, '../Frontend');
+
 app.use(express.json());
 
 // Middleware CORS
+
 app.use((req, res, next) => {
 
     res.header('Access-Control-Allow-Origin', '*');
@@ -24,7 +26,7 @@ app.use((req, res, next) => {
 
     res.header(
         'Access-Control-Allow-Headers',
-        'Content-Type'
+        'Content-Type, X-Usuario-Id'
     );
 
     if (req.method === 'OPTIONS') {
@@ -32,122 +34,164 @@ app.use((req, res, next) => {
     }
 
     next();
+
 });
 
-// Servir archivos estáticos del Frontend
-app.use(express.static(
-    path.join(__dirname, '../Frontend')
-));
+// Cargar los módulos del frontend
 
-// Servir la carpeta Catalogo
+app.use((req, res, next) => {
+
+    if (req.method !== 'GET' && req.method !== 'HEAD') {
+        return next();
+    }
+
+    let nombreArchivo;
+
+    if (req.path === '/') {
+
+        nombreArchivo = 'login.html';
+
+    } else if (req.path === '/registro') {
+
+        nombreArchivo = 'registro.html';
+
+    } else if (req.path.endsWith('.html')) {
+
+        nombreArchivo = req.path.substring(1);
+
+    } else {
+
+        return next();
+
+    }
+
+    if (
+        path.basename(nombreArchivo).toLowerCase() === 'header.html'
+    ) {
+        return next();
+    }
+
+    const rutaArchivo = path.resolve(
+        rutaFrontend,
+        nombreArchivo
+    );
+
+    const rutaRelativa = path.relative(
+        rutaFrontend,
+        rutaArchivo
+    );
+
+    if (
+        rutaRelativa.startsWith('..') ||
+        path.isAbsolute(rutaRelativa)
+    ) {
+        return next();
+    }
+
+    fs.readFile(rutaArchivo, 'utf8', (error, contenido) => {
+
+        if (error) {
+
+            if (
+                error.code === 'ENOENT' ||
+                error.code === 'EISDIR'
+            ) {
+                return next();
+            }
+
+            return next(error);
+        }
+
+        if (!/<\/head\s*>/i.test(contenido)) {
+            return next();
+        }
+
+        contenido = contenido.replace(
+            /<link\b[^>]*href\s*=\s*["'][^"']*accesibilidad\.css(?:\?[^"']*)?["'][^>]*>/gi,
+            ''
+        );
+
+        contenido = contenido.replace(
+            /<script\b[^>]*src\s*=\s*["'][^"']*(?:tema|accesibilidad)\.js(?:\?[^"']*)?["'][^>]*>\s*<\/script>/gi,
+            ''
+        );
+
+        const referencias = `
+            <link rel="stylesheet" href="/accesibilidad.css">
+            <script src="/tema.js" defer></script>
+            <script src="/accesibilidad.js" defer></script>
+        `;
+
+        contenido = contenido.replace(
+            /<\/head\s*>/i,
+            referencias + '</head>'
+        );
+
+        res.type('html');
+        res.send(contenido);
+
+    });
+
+});
+
+// Archivos estáticos
+
+app.use(express.static(rutaFrontend));
+
 app.use('/img/Catalogo', express.static(
-    path.join(__dirname, '../Frontend/Catalogo')
+    path.join(rutaFrontend, 'Catalogo')
 ));
 
-// Página de inicio de sesión
+// Rutas del frontend
+
 app.get('/', (req, res) => {
+
     res.sendFile(
-        path.join(__dirname, '../Frontend/login.html')
+        path.join(rutaFrontend, 'login.html')
     );
+
 });
 
-// Página de registro
 app.get('/registro', (req, res) => {
+
     res.sendFile(
-        path.join(__dirname, '../Frontend/registro.html')
+        path.join(rutaFrontend, 'registro.html')
     );
+
 });
 
-// Pantalla principal
 app.get('/pantalla-principal.html', (req, res) => {
+
     res.sendFile(
-        path.join(__dirname, '../Frontend/pantalla-principal.html')
+        path.join(rutaFrontend, 'pantalla-principal.html')
     );
+
 });
 
-// Página de categorías
 app.get('/categorias.html', (req, res) => {
+
     res.sendFile(
-        path.join(__dirname, '../Frontend/categorias.html')
+        path.join(rutaFrontend, 'categorias.html')
     );
+
 });
 
-// Página de categoría
 app.get('/categoria.html', (req, res) => {
+
     res.sendFile(
-        path.join(__dirname, '../Frontend/categoria.html')
+        path.join(rutaFrontend, 'categoria.html')
     );
-});
-
-// Obtener todos los productos
-app.get('/api/productos', (req, res) => {
-
-    try {
-
-        const dbPath = path.join(
-            __dirname,
-            'BaseD.json'
-        );
-
-        const data = JSON.parse(
-            fs.readFileSync(dbPath, 'utf8')
-        );
-
-        res.json(data.productos);
-
-    } catch (error) {
-
-        console.error('Error:', error);
-
-        res.status(500).json({
-            error: 'Error al leer la base de datos'
-        });
-
-    }
 
 });
 
-// Obtener usuarios
-app.get('/api/usuarios', (req, res) => {
+// Rutas MVC
 
-    try {
-
-        const dbPath = path.join(
-            __dirname,
-            'BaseD.json'
-        );
-
-        const data = JSON.parse(
-            fs.readFileSync(dbPath, 'utf8')
-        );
-
-        const usuarios = data.usuarios.map(usuario => ({
-            id: usuario.id,
-            nombre: usuario.nombre,
-            email: usuario.email
-        }));
-
-        res.json(usuarios);
-
-    } catch (error) {
-
-        console.error('Error:', error);
-
-        res.status(500).json({
-            error: 'Error al leer la base de datos'
-        });
-
-    }
-
-});
-
-// Rutas de usuarios con MVC
 app.use('/api', usuarioRoutes);
 
-// Rutas del carrito y descuentos con MVC
+app.use('/api', productoRoutes);
+
 app.use('/api/carrito', carritoRoutes);
 
-// Iniciar el servidor
 app.listen(PORT, () => {
 
     console.log(

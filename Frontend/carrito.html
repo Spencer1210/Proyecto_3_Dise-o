@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -239,6 +238,67 @@
         © TechStore. Todos los derechos reservados.
     </footer>
 
+    <!-- Selección del método de pago -->
+    <dialog
+        id="seleccionPago"
+        class="seleccion-pago"
+        aria-labelledby="tituloSeleccionPago">
+
+        <h2 id="tituloSeleccionPago">
+            Seleccioná tu método de pago
+        </h2>
+
+        <p>Elegí cómo querés realizar tu compra.</p>
+
+        <div class="opciones-pago">
+
+            <label class="opcion-pago">
+                <input
+                    type="radio"
+                    name="metodoPago"
+                    value="tarjeta"
+                    checked>
+                Tarjeta de crédito o débito
+            </label>
+
+            <label class="opcion-pago">
+                <input
+                    type="radio"
+                    name="metodoPago"
+                    value="sinpe">
+                SINPE Móvil
+            </label>
+
+            <label class="opcion-pago">
+                <input
+                    type="radio"
+                    name="metodoPago"
+                    value="efectivo">
+                Efectivo en tienda
+            </label>
+
+        </div>
+
+        <p
+            id="mensajeMetodoPago"
+            class="mensaje-metodo-pago"
+            aria-live="polite">
+        </p>
+
+        <div class="acciones-pago">
+
+            <button id="cancelarPago" type="button">
+                Cancelar
+            </button>
+
+            <button id="confirmarPago" type="button">
+                Confirmar compra
+            </button>
+
+        </div>
+
+    </dialog>
+
     <!-- Confirmación de compra -->
     <dialog
         id="confirmacionCompra"
@@ -278,20 +338,19 @@
             y confiar en TechStore.
         </p>
 
-        <p>
-            ¡Esperamos verle pronto!
-        </p>
+        <p>¡Esperamos verle pronto!</p>
 
-        <a href="/pantalla-principal.html"
-           class="confirmacion-boton">
+        <a
+            href="/pantalla-principal.html"
+            class="confirmacion-boton">
             Seguir comprando
         </a>
 
     </dialog>
 
     <script src="/header.js"></script>
+    <script src="/pagoFactory.js"></script>
     <script src="/carrito.js"></script>
 
 </body>
-
 </html>
